@@ -1,0 +1,18 @@
+[
+{
+  "modid": "CLL",
+  "name": "Combustible Lemon Launcher",
+  "description": "\u0022I\u0027m gonna get my engineers to invent a combustible lemon that burns your house down\u0022
+  \u002D Cave Johnson",
+  "version": "0.2",
+  "mcversion": "1.6.2",
+  "logoFile": "/logo.png",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["iBuilder99"],
+  "credits": "Textures Code & Models by iBuilder99. Lemon Texture by Ixam97",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
