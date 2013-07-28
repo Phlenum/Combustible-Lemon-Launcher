@@ -1,4 +1,4 @@
-Combustible-Lemon-Launcher
+Combustible Lemon Launcher
 ==========================
 
 Adds a combustible lemon launcher.
