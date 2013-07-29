@@ -6,7 +6,7 @@ public class Reference {
 	
 	public static final String MOD_NAME = "Combustible Lemon Launcher";
 	public static final String MOD_ID = "CLL";
-	public static final String VERSION = "0.2";
+	public static final String VERSION = "0.2.1";
 	
 	public static final String ITEM_LEMON = "Lemon";
 	public static final String ITEM_LEMON_EXPLOSIVE = "LemonExplosive";
