@@ -13,6 +13,8 @@ public class ConfigLoader {
 	public static int LemonLeavesHarvestedID;
 	public static int LemonSapling;
 	
+	public static boolean useKeyToFire;
+	
 	public static void loadConfig(File cfg){
 		Configuration config = new Configuration(cfg);
 		config.load();
@@ -23,6 +25,8 @@ public class ConfigLoader {
 		LemonLeavesID = config.get(Configuration.CATEGORY_BLOCK, "LemonLeaves", 3002).getInt();
 		LemonLeavesHarvestedID = config.get(Configuration.CATEGORY_BLOCK, "LemonLeavesHarvested", 3003).getInt();
 		LemonSapling = config.get(Configuration.CATEGORY_BLOCK, "LemonSapling", 3004).getInt();
+		
+		useKeyToFire = config.get("general", "UseKeyToFire", false).getBoolean(false);
 		
 		config.save();
 	}

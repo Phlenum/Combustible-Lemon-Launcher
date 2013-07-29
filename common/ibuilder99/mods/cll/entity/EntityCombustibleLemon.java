@@ -6,13 +6,13 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntityCombustableLemon extends EntityThrowable {
+public class EntityCombustibleLemon extends EntityThrowable {
 
-	public EntityCombustableLemon(World par1World) {
+	public EntityCombustibleLemon(World par1World) {
 		super(par1World);
 	}
 
-	public EntityCombustableLemon(EntityLivingBase entthrower, World world){
+	public EntityCombustibleLemon(EntityLivingBase entthrower, World world){
 		super(world, entthrower);
 	}
 

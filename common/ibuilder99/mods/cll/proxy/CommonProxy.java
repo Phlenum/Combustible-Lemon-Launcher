@@ -13,7 +13,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.ChestGenHooks;
 import ibuilder99.mods.cll.CombustibleLemonLauncher;
 import ibuilder99.mods.cll.blocks.LemonLauncherBlocks;
-import ibuilder99.mods.cll.entity.EntityCombustableLemon;
+import ibuilder99.mods.cll.entity.EntityCombustibleLemon;
 import ibuilder99.mods.cll.util.Reference;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -26,8 +26,8 @@ public class CommonProxy {
 	public void registerRenderers(){}
 
 	public void registerEntities(){
-		EntityRegistry.registerGlobalEntityID(EntityCombustableLemon.class, Reference.ENTITY_COMBUSTABLE_LEMON, EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityCombustableLemon.class, Reference.ENTITY_COMBUSTABLE_LEMON, EntityRegistry.findGlobalUniqueEntityId(), CombustibleLemonLauncher.instance, 50, 20, true);
+		EntityRegistry.registerGlobalEntityID(EntityCombustibleLemon.class, Reference.ENTITY_COMBUSTABLE_LEMON, EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityCombustibleLemon.class, Reference.ENTITY_COMBUSTABLE_LEMON, EntityRegistry.findGlobalUniqueEntityId(), CombustibleLemonLauncher.instance, 50, 20, true);
 	}
 
 	public void registerKeyBinding(){}
