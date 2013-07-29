@@ -12,5 +12,8 @@ public class CraftingRecipes {
 		GameRegistry.addRecipe(new ItemStack(LemonLauncherItems.LemonLauncher), new Object[]{
 			"iii", " pr", "iii", Character.valueOf('i'), Item.ingotIron, Character.valueOf('p'), Block.pistonBase, Character.valueOf('r'), Item.redstone
 		});
+		GameRegistry.addRecipe(new ItemStack(LemonLauncherItems.LemonExplosive), new Object[]{
+			" g ", "glg", " g ", Character.valueOf('g'), Item.gunpowder, Character.valueOf('l'), LemonLauncherItems.Lemon
+		});
 	}
 }
