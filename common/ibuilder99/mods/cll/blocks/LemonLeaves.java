@@ -89,7 +89,6 @@ public class LemonLeaves extends BlockLeaves {
 
 	@Override
 	public void breakBlock(World par1World, int x, int y, int z, int par5, int par6){
-		System.out.println(par5 + " " + par6);
 		super.breakBlock(par1World, x, y, z, par5, par6);
 		if(!par1World.isRemote){
 			EntityItem item = new EntityItem(par1World);
