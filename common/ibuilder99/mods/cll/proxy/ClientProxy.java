@@ -34,8 +34,7 @@ public class ClientProxy extends CommonProxy {
 	public void registerKeyBinding(){
 		if(ConfigLoader.useKeyToFire){
 			KeyBindings.addKeyBinding("key.fire", "Fire", Keyboard.KEY_F, false);
-
-			KeyBindingRegistry.registerKeyBinding(new KeyBindingHandler(KeyBindings.getKeyBindings(), KeyBindings.getRepeat()));
 		}
+		KeyBindingRegistry.registerKeyBinding(new KeyBindingHandler(KeyBindings.getKeyBindings(), KeyBindings.getRepeat()));
 	}
 }

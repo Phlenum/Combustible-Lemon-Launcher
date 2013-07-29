@@ -1,5 +1,9 @@
 package ibuilder99.mods.cll.network;
 
+import ibuilder99.mods.cll.network.packets.PacketCLL;
+import ibuilder99.mods.cll.network.packets.PacketKey;
+import ibuilder99.mods.cll.network.packets.PacketLauncherProcess;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -7,13 +11,12 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import net.minecraft.network.packet.Packet250CustomPayload;
-import ibuilder99.mods.cll.network.packets.PacketCLL;
-import ibuilder99.mods.cll.network.packets.PacketKey;
 
 public enum PacketUtil {
 
-	KEY(PacketKey.class);
-
+	KEY(PacketKey.class),
+	LAUNCHER_PROCESS(PacketLauncherProcess.class);
+	
 	public Class<? extends PacketCLL> packetClass;
 
 	PacketUtil(Class<? extends PacketCLL> packet){
