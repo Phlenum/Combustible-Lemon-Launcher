@@ -35,13 +35,13 @@ public class ItemRenderLemonLauncher implements IItemRenderer {
 			renderLemonLauncher(0.0, 0.1, 0.0, 0.2F);
 			break;
 		case EQUIPPED:
-			glRotatef(-130.0F, 0.0F, 1.0F, 0.0F);
-			glRotatef(70.0F, 1.0F, 0.0F, 0.0F);
-			renderLemonLauncher(0.1, -0.9, -0.5, 0.5F);
+			glRotatef(140.0F, 0.0F, 1.0F, 0.0F);
+			glRotatef(-70.0F, 0.0F, 0.0F, 1.0F);
+			renderLemonLauncher(-0.5, -0.9, 0.0, 0.5F);
 			break;
 		case EQUIPPED_FIRST_PERSON:
-			glRotatef(140.0F, 0.0F, 1.0F, 0.0F);
-			renderLemonLauncher(-1.0, 0.8, -0.2, 0.5F);
+			glRotatef(50.0F, 0.0F, 1.0F, 0.0F);
+			renderLemonLauncher(-0.5, 0.8, 0.8, 0.4F);
 			break;
 		case INVENTORY:
 			renderLemonLauncher(-0.5, -0.5, -0.5, 0.35F);
