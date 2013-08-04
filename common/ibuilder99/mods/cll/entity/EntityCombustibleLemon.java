@@ -38,7 +38,7 @@ public class EntityCombustibleLemon extends EntityThrowable {
 		for(int x = (int)posX - range; x < (int)posX + range; x++){
 			for(int y = (int)posY - range; y < (int)posY + range; y++){
 				for(int z =(int) posZ - range; z < (int)posZ + range; z++){
-					if(worldObj.getBlockId(x, y, z) == 0 && rand.nextBoolean()){
+					if((worldObj.getBlockId(x, y, z) == 0 || worldObj.getBlockId(x, y, z) == Block.snow.blockID) && rand.nextBoolean()){
 						worldObj.setBlock(x, y, z, Block.fire.blockID);
 					}
 				}
