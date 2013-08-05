@@ -35,6 +35,7 @@ public class PacketLauncherProcess extends PacketCLL {
 
 	public void doAction(EntityPlayer player){
 		if(player.username.equals(playerName)){
+			player.worldObj.playSoundAtEntity(player, "random.bow", 1.0F, 0.2F);
 			player.worldObj.spawnEntityInWorld(new EntityCombustibleLemon(player, player.worldObj, LemonID));
 			if(!player.capabilities.isCreativeMode){
 				player.inventory.consumeInventoryItem(LemonID);
