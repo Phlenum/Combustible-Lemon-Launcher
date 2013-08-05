@@ -1,7 +1,5 @@
 package ibuilder99.mods.cll.blocks;
 
-import java.util.List;
-
 import ibuilder99.mods.cll.CombustibleLemonLauncher;
 import ibuilder99.mods.cll.items.LemonLauncherItems;
 import ibuilder99.mods.cll.util.Reference;
@@ -9,22 +7,25 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.StepSound;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class LemonLeaves extends BlockLeaves {
+public class LemonLeaves extends BlockLeavesBase {
 
 	public String name;
+	private static boolean isFancy;
+	@SideOnly(Side.CLIENT)
+	private Icon fastGraphics; 
 
 	public LemonLeaves(int id, String unloc, String loc_en, float hardness, float resistance, StepSound sound) {
-		super(id);
+		super(id, Material.leaves, true);
 		name = unloc;
 		setUnlocalizedName(unloc);
 		setHardness(hardness);
@@ -34,57 +35,47 @@ public class LemonLeaves extends BlockLeaves {
 		LanguageRegistry.addName(this, loc_en);
 		GameRegistry.registerBlock(this, unloc);
 	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void setGraphicsSetting(boolean setting){
+		isFancy = setting;
+	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister){
 		blockIcon = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + name);
+		fastGraphics = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + name + "Opaque");
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int par1, int par2){
-		return blockIcon;
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Override
-	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List){}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getRenderColor(int par1){
-		return 16777215;
+		return isFancy ? blockIcon : fastGraphics;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isOpaqueCube(){
-		return false;
+		return !isFancy;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass(){
-		return 1;
+		return isFancy ? 0 : 1;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean renderAsNormalBlock(){
-		return false;
+		return !isFancy;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5){
-		return true;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4){
-		return 16777215;
+		return isFancy ? true : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
 	}
 
 	@Override

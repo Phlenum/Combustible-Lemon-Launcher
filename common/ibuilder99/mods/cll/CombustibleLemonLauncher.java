@@ -6,6 +6,7 @@ import ibuilder99.mods.cll.crafting.CraftingRecipes;
 import ibuilder99.mods.cll.items.LemonLauncherItems;
 import ibuilder99.mods.cll.network.PacketHandler;
 import ibuilder99.mods.cll.proxy.CommonProxy;
+import ibuilder99.mods.cll.util.ClientTickHandler;
 import ibuilder99.mods.cll.util.ConfigLoader;
 import ibuilder99.mods.cll.util.Reference;
 import cpw.mods.fml.common.Mod;
@@ -15,6 +16,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(
 	name=Reference.MOD_NAME,
@@ -48,5 +51,6 @@ public class CombustibleLemonLauncher {
 		proxy.registerKeyBinding();
 		proxy.registerWorldGen();
 		CraftingRecipes.initCraftingRecipes();
+		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 	}
 }
