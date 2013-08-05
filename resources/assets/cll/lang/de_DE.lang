@@ -1,4 +1,8 @@
 item.Lemon.name=Zitrone
 item.LemonExplosive.name=Explosive Zitrone
+item.LemonLauncher.name=Entflammbare Zitronen Werfer
+tile.LemonSapling.name=Zitronenbaum Setzling
+tile.LemonLeaves.name=Zitronenbaumbl\u00E4tter
+tile.LemonLeavesHarvested.name=Zitronenbaumbl\u00E4tter (Geernted)
 info.lemonChange=Projektil zu %i ge\u00E4ndert
 key.fire=CLL: Feuern
