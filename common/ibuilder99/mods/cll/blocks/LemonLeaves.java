@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 public class LemonLeaves extends BlockLeavesBase {
 
 	public String name;
+	@SideOnly(Side.CLIENT)
 	private static boolean isFancy;
 	@SideOnly(Side.CLIENT)
 	private Icon fastGraphics; 

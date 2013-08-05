@@ -1,6 +1,7 @@
 package ibuilder99.mods.cll.util;
 
 import ibuilder99.mods.cll.blocks.LemonLeaves;
+import ibuilder99.mods.cll.blocks.LemonLeavesHarvested;
 
 import java.util.EnumSet;
 
@@ -16,6 +17,7 @@ public class ClientTickHandler implements ITickHandler {
 		if(type.contains(TickType.RENDER)){
 			Minecraft client = FMLClientHandler.instance().getClient();
 			LemonLeaves.setGraphicsSetting(client.gameSettings.fancyGraphics);
+			LemonLeavesHarvested.setGraphicsSetting(client.gameSettings.fancyGraphics);
 		}
 	}
 
