@@ -25,7 +25,7 @@ public class EntityCombustibleLemon extends EntityThrowable {
 		if(Lemon == LemonLauncherItems.Lemon.itemID){
 			spreadFire(movingobjectposition, 5);
 		}else if(Lemon == LemonLauncherItems.LemonExplosive.itemID){
-			worldObj.createExplosion(getThrower(), posX, posY, posZ, 4.0F, true);
+			worldObj.createExplosion(getThrower(), posX, posY, posZ, 5.0F, true);
 			spreadFire(movingobjectposition, 5);
 		}
 		setDead();
