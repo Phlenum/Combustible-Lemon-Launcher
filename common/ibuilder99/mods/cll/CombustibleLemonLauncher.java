@@ -42,6 +42,7 @@ public class CombustibleLemonLauncher {
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		proxy.loadLocalizations();
+		proxy.registerTileEntities();
 		proxy.registerRenderers();
 		proxy.registerEntities();
 		proxy.registerKeyBinding();

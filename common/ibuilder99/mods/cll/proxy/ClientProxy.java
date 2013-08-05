@@ -4,10 +4,13 @@ import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraftforge.client.MinecraftForgeClient;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import ibuilder99.mods.cll.blocks.tileentity.TileEntityBlueGel;
 import ibuilder99.mods.cll.client.render.ItemRenderLemonLauncher;
+import ibuilder99.mods.cll.client.render.TileEntityGelRender;
 import ibuilder99.mods.cll.entity.EntityCombustibleLemon;
 import ibuilder99.mods.cll.items.LemonLauncherItems;
 import ibuilder99.mods.cll.util.ConfigLoader;
@@ -28,6 +31,7 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenderers(){
 		MinecraftForgeClient.registerItemRenderer(LemonLauncherItems.LemonLauncher.itemID, new ItemRenderLemonLauncher());
 		RenderingRegistry.registerEntityRenderingHandler(EntityCombustibleLemon.class, new RenderSnowball(LemonLauncherItems.Lemon));
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBlueGel.class, new TileEntityGelRender());
 	}
 
 	@Override

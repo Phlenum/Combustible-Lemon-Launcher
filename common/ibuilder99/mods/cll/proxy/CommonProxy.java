@@ -13,6 +13,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.ChestGenHooks;
 import ibuilder99.mods.cll.CombustibleLemonLauncher;
 import ibuilder99.mods.cll.blocks.LemonLauncherBlocks;
+import ibuilder99.mods.cll.blocks.tileentity.TileEntityBlueGel;
 import ibuilder99.mods.cll.entity.EntityCombustibleLemon;
 import ibuilder99.mods.cll.util.Reference;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -42,6 +43,10 @@ public class CommonProxy {
 		ChestGenHooks.addItem(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER, new WeightedRandomChestContent(new ItemStack(LemonLauncherBlocks.LemonSapling), 3, 5, 10));
 		ChestGenHooks.addItem(ChestGenHooks.STRONGHOLD_CROSSING, new WeightedRandomChestContent(new ItemStack(LemonLauncherBlocks.LemonSapling), 3, 5, 10));
 		ChestGenHooks.addItem(ChestGenHooks.PYRAMID_DESERT_CHEST, new WeightedRandomChestContent(new ItemStack(LemonLauncherBlocks.LemonSapling), 3, 5, 10));
+	}
+	
+	public void registerTileEntities(){
+		GameRegistry.registerTileEntity(TileEntityBlueGel.class, Reference.TILE_ENTITY_BLUE_GEL);
 	}
 
 	public void generateTree(int x, int y, int z, World world, int leaves, int log, int leavesgrowing){
