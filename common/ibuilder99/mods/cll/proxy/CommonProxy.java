@@ -27,7 +27,6 @@ public class CommonProxy {
 	public void registerRenderers(){}
 
 	public void registerEntities(){
-		EntityRegistry.registerGlobalEntityID(EntityCombustibleLemon.class, Reference.ENTITY_COMBUSTABLE_LEMON, EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityCombustibleLemon.class, Reference.ENTITY_COMBUSTABLE_LEMON, EntityRegistry.findGlobalUniqueEntityId(), CombustibleLemonLauncher.instance, 50, 20, true);
 	}
 
@@ -48,6 +47,8 @@ public class CommonProxy {
 	public void registerTileEntities(){
 		GameRegistry.registerTileEntity(TileEntityBlueGel.class, Reference.TILE_ENTITY_BLUE_GEL);
 	}
+	
+	public void registerSounds() {}
 
 	public void generateTree(int x, int y, int z, World world, int leaves, int log, int leavesgrowing){
 		//Block soil = Block.blocksList[world.getBlockId(x, y, z)];
