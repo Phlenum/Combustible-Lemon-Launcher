@@ -50,7 +50,7 @@ public class CombustibleLemonLauncher {
 		proxy.registerEntities();
 		proxy.registerKeyBinding();
 		proxy.registerWorldGen();
-		proxy.registerSounds();
+		proxy.registerEventListener();
 		CraftingRecipes.initCraftingRecipes();
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 	}

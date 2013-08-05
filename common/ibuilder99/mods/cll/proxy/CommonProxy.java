@@ -11,10 +11,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.ChestGenHooks;
+import net.minecraftforge.common.MinecraftForge;
 import ibuilder99.mods.cll.CombustibleLemonLauncher;
 import ibuilder99.mods.cll.blocks.LemonLauncherBlocks;
 import ibuilder99.mods.cll.blocks.tileentity.TileEntityBlueGel;
 import ibuilder99.mods.cll.entity.EntityCombustibleLemon;
+import ibuilder99.mods.cll.util.EventListener;
 import ibuilder99.mods.cll.util.Reference;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -48,7 +50,9 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityBlueGel.class, Reference.TILE_ENTITY_BLUE_GEL);
 	}
 	
-	public void registerSounds() {}
+	public void registerEventListener() {
+		MinecraftForge.EVENT_BUS.register(new EventListener());
+	}
 
 	public void generateTree(int x, int y, int z, World world, int leaves, int log, int leavesgrowing){
 		//Block soil = Block.blocksList[world.getBlockId(x, y, z)];

@@ -46,7 +46,7 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	@Override
-	public void registerSounds(){
+	public void registerEventListener(){
 		MinecraftForge.EVENT_BUS.register(new SoundLoader());
 	}
 
