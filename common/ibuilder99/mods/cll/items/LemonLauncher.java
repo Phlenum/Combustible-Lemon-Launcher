@@ -7,6 +7,7 @@ import ibuilder99.mods.cll.util.ConfigLoader;
 import ibuilder99.mods.cll.util.IKeyListener;
 import ibuilder99.mods.cll.util.MiscHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -19,6 +20,7 @@ public class LemonLauncher extends ItemCLL implements IKeyListener {
 		setMaxStackSize(1);
 	}
 
+	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer){
 		if(!ConfigLoader.useKeyToFire){
 			if(!par1ItemStack.hasTagCompound()){
@@ -49,6 +51,11 @@ public class LemonLauncher extends ItemCLL implements IKeyListener {
 	@Override
 	public boolean getShareTag(){
 		return true;
+	}
+
+	@Override
+	public EnumAction getItemUseAction(ItemStack par1ItemStack){
+		return EnumAction.bow;
 	}
 
 	@Override
