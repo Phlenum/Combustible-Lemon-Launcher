@@ -4,6 +4,9 @@ import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.client.event.sound.SoundLoadEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeSubscribe;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -40,5 +43,18 @@ public class ClientProxy extends CommonProxy {
 			KeyBindings.addKeyBinding("key.fire", "Fire", Keyboard.KEY_F, false);
 		}
 		KeyBindingRegistry.registerKeyBinding(new KeyBindingHandler(KeyBindings.getKeyBindings(), KeyBindings.getRepeat()));
+	}
+	
+	@Override
+	public void registerSounds(){
+		MinecraftForge.EVENT_BUS.register(new SoundLoader());
+	}
+
+	public class SoundLoader {
+		
+		@ForgeSubscribe
+		public void onSoundLoad(SoundLoadEvent event){
+			
+		}
 	}
 }
