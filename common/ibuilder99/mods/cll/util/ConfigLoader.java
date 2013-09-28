@@ -2,7 +2,6 @@ package ibuilder99.mods.cll.util;
 
 import java.io.File;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.common.Configuration;
 
 public class ConfigLoader {
@@ -14,11 +13,6 @@ public class ConfigLoader {
 	public static int LemonLeavesID;
 	public static int LemonLeavesHarvestedID;
 	public static int LemonSapling;
-	
-	public static int BlueGelID;
-	public static int OrangeGelID;
-	
-	public static int ModelGel;
 	
 	public static boolean useKeyToFire;
 	
@@ -33,14 +27,8 @@ public class ConfigLoader {
 		LemonLeavesID = config.get(Configuration.CATEGORY_BLOCK, "LemonLeaves", 3003).getInt();
 		LemonLeavesHarvestedID = config.get(Configuration.CATEGORY_BLOCK, "LemonLeavesHarvested", 3004).getInt();
 		LemonSapling = config.get(Configuration.CATEGORY_BLOCK, "LemonSapling", 3005).getInt();
-		
-		BlueGelID = config.get(Configuration.CATEGORY_BLOCK, "BlueGel", 3006).getInt();
-		OrangeGelID = config.get(Configuration.CATEGORY_BLOCK, "OrangeGel", 3007).getInt();
-		
 		useKeyToFire = config.get("general", "UseKeyToFire", false).getBoolean(false);
 		
 		config.save();
-		
-		ModelGel = RenderingRegistry.getNextAvailableRenderId();
 	}
 }

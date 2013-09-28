@@ -14,7 +14,6 @@ import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 import ibuilder99.mods.cll.CombustibleLemonLauncher;
 import ibuilder99.mods.cll.blocks.LemonLauncherBlocks;
-import ibuilder99.mods.cll.blocks.tileentity.TileEntityBlueGel;
 import ibuilder99.mods.cll.entity.EntityCombustibleLemon;
 import ibuilder99.mods.cll.util.EventListener;
 import ibuilder99.mods.cll.util.Reference;
@@ -47,7 +46,7 @@ public class CommonProxy {
 	}
 	
 	public void registerTileEntities(){
-		GameRegistry.registerTileEntity(TileEntityBlueGel.class, Reference.TILE_ENTITY_BLUE_GEL);
+		
 	}
 	
 	public void registerEventListener() {

@@ -55,7 +55,7 @@ public class ItemRenderLemonLauncher implements IItemRenderer {
 		glPushMatrix();
 		glTranslated(x, y, z);
 		glScalef(scale, scale, scale);
-		FMLClientHandler.instance().getClient().renderEngine.func_110577_a(LemonLauncherTexture);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(LemonLauncherTexture);
 		LemonLauncher.renderAll();
 		glPopMatrix();
 
