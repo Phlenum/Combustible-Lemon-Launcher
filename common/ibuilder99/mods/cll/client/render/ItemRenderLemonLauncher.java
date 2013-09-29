@@ -70,7 +70,9 @@ public class ItemRenderLemonLauncher implements IItemRenderer {
 		public ModelLemonLauncher(){
 			try{
 				model = AdvancedModelLoader.loadModel(Reference.MODEL_LEMON_LAUNCHER);
-			}catch(IllegalArgumentException | ModelFormatException e){
+			}catch(IllegalArgumentException e){
+				CLemonLauncherLogger.logException(e, getClass(), "ModelLemonLauncher");
+			}catch(ModelFormatException e ){
 				CLemonLauncherLogger.logException(e, getClass(), "ModelLemonLauncher");
 			}
 		}
