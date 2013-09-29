@@ -6,6 +6,7 @@ import ibuilder99.mods.cll.crafting.CraftingRecipes;
 import ibuilder99.mods.cll.items.LemonLauncherItems;
 import ibuilder99.mods.cll.network.PacketHandler;
 import ibuilder99.mods.cll.proxy.CommonProxy;
+import ibuilder99.mods.cll.util.CLemonLauncherLogger;
 import ibuilder99.mods.cll.util.ClientTickHandler;
 import ibuilder99.mods.cll.util.ConfigLoader;
 import ibuilder99.mods.cll.util.Reference;
@@ -38,6 +39,7 @@ public class CombustibleLemonLauncher {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		ConfigLoader.loadConfig(event.getSuggestedConfigurationFile());
+		CLemonLauncherLogger.initialize();
 		LemonLauncherItems.initItems();
 		LemonLauncherBlocks.initBlocks();
 	}

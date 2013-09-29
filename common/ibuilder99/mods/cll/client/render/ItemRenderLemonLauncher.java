@@ -1,23 +1,25 @@
 package ibuilder99.mods.cll.client.render;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import ibuilder99.mods.cll.util.CLemonLauncherLogger;
 import ibuilder99.mods.cll.util.Reference;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
+import net.minecraftforge.client.model.ModelFormatException;
 import static org.lwjgl.opengl.GL11.*;
 
 public class ItemRenderLemonLauncher implements IItemRenderer {
-	
+
 	private ModelLemonLauncher LemonLauncher;
 	private final ResourceLocation LemonLauncherTexture = new ResourceLocation(Reference.TEXTURE_LEMON_LAUNCHER);
-	
+
 	public ItemRenderLemonLauncher(){
 		LemonLauncher = new ModelLemonLauncher();
 	}
-	
+
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
 		return true;
@@ -50,7 +52,7 @@ public class ItemRenderLemonLauncher implements IItemRenderer {
 			break;
 		}
 	}
-	
+
 	private void renderLemonLauncher(double x, double y, double z, float scale){
 		glPushMatrix();
 		glTranslated(x, y, z);
@@ -60,15 +62,19 @@ public class ItemRenderLemonLauncher implements IItemRenderer {
 		glPopMatrix();
 
 	}
-	
+
 	private class ModelLemonLauncher {
-		
+
 		private IModelCustom model;
-		
+
 		public ModelLemonLauncher(){
-			model = AdvancedModelLoader.loadModel(Reference.MODEL_LEMON_LAUNCHER);
+			try{
+				model = AdvancedModelLoader.loadModel(Reference.MODEL_LEMON_LAUNCHER);
+			}catch(IllegalArgumentException | ModelFormatException e){
+				CLemonLauncherLogger.logException(e, getClass(), "ModelLemonLauncher");
+			}
 		}
-		
+
 		public void renderAll(){
 			model.renderAll();
 		}
