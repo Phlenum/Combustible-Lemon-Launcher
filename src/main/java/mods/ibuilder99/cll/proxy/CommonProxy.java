@@ -3,7 +3,6 @@ package mods.ibuilder99.cll.proxy;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import mods.ibuilder99.cll.items.ItemCLL;
 import mods.ibuilder99.cll.items.ItemCombustibleLemonLauncher;
-import mods.ibuilder99.cll.lib.CLLConfiguration;
 import mods.ibuilder99.cll.lib.Reference;
 
 /**
@@ -15,12 +14,13 @@ import mods.ibuilder99.cll.lib.Reference;
 public class CommonProxy {
 	
 	public static ItemCLL itemLemon;
-	public static ItemCLL itemCombustibleLemonLauncher;
+	public static ItemCLL itemLemonExplosive;
+	public static ItemCombustibleLemonLauncher itemCombustibleLemonLauncher;
 	
 	public void initializeItems(){
-		//TODO: Initialize mod items
-		itemLemon = new ItemCLL(CLLConfiguration.ID_itemLemon, Reference.ITEM_LEMON);
-		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(CLLConfiguration.ID_itemCombustibleLemonLauncher, Reference.ITEM_LEMON_LAUNCHER);
+		itemLemon = new ItemCLL(0, Reference.ITEM_LEMON);
+		itemLemonExplosive = new ItemCLL(1, Reference.ITEM_LEMON_EXPLOSIVE);
+		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(2, Reference.ITEM_LEMON_LAUNCHER);
 	}
 	
 	public void initializeBlocks(){
