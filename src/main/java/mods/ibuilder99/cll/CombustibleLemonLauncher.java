@@ -1,5 +1,8 @@
 package mods.ibuilder99.cll;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import mods.ibuilder99.cll.lib.CLLLogger;
 import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.proxy.CommonProxy;
@@ -9,6 +12,9 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Combustible Lemon Launcher
@@ -47,10 +53,12 @@ public class CombustibleLemonLauncher {
 		CLLLogger.initializeLogging();
 		proxy.initializeItems();
 		proxy.initializeBlocks();
+		proxy.initializeLocalizations();
 	}
 	
 	@EventHandler
 	public void initializeMod(FMLInitializationEvent initEvent){
 		proxy.initializeRenderers();
 	}
+
 }
