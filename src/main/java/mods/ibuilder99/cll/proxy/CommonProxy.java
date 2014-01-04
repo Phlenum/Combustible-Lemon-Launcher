@@ -18,8 +18,8 @@ public class CommonProxy {
 	
 	public void initializeItems(){
 		//TODO: Initialize mod items
-		itemLemon = new ItemCLL(1000, Reference.ITEM_LEMON, "Lemon");
-		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(1001, Reference.ITEM_LEMON_LAUNCHER, "Combustible Lemon Launcher");
+		itemLemon = new ItemCLL(1000, Reference.ITEM_LEMON);
+		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(1001, Reference.ITEM_LEMON_LAUNCHER);
 	}
 	
 	public void initializeBlocks(){

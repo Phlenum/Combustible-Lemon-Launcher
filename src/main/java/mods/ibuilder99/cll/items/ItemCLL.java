@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 
 public class ItemCLL extends Item {
 	
-	public ItemCLL(int id, String unloc, String en_US){
+	public ItemCLL(int id, String unloc){
 		super();
 		setUnlocalizedName(unloc);
 		setTextureName(Reference.TEXTURE_PREFIX + unloc);

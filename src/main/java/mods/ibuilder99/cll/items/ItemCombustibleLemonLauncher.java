@@ -12,8 +12,8 @@ import net.minecraft.world.World;
 
 public class ItemCombustibleLemonLauncher extends ItemCLL {
 
-	public ItemCombustibleLemonLauncher(int id, String unloc, String en_US) {
-		super(id, unloc, en_US);
+	public ItemCombustibleLemonLauncher(int id, String unloc) {
+		super(id, unloc);
 	}
 	
 	@Override
