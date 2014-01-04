@@ -2,6 +2,7 @@ package mods.ibuilder99.cll;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import mods.ibuilder99.cll.lib.CLLConfiguration;
 import mods.ibuilder99.cll.lib.CLLLogger;
 import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.proxy.CommonProxy;
@@ -35,7 +36,7 @@ public class CombustibleLemonLauncher {
 	
 	public static final CreativeTabs tabCombustibleLemonLauncher = new CreativeTabs(Reference.MOD_NAME){
 		
-		public String getTranslatedTabLabel() {
+		public String getTranslatedTabLabel(){
 			return Reference.MOD_NAME;
 		};
 		
@@ -49,6 +50,7 @@ public class CombustibleLemonLauncher {
 	@EventHandler
 	public void preInitializeMod(FMLPreInitializationEvent preInitEvent){
 		CLLLogger.initializeLogging();
+		CLLConfiguration.initializeConfiguration(preInitEvent.getSuggestedConfigurationFile());
 		proxy.initializeItems();
 		proxy.initializeBlocks();
 		proxy.initializeLocalizations();
