@@ -29,6 +29,19 @@ public class CombustibleLemonLauncher {
 	@SidedProxy(clientSide = "mods.ibuilder99.cll.proxy.ClientProxy", serverSide = "mods.ibuilder99.cll.proxy.CommonProxy")
 	public static CommonProxy proxy;
 	
+	public static final CreativeTabs tabCombustibleLemonLauncher = new CreativeTabs(Reference.MOD_NAME){
+		
+		public String getTranslatedTabLabel() {
+			return Reference.MOD_NAME;
+		};
+		
+        @SideOnly(Side.CLIENT)
+        public Item getTabIconItem(){
+            return Items.stick;
+        }
+        
+    };
+	
 	@EventHandler
 	public void preInitializeMod(FMLPreInitializationEvent preInitEvent){
 		CLLLogger.initializeLogging();
