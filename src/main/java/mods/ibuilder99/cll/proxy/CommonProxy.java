@@ -16,6 +16,12 @@ public class CommonProxy {
 		//TODO: Initialize mod blocks
 	}
 	
+	public void initializeLocalizations(){
+		for(String lang : Reference.AVAIBABLE_LOCALIZATIONS){
+			LanguageRegistry.instance().loadLocalization("/assets/" + Reference.MOD_ID.toLowerCase() + "/lang/" + lang + ".lang", lang, false);
+		}
+	}
+	
 	public void initializeRenderers(){}
 	
 }

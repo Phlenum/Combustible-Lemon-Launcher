@@ -9,7 +9,7 @@ package mods.ibuilder99.cll.lib;
 // Straight copy and paste
 public class Reference {
 	
-	public static final String[] AVAIBABLE_LOCALIZATIONS = {"de_DE"};
+	public static final String[] AVAIBABLE_LOCALIZATIONS = {"en_US", "de_DE"};
 
 	public static final String MOD_NAME = "Combustible Lemon Launcher";
 	public static final String MOD_ID = "CLL";
