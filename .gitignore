@@ -8,7 +8,7 @@ gradle
 .classpath
 .project
 CREDITS-fml.txt
-forge-1.7.2-10.12.0.985-changelog.txt
+*changelog.txt
 gradlew
 gradlew.bat
 LICENSE
