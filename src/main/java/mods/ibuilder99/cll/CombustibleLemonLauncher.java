@@ -1,7 +1,6 @@
 package mods.ibuilder99.cll;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import mods.ibuilder99.cll.lib.CLLLogger;
 import mods.ibuilder99.cll.lib.Reference;
@@ -42,7 +41,7 @@ public class CombustibleLemonLauncher {
 		
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem(){
-            return Items.stick;
+            return CommonProxy.itemCombustibleLemonLauncher;
         }
         
     };
