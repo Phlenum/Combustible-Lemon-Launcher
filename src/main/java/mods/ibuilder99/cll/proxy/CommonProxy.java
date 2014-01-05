@@ -1,6 +1,8 @@
 package mods.ibuilder99.cll.proxy;
 
+import net.minecraft.block.Block;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import mods.ibuilder99.cll.blocks.BlockLemonLeaves;
 import mods.ibuilder99.cll.items.ItemCLL;
 import mods.ibuilder99.cll.items.ItemCombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.Reference;
@@ -17,10 +19,14 @@ public class CommonProxy {
 	public static ItemCLL itemLemonExplosive;
 	public static ItemCombustibleLemonLauncher itemCombustibleLemonLauncher;
 	
+	public static BlockLemonLeaves blockLemonLeaves;
+	
 	public void initializeItems(){
 		itemLemon = new ItemCLL(0, Reference.ITEM_LEMON);
 		itemLemonExplosive = new ItemCLL(1, Reference.ITEM_LEMON_EXPLOSIVE);
 		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(2, Reference.ITEM_LEMON_LAUNCHER);
+		
+		blockLemonLeaves = new BlockLemonLeaves(0, Reference.BLOCK_LEMON_LEAVES, 0.2F, 0.2F, Block.field_149779_h);
 	}
 	
 	public void initializeBlocks(){
