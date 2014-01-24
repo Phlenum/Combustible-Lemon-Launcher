@@ -20,7 +20,6 @@ public class BlockLemonLeaves extends BlockLeavesBase {
 		func_149663_c(unloc);
 		func_149658_d(Reference.TEXTURE_PREFIX + unloc);
 		func_149647_a(CombustibleLemonLauncher.tabCombustibleLemonLauncher);
-		field_149771_c.func_148756_a(id, unloc, this);
 		GameRegistry.registerBlock(this, unloc);
 	}
 
