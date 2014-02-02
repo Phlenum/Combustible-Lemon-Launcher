@@ -33,6 +33,10 @@ public class CommonProxy {
 		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(1, Reference.BLOCK_LEMON_LEAVES_HARVESTED, 0.2F, 0.2F, Block.field_149779_h);
 	}
 	
+	public void initializeWorld(){
+		
+	}
+	
 	public void initializeRenderers(){}
 	
 }
