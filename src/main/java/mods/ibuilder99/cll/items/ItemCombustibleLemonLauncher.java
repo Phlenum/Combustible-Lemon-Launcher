@@ -14,6 +14,7 @@ public class ItemCombustibleLemonLauncher extends ItemCLL {
 
 	public ItemCombustibleLemonLauncher(int id, String unloc) {
 		super(id, unloc);
+		setMaxStackSize(1);
 	}
 	
 	@Override
