@@ -1,7 +1,6 @@
 package mods.ibuilder99.cll.proxy;
 
 import net.minecraft.block.Block;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import mods.ibuilder99.cll.blocks.BlockLemonLeaves;
 import mods.ibuilder99.cll.blocks.BlockLemonLeavesHarvested;
 import mods.ibuilder99.cll.items.ItemCLL;
@@ -27,19 +26,11 @@ public class CommonProxy {
 		itemLemon = new ItemCLL(0, Reference.ITEM_LEMON);
 		itemLemonExplosive = new ItemCLL(1, Reference.ITEM_LEMON_EXPLOSIVE);
 		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(2, Reference.ITEM_LEMON_LAUNCHER);
-		
-		blockLemonLeaves = new BlockLemonLeaves(0, Reference.BLOCK_LEMON_LEAVES, 0.2F, 0.2F, Block.field_149779_h);
-		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(1, Reference.BLOCK_LEMON_LEAVES_HARVESTED, 0.2F, 0.2F, Block.field_149779_h);
 	}
 	
 	public void initializeBlocks(){
-		//TODO: Initialize mod blocks
-	}
-	
-	public void initializeLocalizations(){
-		for(String lang : Reference.AVAIBABLE_LOCALIZATIONS){
-			LanguageRegistry.instance().loadLocalization("/assets/" + Reference.MOD_ID.toLowerCase() + "/lang/" + lang + ".lang", lang, false);
-		}
+		blockLemonLeaves = new BlockLemonLeaves(0, Reference.BLOCK_LEMON_LEAVES, 0.2F, 0.2F, Block.field_149779_h);
+		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(1, Reference.BLOCK_LEMON_LEAVES_HARVESTED, 0.2F, 0.2F, Block.field_149779_h);
 	}
 	
 	public void initializeRenderers(){}

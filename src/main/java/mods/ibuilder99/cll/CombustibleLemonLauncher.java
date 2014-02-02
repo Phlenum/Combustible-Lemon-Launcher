@@ -53,7 +53,6 @@ public class CombustibleLemonLauncher {
 		CLLConfiguration.initializeConfiguration(preInitEvent.getSuggestedConfigurationFile());
 		proxy.initializeItems();
 		proxy.initializeBlocks();
-		proxy.initializeLocalizations();
 	}
 	
 	@EventHandler
