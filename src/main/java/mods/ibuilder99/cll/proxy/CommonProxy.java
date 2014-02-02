@@ -25,7 +25,7 @@ public class CommonProxy {
 	public void initializeItems(){
 		itemLemon = new ItemCLL(0, Reference.ITEM_LEMON);
 		itemLemonExplosive = new ItemCLL(1, Reference.ITEM_LEMON_EXPLOSIVE);
-		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(2, Reference.ITEM_LEMON_LAUNCHER);
+		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(2, Reference.ITEM_COMBUSTIBLE_LEMON_LAUNCHER);
 	}
 	
 	public void initializeBlocks(){
