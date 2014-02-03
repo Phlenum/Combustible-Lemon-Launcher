@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import mods.ibuilder99.cll.lib.CLLConfiguration;
 import mods.ibuilder99.cll.lib.CLLLogger;
 import mods.ibuilder99.cll.lib.Reference;
+import mods.ibuilder99.cll.network.CLLPacketHandler;
 import mods.ibuilder99.cll.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -34,6 +35,7 @@ public class CombustibleLemonLauncher {
 	@SidedProxy(clientSide = "mods.ibuilder99.cll.proxy.ClientProxy", serverSide = "mods.ibuilder99.cll.proxy.CommonProxy")
 	public static CommonProxy proxy;
 	
+	public static final CLLPacketHandler PACKET_HANDLER = new CLLPacketHandler();
 	
 	public static final CreativeTabs TAB_COMBUSTIBLE_LEMON_LAUNCHER = new CreativeTabs(Reference.MOD_NAME){
 		
@@ -47,7 +49,7 @@ public class CombustibleLemonLauncher {
         }
         
     };
-	
+    
 	@EventHandler
 	public void preInitializeMod(FMLPreInitializationEvent preInitEvent){
 		CLLLogger.initializeLogging();
@@ -60,6 +62,7 @@ public class CombustibleLemonLauncher {
 	public void initializeMod(FMLInitializationEvent initEvent){
 		proxy.initializeWorld();
 		proxy.initializeRenderers();
+		proxy.initializePacketHandling();
 	}
 
 }
