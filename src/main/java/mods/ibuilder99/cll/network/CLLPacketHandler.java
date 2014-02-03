@@ -8,6 +8,7 @@ import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
 import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.network.packets.CLLPacket;
+import mods.ibuilder99.cll.network.packets.CLLPacketKey;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
@@ -36,7 +37,7 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 	}
 	
 	public static void registerPackets(){
-		
+		registerPacket(CLLPacketKey.class);
 	}
 	
 	@Override
