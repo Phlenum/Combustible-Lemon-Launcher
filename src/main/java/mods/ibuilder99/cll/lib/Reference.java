@@ -14,6 +14,7 @@ public class Reference {
 	public static final String MOD_NAME = "Combustible Lemon Launcher";
 	public static final String MOD_ID = "CLL";
 	public static final String MOD_VERSION = "1.7.2-2.0.1";
+	public static final String MOD_CHANNEL = "CLL";
 	public static final String TEXTURE_PREFIX = Reference.MOD_ID.toLowerCase() + ":";
 
 	public static final String ITEM_LEMON = "Lemon";
