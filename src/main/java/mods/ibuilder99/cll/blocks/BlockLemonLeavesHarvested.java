@@ -19,7 +19,7 @@ public class BlockLemonLeavesHarvested extends BlockLeavesBase {
 		field_149762_H = sound;
 		func_149663_c(unloc);
 		func_149658_d(Reference.TEXTURE_PREFIX + unloc);
-		func_149647_a(CombustibleLemonLauncher.tabCombustibleLemonLauncher);
+		func_149647_a(CombustibleLemonLauncher.TAB_COMBUSTIBLE_LEMON_LAUNCHER);
 		GameRegistry.registerBlock(this, unloc);
 	}
 

@@ -17,7 +17,7 @@ public class ItemCLL extends Item {
 		super();
 		setUnlocalizedName(unloc);
 		setTextureName(Reference.TEXTURE_PREFIX + unloc);
-		setCreativeTab(CombustibleLemonLauncher.tabCombustibleLemonLauncher);
+		setCreativeTab(CombustibleLemonLauncher.TAB_COMBUSTIBLE_LEMON_LAUNCHER);
 		GameRegistry.registerItem(this, unloc);
 	}
 	
