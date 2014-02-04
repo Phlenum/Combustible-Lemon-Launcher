@@ -68,6 +68,15 @@ public class CommonProxy {
 		cllChannel.get(Side.SERVER).writeAndFlush(packet);
 	}
 	
+	/**
+	 * Adapted from <a href='http://www.minecraftforge.net/wiki/Netty_Packet_Handling'>Minecraft Forge Wiki</a>
+	 */
+	
+	public void packetCLL_sendToServer(CLLPacket packet){
+		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
+		cllChannel.get(Side.SERVER).writeAndFlush(packet);
+	}
+	
 	public void initializeKeyBinding(){}
 	
 }

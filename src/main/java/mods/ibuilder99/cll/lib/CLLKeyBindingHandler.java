@@ -2,6 +2,7 @@ package mods.ibuilder99.cll.lib;
 
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.network.packets.CLLPacketKey;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -25,7 +26,7 @@ public class CLLKeyBindingHandler {
 	public void onKeyInputEvent(KeyInputEvent event){
 		if(keyBindFire.func_151468_f()){ // Has the player just pressed this key?
 			CLLPacketKey packetKey = new CLLPacketKey(keyBindFire.func_151464_g());
-			CombustibleLemonLauncher.proxy.packetCLL_sendToAll(packetKey);
+			CombustibleLemonLauncher.proxy.packetCLL_sendToServer(packetKey);
 		}
 	}
 	
