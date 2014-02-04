@@ -7,7 +7,6 @@ import cpw.mods.fml.common.network.FMLOutboundHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayerMP;
 import mods.ibuilder99.cll.blocks.BlockLemonLeaves;
 import mods.ibuilder99.cll.blocks.BlockLemonLeavesHarvested;
 import mods.ibuilder99.cll.items.ItemCLL;
@@ -64,9 +63,8 @@ public class CommonProxy {
 	 * Adapted from <a href='http://www.minecraftforge.net/wiki/Netty_Packet_Handling'>Minecraft Forge Wiki</a>
 	 */
 	
-	public void packetCLL_sendToAll(CLLPacket packet, EntityPlayerMP clientPlayer){
-		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
-		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(clientPlayer);
+	public void packetCLL_sendToAll(CLLPacket packet){
+		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.ALL);
 		cllChannel.get(Side.SERVER).writeAndFlush(packet);
 	}
 	
