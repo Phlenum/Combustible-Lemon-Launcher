@@ -1,6 +1,9 @@
 package mods.ibuilder99.cll.network.packets;
 
-import io.netty.buffer.ByteBuf;
+import java.io.IOException;
+
+import io.netty.buffer.ByteBufInputStream;
+import io.netty.buffer.ByteBufOutputStream;
 import mods.ibuilder99.cll.lib.IKeyListener;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -21,14 +24,13 @@ public class CLLPacketKey extends CLLPacket {
 	}
 	
 	@Override
-	public void writeDataTo(ByteBuf buffer){
-		buffer.writeBytes(keyIdentifier.getBytes());
+	public void writeDataTo(ByteBufOutputStream buffer) throws IOException{
+		buffer.writeUTF(keyIdentifier);
 	}
 
 	@Override
-	public void readDataFrom(ByteBuf buffer){
-		byte[] stringBytes = new byte[buffer.readableBytes()];
-		keyIdentifier = new String(stringBytes);
+	public void readDataFrom(ByteBufInputStream buffer) throws IOException {
+		keyIdentifier = buffer.readUTF();
 	}
 	
 	private void handlePacket(EntityPlayer player){

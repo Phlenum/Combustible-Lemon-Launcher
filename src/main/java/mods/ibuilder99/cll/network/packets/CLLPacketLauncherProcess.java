@@ -1,6 +1,9 @@
 package mods.ibuilder99.cll.network.packets;
 
-import io.netty.buffer.ByteBuf;
+import java.io.IOException;
+
+import io.netty.buffer.ByteBufInputStream;
+import io.netty.buffer.ByteBufOutputStream;
 import mods.ibuilder99.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -25,12 +28,12 @@ public class CLLPacketLauncherProcess extends CLLPacket {
 	}
 	
 	@Override
-	public void writeDataTo(ByteBuf buffer){
+	public void writeDataTo(ByteBufOutputStream buffer) throws IOException {
 		buffer.writeBoolean(isCombustible);
 	}
 
 	@Override
-	public void readDataFrom(ByteBuf buffer){
+	public void readDataFrom(ByteBufInputStream buffer) throws IOException {
 		isCombustible = buffer.readBoolean();
 	}
 	

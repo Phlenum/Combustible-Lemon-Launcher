@@ -13,6 +13,8 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufInputStream;
+import io.netty.buffer.ByteBufOutputStream;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelHandler;
@@ -43,12 +45,13 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 	@Override
 	protected void encode(ChannelHandlerContext ctx, CLLPacket msg, List<Object> out) throws Exception {
 		Class<? extends CLLPacket> packetClass = msg.getClass(); 								   // Retrieve packets class
-		ByteBuf writeBuffer = Unpooled.buffer(); 												   // Create a Netty buffer
+		ByteBuf writeBuffer = Unpooled.buffer();												   // Create a Netty buffer
+		ByteBufOutputStream bbos = new ByteBufOutputStream(writeBuffer);						   // Create Netty output stream buffer (wrapper for ByteBuf)
 		if(registeredPackets.contains(packetClass)){ 											   // Is this class registered?
-			writeBuffer.writeByte(out.indexOf(packetClass)); 									   // Write the classes index to determine the class in later decoding
-			CLLPacket packetCLL = packetClass.newInstance();									   // Instantiate...
-			packetCLL.writeDataTo(writeBuffer); 												   // ...and let the new instance write to the Netty buffer
+			writeBuffer.writeByte(registeredPackets.indexOf(packetClass)); 						   // Write the classes index to determine the class in later decoding
+			msg.writeDataTo(bbos); 												   		   		   // Let the CLLPacket instance write to the Netty buffer
 			FMLProxyPacket packet = new FMLProxyPacket(writeBuffer.copy(), Reference.MOD_CHANNEL); // Instantiate a FMLProxyPacket with the written data
+			bbos.close();																		   // Close the Netty output stream buffer
 			out.add(packet); 																	   // Add it to the 'out'-list
 		}
 	}
@@ -57,10 +60,11 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 	protected void decode(ChannelHandlerContext context, FMLProxyPacket msg, List<Object> out) throws Exception {
 		ByteBuf packetPayload = msg.payload();
 		byte indexOfClass = packetPayload.readByte();
+		ByteBufInputStream bbis = new ByteBufInputStream(packetPayload.slice());
 		Class<? extends CLLPacket> packetClass = registeredPackets.get(indexOfClass);
 		if(packetClass != null){
 			CLLPacket packetCLL = packetClass.newInstance();
-			packetCLL.readDataFrom(packetPayload.slice());
+			packetCLL.readDataFrom(bbis);
 			switch(FMLCommonHandler.instance().getEffectiveSide()){
 			case CLIENT:				
 				packetCLL.handleClientSide(Minecraft.getMinecraft().thePlayer);
@@ -70,6 +74,7 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
                 packetCLL.handleServerSide(((NetHandlerPlayServer) netHandler).field_147369_b);
 				break;
 			}
+			bbis.close();
 			out.add(packetCLL);
 		}
 	}

@@ -1,7 +1,10 @@
 package mods.ibuilder99.cll.network.packets;
 
+import java.io.IOException;
+
 import net.minecraft.entity.player.EntityPlayer;
-import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufInputStream;
+import io.netty.buffer.ByteBufOutputStream;
 
 /**
  * Combustible Lemon Launcher
@@ -12,9 +15,9 @@ import io.netty.buffer.ByteBuf;
 
 public abstract class CLLPacket {
 	
-	public abstract void writeDataTo(ByteBuf buffer);
+	public abstract void writeDataTo(ByteBufOutputStream buffer) throws IOException;
 	
-	public abstract void readDataFrom(ByteBuf buffer);
+	public abstract void readDataFrom(ByteBufInputStream buffer) throws IOException;
 	
 	public abstract void handleClientSide(EntityPlayer playerSP);
 	
