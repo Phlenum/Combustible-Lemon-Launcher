@@ -63,6 +63,7 @@ public class CombustibleLemonLauncher {
 		proxy.initializeWorld();
 		proxy.initializeRenderers();
 		proxy.initializePacketHandling();
+		proxy.initializeKeyBinding();
 	}
 
 }

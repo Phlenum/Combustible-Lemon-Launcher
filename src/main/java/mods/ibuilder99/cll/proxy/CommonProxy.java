@@ -70,4 +70,6 @@ public class CommonProxy {
 		cllChannel.get(Side.SERVER).writeAndFlush(packet);
 	}
 	
+	public void initializeKeyBinding(){}
+	
 }

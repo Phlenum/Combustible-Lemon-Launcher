@@ -1,7 +1,9 @@
 package mods.ibuilder99.cll.proxy;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.client.MinecraftForgeClient;
 import mods.ibuilder99.cll.client.RenderItemCombustibleLemonLauncher;
+import mods.ibuilder99.cll.lib.CLLKeyBindingHandler;
 
 /**
  * Combustible Lemon Launcher
@@ -15,6 +17,11 @@ public class ClientProxy extends CommonProxy {
 	public void initializeRenderers(){
 		RenderItemCombustibleLemonLauncher.initialize();
 		MinecraftForgeClient.registerItemRenderer(itemCombustibleLemonLauncher, new RenderItemCombustibleLemonLauncher());
+	}
+	
+	@Override
+	public void initializeKeyBinding(){
+		FMLCommonHandler.instance().bus().register (new CLLKeyBindingHandler());
 	}
 
 }
