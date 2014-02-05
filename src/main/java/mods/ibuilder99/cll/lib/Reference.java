@@ -2,11 +2,9 @@ package mods.ibuilder99.cll.lib;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
  * @author Phil Julian (aka iBuilder99)
  */
 
-// Straight copy and paste
 public class Reference {
 	
 	public static final String[] AVAIBABLE_LOCALIZATIONS = {"en_US", "de_DE"};

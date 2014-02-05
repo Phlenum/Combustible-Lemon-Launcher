@@ -8,7 +8,6 @@ import mods.ibuilder99.cll.lib.CLLKeyBindingHandler;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
  * @author Phil Julian (aka iBuilder99)
  */
 

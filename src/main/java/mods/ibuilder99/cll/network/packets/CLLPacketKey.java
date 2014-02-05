@@ -9,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
  * @author Phil Julian (aka iBuilder99)
  */
 

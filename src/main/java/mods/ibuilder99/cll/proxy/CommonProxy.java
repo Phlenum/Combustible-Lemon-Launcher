@@ -22,7 +22,6 @@ import mods.ibuilder99.cll.world.EntityLemon;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
  * @author Phil Julian (aka iBuilder99)
  */
 

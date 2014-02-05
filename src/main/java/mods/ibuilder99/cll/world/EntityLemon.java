@@ -7,6 +7,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
+/**
+ * Combustible Lemon Launcher
+ * @author Phil Julian (aka iBuilder99)
+ */
+
 public class EntityLemon extends EntityThrowable {
 	
 	public enum LemonType {

@@ -8,7 +8,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
  * @author Phil Julian (aka iBuilder99)
  */
 

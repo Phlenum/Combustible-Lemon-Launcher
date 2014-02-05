@@ -1,9 +1,0 @@
-diff a/src/main/java/mods/ibuilder99/cll/CombustibleLemonLauncher.java b/src/main/java/mods/ibuilder99/cll/CombustibleLemonLauncher.java	(rejected hunks)
-@@ -5,6 +5,7 @@
- import mods.ibuilder99.cll.lib.CLLConfiguration;
- import mods.ibuilder99.cll.lib.CLLLogger;
- import mods.ibuilder99.cll.lib.Reference;
-+import mods.ibuilder99.cll.network.CLLPacketHandler;
- import mods.ibuilder99.cll.proxy.CommonProxy;
- import cpw.mods.fml.common.Mod;
- import cpw.mods.fml.common.SidedProxy;

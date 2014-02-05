@@ -9,7 +9,6 @@ import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
  * @author Phil Julian (aka iBuilder99)
  */
 

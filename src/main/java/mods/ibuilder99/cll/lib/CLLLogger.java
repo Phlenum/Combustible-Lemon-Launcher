@@ -6,7 +6,6 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
  * @author Phil Julian (aka iBuilder99)
  */
 
