@@ -28,6 +28,6 @@ public class Reference {
 	public static final String MODEL_COMBUSTIBLE_LEMON_LAUNCHER = MOD_ID.toLowerCase() + ":models/CombustibleLemonLauncher.obj";
 	public static final String TEXTURE_COMBUSTIBLE_LEMON_LAUNCHER = MOD_ID.toLowerCase() + ":textures/models/CombustibleLemonLauncher.png";
 
-	public static final String ENTITY_COMBUSTIBLE_LEMON = "CombustibleLemon";
+	public static final String ENTITY_LEMON = "EntityLemon";
 
 }

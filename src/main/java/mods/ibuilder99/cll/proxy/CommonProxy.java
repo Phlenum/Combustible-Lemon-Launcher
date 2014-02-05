@@ -5,8 +5,10 @@ import java.util.EnumMap;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
+import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.blocks.BlockLemonLeaves;
 import mods.ibuilder99.cll.blocks.BlockLemonLeavesHarvested;
 import mods.ibuilder99.cll.items.ItemCLL;
@@ -14,6 +16,7 @@ import mods.ibuilder99.cll.items.ItemCombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.network.CLLPacketHandler;
 import mods.ibuilder99.cll.network.packets.CLLPacket;
+import mods.ibuilder99.cll.world.EntityLemon;
 
 /**
  * Combustible Lemon Launcher
@@ -44,7 +47,7 @@ public class CommonProxy {
 	}
 	
 	public void initializeWorld(){
-		
+		EntityRegistry.registerModEntity(EntityLemon.class, Reference.ENTITY_LEMON, 1, CombustibleLemonLauncher.instance, 80, 3, true);
 	}
 	
 	public void initializeRenderers(){}
