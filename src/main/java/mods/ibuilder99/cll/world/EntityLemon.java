@@ -8,6 +8,7 @@ import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
@@ -30,7 +31,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 			
 			@Override
 			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
-				generateFire(lemon.worldObj);
+				generateFire(lemon.worldObj, mop.blockX, mop.blockY, mop.blockZ);
 			}
 			
 			@Override
@@ -47,8 +48,8 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 			
 			@Override
 			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
-				generateFire(lemon.worldObj);
 				lemon.worldObj.createExplosion(lemon, lemon.posX, lemon.posY, lemon.posZ, DEFAULT_EXPLOSTION_STRENGTH, true);
+				generateFire(lemon.worldObj, mop.blockX, mop.blockY, mop.blockZ);
 			}
 			
 			@Override
@@ -61,17 +62,25 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		
 		public final Item itemReference;
 		
-		private static final int DEFAULT_LENGTH = 5;
-		private static final int DEFAULT_WIDTH = 5;
-		private static final int DEFAULT_HEIGHT = 5;
+		private static final int DEFAULT_OFFSET_X = 5;
+		private static final int DEFAULT_OFFSET_Y = 5;
+		private static final int DEFAULT_OFFSET_Z = 5;
 		private static final float DEFAULT_EXPLOSTION_STRENGTH = 3.0F;
 		
 		LemonType(Item itemref){
 			itemReference = itemref;
 		}
 		
-		private static void generateFire(World world){
-			
+		private static void generateFire(World world, int xSrc, int ySrc, int zSrc){
+			for(int x = (xSrc - DEFAULT_OFFSET_X); x < (xSrc + DEFAULT_OFFSET_X); x++){
+				for(int y = (ySrc - DEFAULT_OFFSET_Y); y < (ySrc + DEFAULT_OFFSET_Y); y++){
+					for(int z = (zSrc - DEFAULT_OFFSET_Z); z < (zSrc + DEFAULT_OFFSET_Z); z++){
+						if((world.getBlock(x, y, z) == Blocks.air) && (world.rand.nextBoolean())){
+							world.setBlock(x, y, z, Blocks.fire);
+						}
+					}
+				}
+			}
 		}
 		
 		public boolean playerHasItem(EntityPlayer player){
