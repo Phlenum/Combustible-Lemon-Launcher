@@ -1,5 +1,7 @@
 package mods.ibuilder99.cll.world;
 
+import io.netty.buffer.ByteBuf;
+import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.ibuilder99.cll.lib.Reference;
@@ -17,7 +19,7 @@ import net.minecraft.world.World;
  * @author Phil Julian (aka iBuilder99)
  */
 
-public class EntityLemon extends EntityThrowable {
+public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpawnData {
 	
 	public enum LemonType {
 		
@@ -62,7 +64,7 @@ public class EntityLemon extends EntityThrowable {
 		private static final int DEFAULT_LENGTH = 5;
 		private static final int DEFAULT_WIDTH = 5;
 		private static final int DEFAULT_HEIGHT = 5;
-		private static final float DEFAULT_EXPLOSTION_STRENGTH = 10.0F;
+		private static final float DEFAULT_EXPLOSTION_STRENGTH = 3.0F;
 		
 		LemonType(Item itemref){
 			itemReference = itemref;
@@ -106,6 +108,16 @@ public class EntityLemon extends EntityThrowable {
 		if(lemonType == null){
 			lemonType = LemonType.LEMONTYPE_NORMAL;
 		}
+	}
+	
+	@Override
+	public void writeSpawnData(ByteBuf buffer){
+		buffer.writeByte((byte)lemonType.ordinal());
+	}
+	
+	@Override
+	public void readSpawnData(ByteBuf additionalData){
+		lemonType = LemonType.values()[additionalData.readByte()];
 	}
 
 	@Override
