@@ -29,7 +29,7 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer){
-		if(!CLLConfiguration.BO_useKeyToFire){
+		if(!CLLConfiguration.BO_useKeyToFire && !par2World.isRemote){
 			doAction(par3EntityPlayer, par1ItemStack);
 		}
 		return par1ItemStack;
