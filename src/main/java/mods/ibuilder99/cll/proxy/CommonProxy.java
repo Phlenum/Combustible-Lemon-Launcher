@@ -8,6 +8,8 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.blocks.BlockLemonLeaves;
 import mods.ibuilder99.cll.blocks.BlockLemonLeavesHarvested;
@@ -78,6 +80,10 @@ public class CommonProxy {
 	public void packetCLL_sendToServer(CLLPacket packet){
 		cllChannel.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
 		cllChannel.get(Side.CLIENT).writeAndFlush(packet);
+	}
+	
+	public void sendMessageToPlayer(EntityPlayer player, String message){
+		player.addChatMessage(new ChatComponentText(message));
 	}
 	
 	public void initializeKeyBinding(){}
