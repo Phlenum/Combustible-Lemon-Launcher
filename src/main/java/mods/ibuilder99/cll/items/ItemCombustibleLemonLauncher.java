@@ -3,6 +3,7 @@ package mods.ibuilder99.cll.items;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.CLLConfiguration;
 import mods.ibuilder99.cll.lib.IKeyListener;
+import mods.ibuilder99.cll.world.EntityLemon;
 import mods.ibuilder99.cll.world.EntityLemon.LemonType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -65,7 +66,19 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 				setLemonType(itemstack, LemonType.LEMONTYPE_NORMAL);
 			}
 			toggleLemonType(player, itemstack);
-		}		
+			return;
+		}
+		
+		LemonType currentType = getLemonType(itemstack);
+		if(!player.capabilities.isCreativeMode){
+			if(!currentType.playerHasItem(player)){
+				return;
+			}
+			currentType.consumeItem(player);
+		}
+		
+		EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
+		player.worldObj.spawnEntityInWorld(lemonEnt);
 	}
 	
 	/**

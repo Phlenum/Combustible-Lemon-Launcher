@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.proxy.CommonProxy;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
@@ -23,7 +24,7 @@ public class EntityLemon extends EntityThrowable {
 		LEMONTYPE_NORMAL(CommonProxy.itemLemon) {
 			
 			@SideOnly(Side.CLIENT)
-			private final ResourceLocation TEXTURE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/" + Reference.ITEM_LEMON + ".png");
+			private final ResourceLocation TEXTURE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/items/" + Reference.ITEM_LEMON + ".png");
 			
 			@Override
 			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
@@ -40,7 +41,7 @@ public class EntityLemon extends EntityThrowable {
 		LEMONTYPE_EXPLOSION(CommonProxy.itemLemonExplosive) {
 			
 			@SideOnly(Side.CLIENT)
-			private final ResourceLocation TEXTURE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/" + Reference.ITEM_LEMON_EXPLOSIVE + ".png");
+			private final ResourceLocation TEXTURE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/items/" + Reference.ITEM_LEMON_EXPLOSIVE + ".png");
 			
 			@Override
 			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
@@ -71,6 +72,14 @@ public class EntityLemon extends EntityThrowable {
 			
 		}
 		
+		public boolean playerHasItem(EntityPlayer player){
+			return player.inventory.hasItem(itemReference);
+		}
+		
+		public void consumeItem(EntityPlayer player){
+			player.inventory.consumeInventoryItem(itemReference);
+		}
+		
 		public abstract void performImpact(EntityLemon lemon, MovingObjectPosition mop);
 		
 		@SideOnly(Side.CLIENT)
@@ -84,14 +93,19 @@ public class EntityLemon extends EntityThrowable {
 	
 	public EntityLemon(World par1World){
 		super(par1World);
+	}
+	
+	public EntityLemon(World world, EntityPlayer player, LemonType type){
+		super(world, player);
+		lemonType = type;
+	}
+	
+	@Override
+	protected void entityInit(){
+		super.entityInit();
 		if(lemonType == null){
 			lemonType = LemonType.LEMONTYPE_NORMAL;
 		}
-	}
-	
-	public EntityLemon(World par1World, LemonType type){
-		this(par1World);
-		lemonType = type;
 	}
 
 	@Override
@@ -109,6 +123,7 @@ public class EntityLemon extends EntityThrowable {
 	@Override
 	protected void onImpact(MovingObjectPosition var1){
 		lemonType.performImpact(this, var1);
+		setDead();
 	}
 	
 	public LemonType getLemonType(){
