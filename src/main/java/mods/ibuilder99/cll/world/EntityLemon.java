@@ -1,10 +1,14 @@
 package mods.ibuilder99.cll.world;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.proxy.CommonProxy;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 /**
@@ -18,18 +22,36 @@ public class EntityLemon extends EntityThrowable {
 		
 		LEMONTYPE_NORMAL(CommonProxy.itemLemon) {
 			
+			@SideOnly(Side.CLIENT)
+			private final ResourceLocation TEXTURE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/" + Reference.ITEM_LEMON + ".png");
+			
 			@Override
 			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
 				generateFire(lemon.worldObj);
 			}
 			
+			@Override
+			@SideOnly(Side.CLIENT)
+			public ResourceLocation getTexture(){
+				return TEXTURE;
+			}
+			
 		},
 		LEMONTYPE_EXPLOSION(CommonProxy.itemLemonExplosive) {
+			
+			@SideOnly(Side.CLIENT)
+			private final ResourceLocation TEXTURE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/" + Reference.ITEM_LEMON_EXPLOSIVE + ".png");
 			
 			@Override
 			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
 				generateFire(lemon.worldObj);
 				lemon.worldObj.createExplosion(lemon, lemon.posX, lemon.posY, lemon.posZ, DEFAULT_EXPLOSTION_STRENGTH, true);
+			}
+			
+			@Override
+			@SideOnly(Side.CLIENT)
+			public ResourceLocation getTexture(){
+				return TEXTURE;
 			}
 			
 		};
@@ -50,6 +72,9 @@ public class EntityLemon extends EntityThrowable {
 		}
 		
 		public abstract void performImpact(EntityLemon lemon, MovingObjectPosition mop);
+		
+		@SideOnly(Side.CLIENT)
+		public abstract ResourceLocation getTexture();
 		
 	}
 	
