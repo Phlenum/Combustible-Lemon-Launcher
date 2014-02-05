@@ -3,10 +3,12 @@ package mods.ibuilder99.cll.items;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.CLLConfiguration;
 import mods.ibuilder99.cll.lib.IKeyListener;
+import mods.ibuilder99.cll.network.packets.CLLPacketLauncherProcess;
 import mods.ibuilder99.cll.proxy.CommonProxy.CommonHelper;
 import mods.ibuilder99.cll.world.EntityLemon;
 import mods.ibuilder99.cll.world.EntityLemon.LemonType;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
@@ -78,6 +80,9 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 			currentType.consumeItem(player);
 		}
 		
+		CLLPacketLauncherProcess packetLaunchProcess = new CLLPacketLauncherProcess(currentType);
+		CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLaunchProcess, (EntityPlayerMP)player);
+				
 		EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
 		player.worldObj.spawnEntityInWorld(lemonEnt);
 	}

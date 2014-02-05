@@ -4,9 +4,8 @@ import java.io.IOException;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
-import mods.ibuilder99.cll.proxy.CommonProxy;
+import mods.ibuilder99.cll.world.EntityLemon.LemonType;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 
 /**
  * Combustible Lemon Launcher
@@ -14,35 +13,31 @@ import net.minecraft.item.ItemStack;
  */
 
 public class CLLPacketLauncherProcess extends CLLPacket {
-
-	private static final ItemStack ITEMSTACK_LEMON = new ItemStack(CommonProxy.itemLemon);
-	private static final ItemStack ITEMSTACK_COMBUSTIBLE_LEMON = new ItemStack(CommonProxy.itemLemonExplosive);
 	
-	private boolean isCombustible;
+	private LemonType launchType;
 	
 	public CLLPacketLauncherProcess(){} // <-- Default constructor for Class.newInstance()
 	
-	public CLLPacketLauncherProcess(boolean combustible){
-		isCombustible = combustible;
+	public CLLPacketLauncherProcess(LemonType type){
+		launchType = type;
 	}
 	
 	@Override
 	public void writeDataTo(ByteBufOutputStream buffer) throws IOException {
-		buffer.writeBoolean(isCombustible);
+		buffer.writeByte((byte)launchType.ordinal());
 	}
 
 	@Override
 	public void readDataFrom(ByteBufInputStream buffer) throws IOException {
-		isCombustible = buffer.readBoolean();
+		launchType = LemonType.values()[buffer.readByte()];
 	}
 	
 	private void handlePacket(EntityPlayer player){
 		if(!player.capabilities.isCreativeMode){
-			if((isCombustible && player.inventory.hasItemStack(ITEMSTACK_COMBUSTIBLE_LEMON)) || (!isCombustible && player.inventory.hasItemStack(ITEMSTACK_LEMON))){
-				player.inventory.consumeInventoryItem(isCombustible ? CommonProxy.itemLemonExplosive : CommonProxy.itemLemon);
-			}else{
+			if(!launchType.playerHasItem(player)){
 				return;
 			}
+			launchType.consumeItem(player);
 		}
 	}
 
@@ -52,10 +47,6 @@ public class CLLPacketLauncherProcess extends CLLPacket {
 	}
 
 	@Override
-	public void handleServerSide(EntityPlayer playerMP){
-		handlePacket(playerMP);
-		// TODO: Create 'EntityLemon' and spawn it (!!)server(!!) side
-		//player.worldObj.spawnEntityInWorld(par1Entity)
-	}
+	public void handleServerSide(EntityPlayer playerMP){}
 
 }
