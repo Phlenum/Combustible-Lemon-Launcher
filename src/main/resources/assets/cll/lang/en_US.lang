@@ -4,6 +4,6 @@ item.CombustibleLemonLauncher.name=Combustible Lemon Launcher
 tile.LemonSapling.name=Lemon Tree Sapling
 tile.LemonLeaves.name=Lemon Tree Sapling
 tile.LemonLeavesHarvested.name=Lemon Tree Sapling (Harvested)
-info.lemonChange=Changed projectile to %i
+msg.ItemCombustibleLemonLauncher.switchedType=Changed projectile to %i
 key.fire=Fire
 
