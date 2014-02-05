@@ -40,7 +40,7 @@ public class CLLPacketLauncherProcess extends CLLPacket {
 	private void handlePacket(EntityPlayer player){
 		if(!player.capabilities.isCreativeMode){
 			if((isCombustible && player.inventory.hasItemStack(ITEMSTACK_COMBUSTIBLE_LEMON)) || (!isCombustible && player.inventory.hasItemStack(ITEMSTACK_LEMON))){
-				player.inventory.func_146026_a(isCombustible ? CommonProxy.itemLemonExplosive : CommonProxy.itemLemon);
+				player.inventory.consumeInventoryItem(isCombustible ? CommonProxy.itemLemonExplosive : CommonProxy.itemLemon);
 			}else{
 				return;
 			}

@@ -23,8 +23,8 @@ public class CLLKeyBindingHandler {
 	
 	@SubscribeEvent
 	public void onKeyInputEvent(KeyInputEvent event){
-		if(keyBindFire.func_151468_f()){ // Has the player just pressed this key?
-			CLLPacketKey packetKey = new CLLPacketKey(keyBindFire.func_151464_g());
+		if(keyBindFire.isPressed()){
+			CLLPacketKey packetKey = new CLLPacketKey(keyBindFire.getKeyDescription());
 			CombustibleLemonLauncher.proxy.packetCLL_sendToServer(packetKey);
 		}
 	}
