@@ -70,26 +70,24 @@ public class EntityLemon extends EntityThrowable {
 	}
 
 	@Override
-	protected void entityInit(){}
-	
-	@Override
-	public void onUpdate(){
-		
-	}
-
-	@Override
 	public void readEntityFromNBT(NBTTagCompound var1){
+		super.readEntityFromNBT(var1);
 		lemonType = LemonType.values()[var1.getByte(NBTKEY_TYPE)];
 	}
 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound var1){
+		super.writeEntityToNBT(var1);
 		var1.setByte(NBTKEY_TYPE, (byte)lemonType.ordinal());
 	}
 
 	@Override
 	protected void onImpact(MovingObjectPosition var1){
 		lemonType.performImpact(this, var1);
+	}
+	
+	public LemonType getLemonType(){
+		return lemonType;
 	}
 
 }
