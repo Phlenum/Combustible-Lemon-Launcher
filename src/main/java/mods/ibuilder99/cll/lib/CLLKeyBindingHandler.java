@@ -15,7 +15,7 @@ import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
 
 public class CLLKeyBindingHandler {
 	
-	private static final KeyBinding keyBindFire = new KeyBinding("key.fire", CLLConfiguration.INT_keyForFiring, Reference.MOD_ID);
+	private static final KeyBinding keyBindFire = new KeyBinding("key.fire", CLLConfiguration.INT_keyForFiring, Reference.MOD_NAME);
 	
 	public CLLKeyBindingHandler(){
 		ClientRegistry.registerKeyBinding(keyBindFire);

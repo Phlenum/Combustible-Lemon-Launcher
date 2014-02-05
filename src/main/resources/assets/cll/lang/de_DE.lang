@@ -5,4 +5,5 @@ tile.LemonSapling.name=Zitronenbaum Setzling
 tile.LemonLeaves.name=Zitronenbaumblätter
 tile.LemonLeavesHarvested.name=Zitronenbaumblätter (Geernted)
 info.lemonChange=Projektil zu %i geändert
-key.fire=CLL: Feuern
+key.fire=Feuern
+
