@@ -76,8 +76,8 @@ public class CommonProxy {
 	 */
 	
 	public void packetCLL_sendToServer(CLLPacket packet){
-		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
-		cllChannel.get(Side.SERVER).writeAndFlush(packet);
+		cllChannel.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
+		cllChannel.get(Side.CLIENT).writeAndFlush(packet);
 	}
 	
 	public void initializeKeyBinding(){}
