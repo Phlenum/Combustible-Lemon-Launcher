@@ -3,6 +3,7 @@ package mods.ibuilder99.cll.items;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.CLLConfiguration;
 import mods.ibuilder99.cll.lib.IKeyListener;
+import mods.ibuilder99.cll.proxy.CommonProxy.CommonHelper;
 import mods.ibuilder99.cll.world.EntityLemon;
 import mods.ibuilder99.cll.world.EntityLemon.LemonType;
 import net.minecraft.entity.player.EntityPlayer;
@@ -57,7 +58,7 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 			break;
 		}
 		String msg = StatCollector.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getItemStackDisplayName(cll));
-		CombustibleLemonLauncher.proxy.sendMessageToPlayer(player, msg);
+		CommonHelper.sendMessageToPlayer(player, msg);
 	}
 	
 	private static void doAction(EntityPlayer player, ItemStack itemstack){

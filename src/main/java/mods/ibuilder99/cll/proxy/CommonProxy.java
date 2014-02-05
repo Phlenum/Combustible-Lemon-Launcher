@@ -9,6 +9,9 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.blocks.BlockLemonLeaves;
@@ -76,13 +79,35 @@ public class CommonProxy {
 	 * Adapted from <a href='http://www.minecraftforge.net/wiki/Netty_Packet_Handling'>Minecraft Forge Wiki</a>
 	 */
 	
+	public void packetCLL_sendToPlayer(CLLPacket packet, EntityPlayerMP player){
+		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
+		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(player);
+		cllChannel.get(Side.SERVER).writeAndFlush(packet);
+	}
+	
+	/**
+	 * Adapted from <a href='http://www.minecraftforge.net/wiki/Netty_Packet_Handling'>Minecraft Forge Wiki</a>
+	 */
+	
 	public void packetCLL_sendToServer(CLLPacket packet){
 		cllChannel.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
 		cllChannel.get(Side.CLIENT).writeAndFlush(packet);
 	}
 	
-	public void sendMessageToPlayer(EntityPlayer player, String message){
-		player.addChatMessage(new ChatComponentText(message));
+	public static class CommonHelper {
+		
+		public static void sendMessageToPlayer(EntityPlayer player, String message){
+			player.addChatMessage(new ChatComponentText(message));
+		}
+		
+		public static boolean createNBTTagIfNeeded(ItemStack itemstack){
+			if(!itemstack.hasTagCompound()){
+				itemstack.stackTagCompound = new NBTTagCompound();
+				return true;
+			}
+			return false;
+		}
+		
 	}
 	
 	public void initializeKeyBinding(){}
