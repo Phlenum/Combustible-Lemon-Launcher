@@ -55,13 +55,18 @@ public class CommonProxy {
 	
 	public void initializeCrafting(){
 		GameRegistry.addRecipe(new ItemStack(itemCombustibleLemonLauncher), new Object[]{
-			"iio", "rp ", "iio", 
-			Character.valueOf('i'), new ItemStack(Items.iron_ingot), 
+			"iio",
+			"rp ",
+			"iio", 
+			Character.valueOf('i'), new ItemStack(Items.iron_ingot),
+			Character.valueOf('o'), new ItemStack(Blocks.obsidian),
 			Character.valueOf('r'), new ItemStack(Items.redstone),
 			Character.valueOf('p'), new ItemStack(Blocks.piston)
 		});
 		GameRegistry.addRecipe(new ItemStack(itemLemonExplosive), new Object[]{
-			" s ", "tlt", " s ",
+			" s ",
+			"tlt",
+			" s ",
 			Character.valueOf('s'), new ItemStack(Items.string),
 			Character.valueOf('t'), new ItemStack(Blocks.tnt),
 			Character.valueOf('l'), new ItemStack(itemLemon)
