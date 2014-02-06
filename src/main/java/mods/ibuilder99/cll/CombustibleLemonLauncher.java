@@ -59,6 +59,7 @@ public class CombustibleLemonLauncher {
 	
 	@EventHandler
 	public void initializeMod(FMLInitializationEvent initEvent){
+		proxy.initializeCrafting();
 		proxy.initializeWorld();
 		proxy.initializeRenderers();
 		proxy.initializePacketHandling();

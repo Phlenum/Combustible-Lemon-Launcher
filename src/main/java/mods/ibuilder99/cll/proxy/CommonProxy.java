@@ -6,10 +6,13 @@ import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
@@ -48,6 +51,21 @@ public class CommonProxy {
 	public void initializeBlocks(){
 		blockLemonLeaves = new BlockLemonLeaves(0, Reference.BLOCK_LEMON_LEAVES, 0.2F, 0.2F, Block.soundTypeGrass);
 		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(1, Reference.BLOCK_LEMON_LEAVES_HARVESTED, 0.2F, 0.2F, Block.soundTypeGrass);
+	}
+	
+	public void initializeCrafting(){
+		GameRegistry.addRecipe(new ItemStack(itemCombustibleLemonLauncher), new Object[]{
+			"iio", "rp ", "iio", 
+			Character.valueOf('i'), new ItemStack(Items.iron_ingot), 
+			Character.valueOf('r'), new ItemStack(Items.redstone),
+			Character.valueOf('p'), new ItemStack(Blocks.piston)
+		});
+		GameRegistry.addRecipe(new ItemStack(itemLemonExplosive), new Object[]{
+			" s ", "tlt", " s ",
+			Character.valueOf('s'), new ItemStack(Items.string),
+			Character.valueOf('t'), new ItemStack(Blocks.tnt),
+			Character.valueOf('l'), new ItemStack(itemLemon)
+		});
 	}
 	
 	public void initializeWorld(){
@@ -94,6 +112,9 @@ public class CommonProxy {
 		cllChannel.get(Side.CLIENT).writeAndFlush(packet);
 	}
 	
+	public void initializeKeyBinding(){}
+	
+	
 	public static class CommonHelper {
 		
 		public static void sendMessageToPlayer(EntityPlayer player, String message){
@@ -110,6 +131,5 @@ public class CommonProxy {
 		
 	}
 	
-	public void initializeKeyBinding(){}
 	
 }
