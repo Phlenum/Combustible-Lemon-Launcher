@@ -22,12 +22,18 @@ import net.minecraft.world.World;
 
 public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpawnData {
 	
+	@SideOnly(Side.CLIENT)
+	private static class LemonTypeTextures {
+		
+		public static final ResourceLocation TEXTURE_LEMON = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/items/" + Reference.ITEM_LEMON + ".png");
+		
+		public static final ResourceLocation TEXTURE_LEMON_EXPLOSIVE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/items/" + Reference.ITEM_LEMON_EXPLOSIVE + ".png");
+		
+	}
+	
 	public enum LemonType {
 		
 		LEMONTYPE_NORMAL(CommonProxy.itemLemon) {
-			
-			@SideOnly(Side.CLIENT)
-			private final ResourceLocation TEXTURE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/items/" + Reference.ITEM_LEMON + ".png");
 			
 			@Override
 			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
@@ -37,14 +43,11 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 			@Override
 			@SideOnly(Side.CLIENT)
 			public ResourceLocation getTexture(){
-				return TEXTURE;
+				return LemonTypeTextures.TEXTURE_LEMON;
 			}
 			
 		},
 		LEMONTYPE_EXPLOSION(CommonProxy.itemLemonExplosive) {
-			
-			@SideOnly(Side.CLIENT)
-			private final ResourceLocation TEXTURE = new ResourceLocation(Reference.TEXTURE_PREFIX + "textures/items/" + Reference.ITEM_LEMON_EXPLOSIVE + ".png");
 			
 			@Override
 			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
@@ -55,7 +58,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 			@Override
 			@SideOnly(Side.CLIENT)
 			public ResourceLocation getTexture(){
-				return TEXTURE;
+				return LemonTypeTextures.TEXTURE_LEMON_EXPLOSIVE;
 			}
 			
 		};
