@@ -13,6 +13,8 @@ import mods.ibuilder99.cll.network.packets.CLLPacketLauncherProcess;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
@@ -56,6 +58,17 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 			out.add(packet); 																	   // Add it to the 'out'-list
 		}
 	}
+	
+	@SideOnly(Side.CLIENT)
+	private void packetCLLHandleClientSide(CLLPacket packet){
+		packet.handleClientSide(Minecraft.getMinecraft().thePlayer);
+	}
+	
+	@SideOnly(Side.SERVER)
+	private void packetCLLHandleServerSide(CLLPacket packet, ChannelHandlerContext context){
+		INetHandler netHandler = context.channel().attr(NetworkRegistry.NET_HANDLER).get();
+		packet.handleServerSide(((NetHandlerPlayServer) netHandler).playerEntity);
+	}
 
 	@Override
 	protected void decode(ChannelHandlerContext context, FMLProxyPacket msg, List<Object> out) throws Exception {
@@ -68,11 +81,10 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 			packetCLL.readDataFrom(bbis);
 			switch(FMLCommonHandler.instance().getEffectiveSide()){
 			case CLIENT:				
-				packetCLL.handleClientSide(Minecraft.getMinecraft().thePlayer);
+				packetCLLHandleClientSide(packetCLL);
 				break;
 			case SERVER:
-				INetHandler netHandler = context.channel().attr(NetworkRegistry.NET_HANDLER).get();
-                packetCLL.handleServerSide(((NetHandlerPlayServer) netHandler).playerEntity);
+				packetCLLHandleServerSide(packetCLL, context);
 				break;
 			}
 			bbis.close();
