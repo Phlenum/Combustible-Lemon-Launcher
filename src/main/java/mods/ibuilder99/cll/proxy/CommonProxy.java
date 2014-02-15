@@ -26,6 +26,7 @@ import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.network.CLLPacketHandler;
 import mods.ibuilder99.cll.network.packets.CLLPacket;
 import mods.ibuilder99.cll.world.EntityLemon;
+import mods.ibuilder99.cll.world.WorldGenLemonTree;
 
 /**
  * Combustible Lemon Launcher
@@ -78,6 +79,7 @@ public class CommonProxy {
 	
 	public void initializeWorld(){
 		EntityRegistry.registerModEntity(EntityLemon.class, Reference.ENTITY_LEMON, 1, CombustibleLemonLauncher.instance, 80, 3, true);
+		GameRegistry.registerWorldGenerator(new WorldGenLemonTree(), 10);
 	}
 	
 	public void initializeRenderers(){}
