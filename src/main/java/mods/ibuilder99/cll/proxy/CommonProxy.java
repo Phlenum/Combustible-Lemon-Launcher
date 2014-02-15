@@ -16,6 +16,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.oredict.OreDictionary;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.blocks.BlockLemonTreeLeaves;
 import mods.ibuilder99.cll.blocks.BlockLemonTreeLeavesHarvested;
@@ -49,6 +50,8 @@ public class CommonProxy {
 		itemLemon = new ItemCLL(0, Reference.ITEM_LEMON);
 		itemLemonExplosive = new ItemCLL(1, Reference.ITEM_LEMON_EXPLOSIVE);
 		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(2, Reference.ITEM_COMBUSTIBLE_LEMON_LAUNCHER);
+		
+		OreDictionary.registerOre(Reference.OREDICT_LEMON, itemLemon);
 	}
 	
 	public void initializeBlocks(){
