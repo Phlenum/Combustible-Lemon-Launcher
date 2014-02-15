@@ -1,9 +1,9 @@
 item.Lemon.name=Lemon
 item.LemonExplosive.name=Explosive Lemon
 item.CombustibleLemonLauncher.name=Combustible Lemon Launcher
-tile.LemonSapling.name=Lemon Tree Sapling
-tile.LemonLeaves.name=Lemon Tree Sapling
-tile.LemonLeavesHarvested.name=Lemon Tree Sapling (Harvested)
+tile.LemonTreeLeaves.name=Lemon Leaves
+tile.LemonTreeLeavesHarvested.name=Lemon Leaves (Harvested)
+tile.LemonTreeSapling.name=Lemon Tree Sapling
 msg.ItemCombustibleLemonLauncher.switchedType=Changed projectile to %i
 key.fire=Fire
 

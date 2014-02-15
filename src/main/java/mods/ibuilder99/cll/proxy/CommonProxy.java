@@ -17,8 +17,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
-import mods.ibuilder99.cll.blocks.BlockLemonLeaves;
-import mods.ibuilder99.cll.blocks.BlockLemonLeavesHarvested;
+import mods.ibuilder99.cll.blocks.BlockLemonTreeLeaves;
+import mods.ibuilder99.cll.blocks.BlockLemonTreeLeavesHarvested;
+import mods.ibuilder99.cll.blocks.BlockLemonTreeSapling;
 import mods.ibuilder99.cll.items.ItemCLL;
 import mods.ibuilder99.cll.items.ItemCombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.Reference;
@@ -37,8 +38,9 @@ public class CommonProxy {
 	public static ItemCLL itemLemonExplosive;
 	public static ItemCombustibleLemonLauncher itemCombustibleLemonLauncher;
 	
-	public static BlockLemonLeaves blockLemonLeaves;
-	public static BlockLemonLeavesHarvested blockLemonLeavesHarvested;
+	public static BlockLemonTreeLeaves blockLemonTreeLeaves;
+	public static BlockLemonTreeLeavesHarvested blockLemonTreeLeavesHarvested;
+	public static BlockLemonTreeSapling blockLemonTreeSapling;
 	
 	private static EnumMap<Side, FMLEmbeddedChannel> cllChannel;
 	
@@ -49,8 +51,9 @@ public class CommonProxy {
 	}
 	
 	public void initializeBlocks(){
-		blockLemonLeaves = new BlockLemonLeaves(0, Reference.BLOCK_LEMON_LEAVES, 0.2F, 0.2F, Block.soundTypeGrass);
-		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(1, Reference.BLOCK_LEMON_LEAVES_HARVESTED, 0.2F, 0.2F, Block.soundTypeGrass);
+		blockLemonTreeLeaves = new BlockLemonTreeLeaves(0, Reference.BLOCK_LEMON_TREE_LEAVES, 0.2F, 0.2F, Block.soundTypeGrass);
+		blockLemonTreeLeavesHarvested = new BlockLemonTreeLeavesHarvested(1, Reference.BLOCK_LEMON_TREE_LEAVES_HARVESTED, 0.2F, 0.2F, Block.soundTypeGrass);
+		blockLemonTreeSapling = new BlockLemonTreeSapling(2, Reference.BLOCK_LEMON_TREE_SAPLING, 0.0F, 0.0F, Block.soundTypeGrass);
 	}
 	
 	public void initializeCrafting(){

@@ -19,9 +19,9 @@ public class Reference {
 	public static final String ITEM_LEMON_EXPLOSIVE = "LemonExplosive";
 	public static final String ITEM_COMBUSTIBLE_LEMON_LAUNCHER = "CombustibleLemonLauncher";
 
-	public static final String BLOCK_LEMON_LEAVES = "LemonLeaves";
-	public static final String BLOCK_LEMON_LEAVES_HARVESTED = "LemonLeavesHarvested";
-	public static final String BLOCK_LEMON_SAPLING = "LemonSapling";
+	public static final String BLOCK_LEMON_TREE_LEAVES = "LemonTreeLeaves";
+	public static final String BLOCK_LEMON_TREE_LEAVES_HARVESTED = "LemonTreeLeavesHarvested";
+	public static final String BLOCK_LEMON_TREE_SAPLING = "LemonTreeSapling";
 
 	public static final String MODEL_COMBUSTIBLE_LEMON_LAUNCHER = MOD_ID.toLowerCase() + ":models/CombustibleLemonLauncher.obj";
 	public static final String TEXTURE_COMBUSTIBLE_LEMON_LAUNCHER = MOD_ID.toLowerCase() + ":textures/models/CombustibleLemonLauncher.png";

@@ -1,21 +1,22 @@
 package mods.ibuilder99.cll.blocks;
 
 import java.util.Random;
+import cpw.mods.fml.common.registry.GameRegistry;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.Reference;
-import net.minecraft.item.Item;
+import mods.ibuilder99.cll.proxy.CommonProxy;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
 
 /**
  * Combustible Lemon Launcher
  * @author Phil Julian (aka iBuilder99)
  */
 
-public class BlockLemonLeavesHarvested extends BlockLeavesBase {
+public class BlockLemonTreeLeaves extends BlockLeavesBase {
 
-	public BlockLemonLeavesHarvested(int id, String unloc, float hardness, float resistance, SoundType sound){
+	public BlockLemonTreeLeaves(int id, String unloc, float hardness, float resistance, SoundType sound){
 		super(Material.leaves, true);
 		setBlockName(unloc);
 		setHardness(hardness);
@@ -28,7 +29,13 @@ public class BlockLemonLeavesHarvested extends BlockLeavesBase {
 	
 	@Override
 	public Item getItemDropped(int par1, Random rand, int par2){
-		return null;
+		return CommonProxy.itemLemon;
+	}
+	
+	@Override
+	public int quantityDropped(Random rand){
+		int randomChance = rand.nextInt(5);
+		return (randomChance == 3 ? 2 : 1);
 	}
 
 }
