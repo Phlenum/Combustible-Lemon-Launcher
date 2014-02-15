@@ -122,6 +122,10 @@ public class CommonProxy {
 	
 	public void initializeKeyBinding(){}
 	
+	public boolean doFancyRender(){
+		return false;
+	}
+	
 	
 	public static class CommonHelper {
 		

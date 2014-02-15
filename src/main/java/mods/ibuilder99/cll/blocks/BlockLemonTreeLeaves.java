@@ -1,13 +1,18 @@
 package mods.ibuilder99.cll.blocks;
 
 import java.util.Random;
+
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.proxy.CommonProxy;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
+import net.minecraft.util.IIcon;
 
 /**
  * Combustible Lemon Launcher
@@ -16,6 +21,9 @@ import net.minecraft.item.Item;
 
 public class BlockLemonTreeLeaves extends BlockLeavesBase {
 
+	@SideOnly(Side.CLIENT)
+	private IIcon blockIconOpaque;
+	
 	public BlockLemonTreeLeaves(int id, String unloc, float hardness, float resistance, SoundType sound){
 		super(Material.leaves, true);
 		setBlockName(unloc);
@@ -25,6 +33,25 @@ public class BlockLemonTreeLeaves extends BlockLeavesBase {
 		setBlockTextureName(Reference.TEXTURE_PREFIX + unloc);
 		setCreativeTab(CombustibleLemonLauncher.TAB_COMBUSTIBLE_LEMON_LAUNCHER);
 		GameRegistry.registerBlock(this, unloc);
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister par1IconRegister) {
+		super.registerBlockIcons(par1IconRegister);
+		blockIconOpaque = par1IconRegister.registerIcon(textureName + "Opaque");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta){
+		return CombustibleLemonLauncher.proxy.doFancyRender() ? blockIcon : blockIconOpaque;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean isOpaqueCube() {
+		return !CombustibleLemonLauncher.proxy.doFancyRender();
 	}
 	
 	@Override

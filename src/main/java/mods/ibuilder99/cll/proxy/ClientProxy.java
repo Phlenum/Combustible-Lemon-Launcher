@@ -4,6 +4,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.MinecraftForgeClient;
 import mods.ibuilder99.cll.client.RenderEntityLemon;
 import mods.ibuilder99.cll.client.RenderItemCombustibleLemonLauncher;
@@ -31,6 +32,11 @@ public class ClientProxy extends CommonProxy {
 		if(CLLConfiguration.BO_useKeyToFire){
 			FMLCommonHandler.instance().bus().register(new CLLKeyBindingHandler());
 		}
+	}
+	
+	@Override
+	public boolean doFancyRender(){
+		return Minecraft.getMinecraft().gameSettings.fancyGraphics;
 	}
 
 }
