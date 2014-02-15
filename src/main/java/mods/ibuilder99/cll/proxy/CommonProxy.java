@@ -82,7 +82,7 @@ public class CommonProxy {
 	
 	public void initializeWorld(){
 		EntityRegistry.registerModEntity(EntityLemon.class, Reference.ENTITY_LEMON, 1, CombustibleLemonLauncher.instance, 80, 3, true);
-		GameRegistry.registerWorldGenerator(new WorldGenLemonTree(), 10);
+		GameRegistry.registerWorldGenerator(new WorldGenLemonTree(), 100);
 	}
 	
 	public void initializeRenderers(){}
