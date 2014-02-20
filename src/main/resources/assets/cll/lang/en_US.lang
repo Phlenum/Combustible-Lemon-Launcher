@@ -5,5 +5,6 @@ tile.LemonTreeLeaves.name=Lemon Leaves
 tile.LemonTreeLeavesHarvested.name=Lemon Leaves (Harvested)
 tile.LemonTreeSapling.name=Lemon Tree Sapling
 msg.ItemCombustibleLemonLauncher.switchedType=Changed projectile to %i
+msg.DamageSourceExplosiveLemon=%i ate an explosive lemon. Ouch.
 key.fire=Fire
 

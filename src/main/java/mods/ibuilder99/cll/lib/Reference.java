@@ -30,5 +30,6 @@ public class Reference {
 	public static final String TEXTURE_COMBUSTIBLE_LEMON_LAUNCHER = MOD_ID.toLowerCase() + ":textures/models/CombustibleLemonLauncher.png";
 
 	public static final String ENTITY_LEMON = "EntityLemon";
+	public static final String DAMAGE_SOURCE_EXPLOSIVE_LEMON = "explosiveLemon";
 
 }

@@ -27,6 +27,7 @@ import mods.ibuilder99.cll.items.ItemLemonExplosive;
 import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.network.CLLPacketHandler;
 import mods.ibuilder99.cll.network.packets.CLLPacket;
+import mods.ibuilder99.cll.world.DamageSourceExplosiveLemon;
 import mods.ibuilder99.cll.world.EntityLemon;
 import mods.ibuilder99.cll.world.WorldGenLemonTree;
 
@@ -46,6 +47,8 @@ public class CommonProxy {
 	public static BlockLemonTreeSapling blockLemonTreeSapling;
 	
 	private static EnumMap<Side, FMLEmbeddedChannel> cllChannel;
+	
+	public static final DamageSourceExplosiveLemon DAMAGE_SOURCE_EXPLOSIVE_LEMON = new DamageSourceExplosiveLemon();
 	
 	public void initializeItems(){
 		itemLemon = new ItemLemon(5, Reference.ITEM_LEMON, 0.2F, false);

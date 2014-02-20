@@ -3,10 +3,10 @@ package mods.ibuilder99.cll.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.lib.Reference;
+import mods.ibuilder99.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 /**
@@ -27,7 +27,7 @@ public class ItemLemonExplosive extends ItemFood {
 	@Override
 	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer){
 		par2World.createExplosion(par3EntityPlayer, par3EntityPlayer.posX, par3EntityPlayer.posY, par3EntityPlayer.posZ, 4.0F, true);
-		par3EntityPlayer.attackEntityFrom(DamageSource.generic, 9999.9F);
+		par3EntityPlayer.attackEntityFrom(CommonProxy.DAMAGE_SOURCE_EXPLOSIVE_LEMON, 9999.9F);
 		return super.onEaten(par1ItemStack, par2World, par3EntityPlayer);
 	}
 

@@ -5,5 +5,6 @@ tile.LemonTreeLeaves.name=Zitronenbaumblätter
 tile.LemonTreeLeavesHarvested.name=Zitronenbaumblätter (Geernted)
 tile.LemonTreeSapling.name=Zitronenbaumsetzling
 msg.ItemCombustibleLemonLauncher.switchedType=Projektil zu %i geändert
+msg.DamageSourceExplosiveLemon=%i hat eine explosive Zitrone gegessen. Ouch.
 key.fire=Feuern
 
