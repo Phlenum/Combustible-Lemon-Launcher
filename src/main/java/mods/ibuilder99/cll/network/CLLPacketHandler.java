@@ -64,7 +64,6 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 		packet.handleClientSide(Minecraft.getMinecraft().thePlayer);
 	}
 	
-	@SideOnly(Side.SERVER)
 	private void packetCLLHandleServerSide(CLLPacket packet, ChannelHandlerContext context){
 		INetHandler netHandler = context.channel().attr(NetworkRegistry.NET_HANDLER).get();
 		packet.handleServerSide(((NetHandlerPlayServer) netHandler).playerEntity);
