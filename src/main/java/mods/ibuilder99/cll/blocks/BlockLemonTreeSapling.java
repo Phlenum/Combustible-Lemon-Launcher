@@ -22,7 +22,7 @@ import net.minecraft.util.IIcon;
 
 public class BlockLemonTreeSapling extends BlockSapling {
 
-	public BlockLemonTreeSapling(int id, String unloc, float hardness, float resistance, SoundType sound){
+	public BlockLemonTreeSapling(String unloc, float hardness, float resistance, SoundType sound){
 		super();
 		setBlockName(unloc);
 		setHardness(hardness);

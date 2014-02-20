@@ -21,8 +21,9 @@ import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.blocks.BlockLemonTreeLeaves;
 import mods.ibuilder99.cll.blocks.BlockLemonTreeLeavesHarvested;
 import mods.ibuilder99.cll.blocks.BlockLemonTreeSapling;
-import mods.ibuilder99.cll.items.ItemCLL;
 import mods.ibuilder99.cll.items.ItemCombustibleLemonLauncher;
+import mods.ibuilder99.cll.items.ItemLemon;
+import mods.ibuilder99.cll.items.ItemLemonExplosive;
 import mods.ibuilder99.cll.lib.Reference;
 import mods.ibuilder99.cll.network.CLLPacketHandler;
 import mods.ibuilder99.cll.network.packets.CLLPacket;
@@ -36,8 +37,8 @@ import mods.ibuilder99.cll.world.WorldGenLemonTree;
 
 public class CommonProxy {
 	
-	public static ItemCLL itemLemon;
-	public static ItemCLL itemLemonExplosive;
+	public static ItemLemon itemLemon;
+	public static ItemLemonExplosive itemLemonExplosive;
 	public static ItemCombustibleLemonLauncher itemCombustibleLemonLauncher;
 	
 	public static BlockLemonTreeLeaves blockLemonTreeLeaves;
@@ -47,17 +48,17 @@ public class CommonProxy {
 	private static EnumMap<Side, FMLEmbeddedChannel> cllChannel;
 	
 	public void initializeItems(){
-		itemLemon = new ItemCLL(0, Reference.ITEM_LEMON);
-		itemLemonExplosive = new ItemCLL(1, Reference.ITEM_LEMON_EXPLOSIVE);
-		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(2, Reference.ITEM_COMBUSTIBLE_LEMON_LAUNCHER);
+		itemLemon = new ItemLemon(5, Reference.ITEM_LEMON, 0.2F, false);
+		itemLemonExplosive = new ItemLemonExplosive(5, Reference.ITEM_LEMON_EXPLOSIVE, 0.2F, true);
+		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(Reference.ITEM_COMBUSTIBLE_LEMON_LAUNCHER);
 		
 		OreDictionary.registerOre(Reference.OREDICT_LEMON, itemLemon);
 	}
 	
 	public void initializeBlocks(){
-		blockLemonTreeLeaves = new BlockLemonTreeLeaves(0, Reference.BLOCK_LEMON_TREE_LEAVES, 0.2F, 0.2F, Block.soundTypeGrass);
-		blockLemonTreeLeavesHarvested = new BlockLemonTreeLeavesHarvested(1, Reference.BLOCK_LEMON_TREE_LEAVES_HARVESTED, 0.2F, 0.2F, Block.soundTypeGrass);
-		blockLemonTreeSapling = new BlockLemonTreeSapling(2, Reference.BLOCK_LEMON_TREE_SAPLING, 0.0F, 0.0F, Block.soundTypeGrass);
+		blockLemonTreeLeaves = new BlockLemonTreeLeaves(Reference.BLOCK_LEMON_TREE_LEAVES, 0.2F, 0.2F, Block.soundTypeGrass);
+		blockLemonTreeLeavesHarvested = new BlockLemonTreeLeavesHarvested(Reference.BLOCK_LEMON_TREE_LEAVES_HARVESTED, 0.2F, 0.2F, Block.soundTypeGrass);
+		blockLemonTreeSapling = new BlockLemonTreeSapling(Reference.BLOCK_LEMON_TREE_SAPLING, 0.0F, 0.0F, Block.soundTypeGrass);
 	}
 	
 	public void initializeCrafting(){

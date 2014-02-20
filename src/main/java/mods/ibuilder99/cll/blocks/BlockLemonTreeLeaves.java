@@ -24,7 +24,7 @@ public class BlockLemonTreeLeaves extends BlockLeavesBase {
 	@SideOnly(Side.CLIENT)
 	private IIcon blockIconOpaque;
 	
-	public BlockLemonTreeLeaves(int id, String unloc, float hardness, float resistance, SoundType sound){
+	public BlockLemonTreeLeaves(String unloc, float hardness, float resistance, SoundType sound){
 		super(Material.leaves, true);
 		setBlockName(unloc);
 		setHardness(hardness);

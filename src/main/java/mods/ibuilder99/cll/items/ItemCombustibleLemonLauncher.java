@@ -24,8 +24,8 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 	private static final String NBTKEY_LEMONTYPE = "LemonType";
 	private static final String LOCALIZED_SWITCHED_TYPE = "msg.ItemCombustibleLemonLauncher.switchedType";
 	
-	public ItemCombustibleLemonLauncher(int id, String unloc){
-		super(id, unloc);
+	public ItemCombustibleLemonLauncher(String unloc){
+		super(unloc);
 		setMaxStackSize(1);
 	}
 	
