@@ -1,9 +1,9 @@
 package mods.ibuilder99.cll.items;
 
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
-import mods.ibuilder99.cll.lib.CLLConfiguration;
 import mods.ibuilder99.cll.lib.IKeyListener;
 import mods.ibuilder99.cll.network.packets.CLLPacketLauncherProcess;
+import mods.ibuilder99.cll.proxy.ClientProxy;
 import mods.ibuilder99.cll.proxy.CommonProxy.CommonHelper;
 import mods.ibuilder99.cll.world.EntityLemon;
 import mods.ibuilder99.cll.world.EntityLemon.LemonType;
@@ -93,7 +93,7 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer){
-		if(!CLLConfiguration.BO_useKeyToFire && !par2World.isRemote){
+		if(!par2World.isRemote && !ClientProxy.BO_useKeyToFire){
 			doAction(par3EntityPlayer, par1ItemStack);
 		}
 		return par1ItemStack;
@@ -105,9 +105,7 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 	
 	@Override
 	public void onKeyPressed(String key, EntityPlayer player, ItemStack itemstack){
-		if(CLLConfiguration.BO_useKeyToFire){
-			doAction(player, itemstack);
-		}
+		doAction(player, itemstack);
 	}
 
 }

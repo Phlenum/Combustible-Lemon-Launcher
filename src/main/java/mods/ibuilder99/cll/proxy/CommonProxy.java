@@ -1,7 +1,10 @@
 package mods.ibuilder99.cll.proxy;
 
+import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
+
 import java.util.EnumMap;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -16,6 +19,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 import net.minecraftforge.oredict.OreDictionary;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
 import mods.ibuilder99.cll.blocks.BlockLemonLog;
@@ -39,6 +44,8 @@ import mods.ibuilder99.cll.world.EntityLemon;
 
 public class CommonProxy {
 	
+	public static boolean BO_registerLemonWood;
+	
 	public static ItemLemon itemLemon;
 	public static ItemLemonExplosive itemLemonExplosive;
 	public static ItemCombustibleLemonLauncher itemCombustibleLemonLauncher;
@@ -52,6 +59,12 @@ public class CommonProxy {
 	private static EnumMap<Side, FMLEmbeddedChannel> cllChannel;
 	
 	public static final DamageSourceExplosiveLemon DAMAGE_SOURCE_EXPLOSIVE_LEMON = new DamageSourceExplosiveLemon();
+	
+	public void initializeConfiguration(Configuration configObj){
+		Property PROP_registerLemonWood = configObj.get(CATEGORY_GENERAL, "registerLemonWood", true);
+		PROP_registerLemonWood.comment = "Shall the mod register its own lemon wood blocks?";
+		BO_registerLemonWood = PROP_registerLemonWood.getBoolean(true);
+	}
 	
 	public void initializeItems(){
 		itemLemon = new ItemLemon(5, Reference.ITEM_LEMON, 0.2F, false);
@@ -158,6 +171,10 @@ public class CommonProxy {
 				return true;
 			}
 			return false;
+		}
+		
+		public static boolean isClientSide(){
+			return FMLCommonHandler.instance().getEffectiveSide().equals(Side.CLIENT);
 		}
 		
 	}
