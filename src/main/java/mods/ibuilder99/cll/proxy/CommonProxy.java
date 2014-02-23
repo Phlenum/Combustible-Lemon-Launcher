@@ -78,8 +78,11 @@ public class CommonProxy {
 		blockLemonTreePlanks = new BlockLemonPlanks(Reference.BLOCK_LEMON_TREE_PLANKS, 1.0F, 1.0F, Block.soundTypeWood);
 		blockLemonTreeSapling = new BlockLemonTreeSapling(Reference.BLOCK_LEMON_TREE_SAPLING, 0.0F, 0.0F, Block.soundTypeGrass);
 		
-		OreDictionary.registerOre(Reference.OREDICT_LEMON_TREE_LOG, blockLemonTreeLog);
-		OreDictionary.registerOre(Reference.OREDICT_LEMON_TREE_PLANKS, blockLemonTreePlanks);
+		OreDictionary.registerOre("leavesTree", blockLemonTreeLeaves);
+		OreDictionary.registerOre("leavesTree", blockLemonTreeLeavesHarvested);
+		OreDictionary.registerOre("logWood", blockLemonTreeLog);
+		OreDictionary.registerOre("plankWood", blockLemonTreePlanks);
+		OreDictionary.registerOre("saplingTree", blockLemonTreeSapling);
 	}
 	
 	public void initializeCrafting(){

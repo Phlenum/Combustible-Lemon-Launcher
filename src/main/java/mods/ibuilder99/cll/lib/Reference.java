@@ -20,8 +20,6 @@ public class Reference {
 	public static final String ITEM_COMBUSTIBLE_LEMON_LAUNCHER = "CombustibleLemonLauncher";
 	
 	public static final String OREDICT_LEMON = "foodLemon";
-	public static final String OREDICT_LEMON_TREE_LOG = "lemonLog";
-	public static final String OREDICT_LEMON_TREE_PLANKS = "lemonWood";
 
 	public static final String BLOCK_LEMON_TREE_LEAVES = "LemonTreeLeaves";
 	public static final String BLOCK_LEMON_TREE_LEAVES_HARVESTED = "LemonTreeLeavesHarvested";
