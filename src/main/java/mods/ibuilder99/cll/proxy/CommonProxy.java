@@ -60,10 +60,14 @@ public class CommonProxy {
 	
 	public static final DamageSourceExplosiveLemon DAMAGE_SOURCE_EXPLOSIVE_LEMON = new DamageSourceExplosiveLemon();
 	
-	public void initializeConfiguration(Configuration configObj){
-		Property PROP_registerLemonWood = configObj.get(CATEGORY_GENERAL, "registerLemonWood", true);
-		PROP_registerLemonWood.comment = "Shall the mod register its own lemon wood blocks?";
-		BO_registerLemonWood = PROP_registerLemonWood.getBoolean(true);
+	public static class CLLConfiguration {
+		
+		public static void initializeConfiguration(Configuration configObj){
+			Property PROP_registerLemonWood = configObj.get(CATEGORY_GENERAL, "registerLemonWood", true);
+			PROP_registerLemonWood.comment = "Shall the mod register its own lemon wood blocks?";
+			BO_registerLemonWood = PROP_registerLemonWood.getBoolean(true);
+		}
+		
 	}
 	
 	public void initializeItems(){
@@ -151,8 +155,6 @@ public class CommonProxy {
 		cllChannel.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
 		cllChannel.get(Side.CLIENT).writeAndFlush(packet);
 	}
-	
-	public void initializeKeyBinding(){}
 	
 	public boolean doFancyRender(){
 		return false;

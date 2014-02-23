@@ -53,7 +53,7 @@ public class CombustibleLemonLauncher {
 	public void preInitializeMod(FMLPreInitializationEvent preInitEvent){
 		CLLLogger.initializeLogging();
 		Configuration configObj = new Configuration(preInitEvent.getSuggestedConfigurationFile());
-		proxy.initializeConfiguration(configObj);
+		CommonProxy.CLLConfiguration.initializeConfiguration(configObj);
 		if(configObj.hasChanged()){
 			configObj.save();
 		}
@@ -67,7 +67,6 @@ public class CombustibleLemonLauncher {
 		proxy.initializeWorld();
 		proxy.initializeRenderers();
 		proxy.initializePacketHandling();
-		proxy.initializeKeyBinding();
 	}
 
 }

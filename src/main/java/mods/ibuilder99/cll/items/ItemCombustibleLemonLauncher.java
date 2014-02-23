@@ -1,7 +1,6 @@
 package mods.ibuilder99.cll.items;
 
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
-import mods.ibuilder99.cll.lib.IKeyListener;
 import mods.ibuilder99.cll.network.packets.CLLPacketLauncherProcess;
 import mods.ibuilder99.cll.proxy.CommonProxy.CommonHelper;
 import mods.ibuilder99.cll.world.EntityLemon;
@@ -18,7 +17,7 @@ import net.minecraft.world.World;
  * @author Phil Julian (aka iBuilder99)
  */
 
-public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListener {
+public class ItemCombustibleLemonLauncher extends ItemCLL {
 
 	private static final String NBTKEY_LEMONTYPE = "LemonType";
 	private static final String LOCALIZED_SWITCHED_TYPE = "msg.ItemCombustibleLemonLauncher.switchedType";
@@ -58,8 +57,10 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 			setLemonType(cll, LemonType.LEMONTYPE_NORMAL);
 			break;
 		}
-		String msg = StatCollector.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getItemStackDisplayName(cll));
-		CommonHelper.sendMessageToPlayer(player, msg);
+		if(player.worldObj.isRemote){
+			String msg = StatCollector.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getItemStackDisplayName(cll));
+			CommonHelper.sendMessageToPlayer(player, msg);
+		}
 	}
 	
 	// Server Code
@@ -71,36 +72,25 @@ public class ItemCombustibleLemonLauncher extends ItemCLL implements IKeyListene
 			toggleLemonType(player, itemstack);
 			return;
 		}
-		LemonType currentType = getLemonType(itemstack);
-		if(!player.capabilities.isCreativeMode){
-			if(!currentType.playerHasItem(player)){
-				return;
+		if(!player.worldObj.isRemote){
+			LemonType currentType = getLemonType(itemstack);
+			if(!player.capabilities.isCreativeMode){
+				if(!currentType.playerHasItem(player)){
+					return;
+				}
+				currentType.consumeItem(player);
 			}
-			currentType.consumeItem(player);
+			CLLPacketLauncherProcess packetLaunchProcess = new CLLPacketLauncherProcess(currentType);
+			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLaunchProcess, (EntityPlayerMP)player);
+			EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
+			player.worldObj.spawnEntityInWorld(lemonEnt);
 		}
-
-		CLLPacketLauncherProcess packetLaunchProcess = new CLLPacketLauncherProcess(currentType);
-		CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLaunchProcess, (EntityPlayerMP)player);
-
-		EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
-		player.worldObj.spawnEntityInWorld(lemonEnt);
 	}
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer){
-		if(!par2World.isRemote){
-			doAction(par3EntityPlayer, par1ItemStack);
-		}
+		doAction(par3EntityPlayer, par1ItemStack);
 		return par1ItemStack;
-	}
-
-	/**
-	 * Fire a lemon if the player configured 'useKeyToFire=true'
-	 */
-	
-	@Override
-	public void onKeyPressed(String key, EntityPlayer player, ItemStack itemstack){
-		doAction(player, itemstack);
 	}
 
 }

@@ -1,27 +1,27 @@
 package mods.ibuilder99.cll.network;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufInputStream;
+import io.netty.buffer.ByteBufOutputStream;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.MessageToMessageCodec;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import mods.ibuilder99.cll.lib.Reference;
+import mods.ibuilder99.cll.network.packets.CLLPacket;
+import mods.ibuilder99.cll.network.packets.CLLPacketLauncherProcess;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
-import mods.ibuilder99.cll.lib.Reference;
-import mods.ibuilder99.cll.network.packets.CLLPacket;
-import mods.ibuilder99.cll.network.packets.CLLPacketKey;
-import mods.ibuilder99.cll.network.packets.CLLPacketLauncherProcess;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufInputStream;
-import io.netty.buffer.ByteBufOutputStream;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelHandler;
-import io.netty.handler.codec.MessageToMessageCodec;
 
 /**
  * Combustible Lemon Launcher
@@ -41,7 +41,6 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 	}
 	
 	public static void registerPackets(){
-		registerPacket(CLLPacketKey.class);
 		registerPacket(CLLPacketLauncherProcess.class);
 	}
 	
