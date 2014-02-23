@@ -8,7 +8,6 @@ import mods.ibuilder99.cll.lib.Reference;
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
-import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Combustible Lemon Launcher
@@ -17,7 +16,7 @@ import net.minecraftforge.common.util.ForgeDirection;
  */
 
 public class BlockLemonLog extends BlockLog {
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon topBottom;
 
@@ -31,25 +30,24 @@ public class BlockLemonLog extends BlockLog {
 		setCreativeTab(CombustibleLemonLauncher.TAB_COMBUSTIBLE_LEMON_LAUNCHER);
 		GameRegistry.registerBlock(this, unloc);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IIconRegister){
 		blockIcon = par1IIconRegister.registerIcon(textureName);
 		topBottom = par1IIconRegister.registerIcon(textureName + "TopBottom");
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta){
-		ForgeDirection direction = ForgeDirection.getOrientation(side);
-		switch(direction){
-		case UP:
-		case DOWN:
-			return topBottom;
-		default:
-			return blockIcon;
-		}
+	protected IIcon getTopIcon(int i){
+		return topBottom;
 	}
-	
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	protected IIcon getSideIcon(int i){
+		return blockIcon;
+	}
+
 }
