@@ -13,6 +13,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Combustible Lemon Launcher
@@ -63,6 +65,11 @@ public class BlockLemonTreeLeaves extends BlockLeavesBase {
 	public int quantityDropped(Random rand){
 		int randomChance = rand.nextInt(5);
 		return (randomChance == 3 ? 2 : 1);
+	}
+	
+	@Override
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face){
+		return 40;
 	}
 
 }
