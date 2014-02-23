@@ -6,7 +6,7 @@ import mods.ibuilder99.cll.network.CLLPacketHandler;
 import mods.ibuilder99.cll.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-//import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -52,11 +52,11 @@ public class CombustibleLemonLauncher {
 	@EventHandler
 	public void preInitializeMod(FMLPreInitializationEvent preInitEvent){
 		CLLLogger.initializeLogging();
-		/*Configuration configObj = new Configuration(preInitEvent.getSuggestedConfigurationFile());
+		Configuration configObj = new Configuration(preInitEvent.getSuggestedConfigurationFile());
 		CommonProxy.CLLConfiguration.initializeConfiguration(configObj);
 		if(configObj.hasChanged()){
 			configObj.save();
-		}*/
+		}
 		proxy.initializeItems();
 		proxy.initializeBlocks();
 	}
