@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.2-2.0.3"
+version = "1.7.2-2.0.4"
 group= "mods.ibuilder99.cll" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CLL"
 
 minecraft {
-    version = "1.7.2-10.12.0.1029"
+    version = "1.7.2-10.12.0.1033"
     assetDir = "eclipse/assets"
 }
 processResources
