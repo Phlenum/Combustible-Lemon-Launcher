@@ -15,6 +15,7 @@ import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
 public class CLLConfiguration {
 	
 	public static boolean BO_useKeyToFire;
+	public static boolean BO_registerLemonWood;
 	public static int INT_keyForFiring;
 	
 	public static void initializeConfiguration(File configFile){
@@ -24,6 +25,7 @@ public class CLLConfiguration {
 		configObj.addCustomCategoryComment(CATEGORY_GENERAL, 
 				"Use the LWJGL Keyboard Codes to configure\n"
 				+ "http://minecraft.gamepedia.com/Key_Codes");
+		BO_registerLemonWood = configObj.get(CATEGORY_GENERAL, "registerLemonWood", true).getBoolean(true);
 		INT_keyForFiring = configObj.get(CATEGORY_GENERAL, "keyForFiring", Keyboard.KEY_F).getInt();
 		
 		if(configObj.hasChanged()){

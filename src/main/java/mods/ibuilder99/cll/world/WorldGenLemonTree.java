@@ -4,7 +4,6 @@ import java.util.Random;
 
 import mods.ibuilder99.cll.proxy.CommonProxy;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -28,7 +27,7 @@ public class WorldGenLemonTree extends WorldGenerator {
 			if(blocksLeft <= MINIMUM_LEAF_CONTAINING_LAYERS){
 				fillLeavesAround(world, rand, Math.min(blocksLeft, 2), x, i, z);
 			}
-			world.setBlock(x, i, z, Blocks.log);
+			world.setBlock(x, i, z, CommonProxy.blockLemonTreeLog);
 		}
 		world.setBlock(x, (y + TREE_HEIGHT), z, randomLeafBlock(rand));
 		return false;

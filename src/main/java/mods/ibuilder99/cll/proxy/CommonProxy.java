@@ -18,6 +18,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.oredict.OreDictionary;
 import mods.ibuilder99.cll.CombustibleLemonLauncher;
+import mods.ibuilder99.cll.blocks.BlockLemonLog;
+import mods.ibuilder99.cll.blocks.BlockLemonPlanks;
 import mods.ibuilder99.cll.blocks.BlockLemonTreeLeaves;
 import mods.ibuilder99.cll.blocks.BlockLemonTreeLeavesHarvested;
 import mods.ibuilder99.cll.blocks.BlockLemonTreeSapling;
@@ -43,6 +45,8 @@ public class CommonProxy {
 	
 	public static BlockLemonTreeLeaves blockLemonTreeLeaves;
 	public static BlockLemonTreeLeavesHarvested blockLemonTreeLeavesHarvested;
+	public static BlockLemonLog blockLemonTreeLog;
+	public static BlockLemonPlanks blockLemonTreePlanks;
 	public static BlockLemonTreeSapling blockLemonTreeSapling;
 	
 	private static EnumMap<Side, FMLEmbeddedChannel> cllChannel;
@@ -60,7 +64,12 @@ public class CommonProxy {
 	public void initializeBlocks(){
 		blockLemonTreeLeaves = new BlockLemonTreeLeaves(Reference.BLOCK_LEMON_TREE_LEAVES, 0.2F, 0.2F, Block.soundTypeGrass);
 		blockLemonTreeLeavesHarvested = new BlockLemonTreeLeavesHarvested(Reference.BLOCK_LEMON_TREE_LEAVES_HARVESTED, 0.2F, 0.2F, Block.soundTypeGrass);
+		blockLemonTreeLog = new BlockLemonLog(Reference.BLOCK_LEMON_TREE_LOG, 1.0F, 1.0F, Block.soundTypeWood);
+		blockLemonTreePlanks = new BlockLemonPlanks(Reference.BLOCK_LEMON_TREE_PLANKS, 1.0F, 1.0F, Block.soundTypeWood);
 		blockLemonTreeSapling = new BlockLemonTreeSapling(Reference.BLOCK_LEMON_TREE_SAPLING, 0.0F, 0.0F, Block.soundTypeGrass);
+		
+		OreDictionary.registerOre(Reference.OREDICT_LEMON_TREE_LOG, blockLemonTreeLog);
+		OreDictionary.registerOre(Reference.OREDICT_LEMON_TREE_PLANKS, blockLemonTreePlanks);
 	}
 	
 	public void initializeCrafting(){
@@ -80,6 +89,9 @@ public class CommonProxy {
 			Character.valueOf('s'), new ItemStack(Items.string),
 			Character.valueOf('t'), new ItemStack(Blocks.tnt),
 			Character.valueOf('l'), new ItemStack(itemLemon)
+		});
+		GameRegistry.addShapelessRecipe(new ItemStack(blockLemonTreePlanks, 4), new Object[]{
+			blockLemonTreeLog
 		});
 	}
 	
