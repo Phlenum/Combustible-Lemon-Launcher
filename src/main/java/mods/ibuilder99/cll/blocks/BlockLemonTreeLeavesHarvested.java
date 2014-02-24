@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -104,10 +105,14 @@ public class BlockLemonTreeLeavesHarvested extends BlockLeaves {
 		return 0;
 	}
 
-
 	@Override
 	public Item getItemDropped(int par1, Random rand, int par2){
 		return null;
+	}
+	
+	@Override
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face) {
+		return 200;
 	}
 
 	@Override

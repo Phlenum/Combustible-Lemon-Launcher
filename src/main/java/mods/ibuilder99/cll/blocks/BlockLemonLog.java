@@ -8,6 +8,8 @@ import mods.ibuilder99.cll.lib.Reference;
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Combustible Lemon Launcher
@@ -48,6 +50,11 @@ public class BlockLemonLog extends BlockLog {
 	@SideOnly(Side.CLIENT)
 	protected IIcon getSideIcon(int i){
 		return blockIcon;
+	}
+	
+	@Override
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face) {
+		return 200;
 	}
 
 }

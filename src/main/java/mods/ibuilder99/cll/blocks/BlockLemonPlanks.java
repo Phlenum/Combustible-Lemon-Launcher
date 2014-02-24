@@ -10,6 +10,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -50,6 +52,11 @@ public class BlockLemonPlanks extends BlockWood {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getSubBlocks(Item item, CreativeTabs tab, List list){
 		list.add(new ItemStack(item, 1, 0));
+	}
+	
+	@Override
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face) {
+		return 200;
 	}
 
 }
