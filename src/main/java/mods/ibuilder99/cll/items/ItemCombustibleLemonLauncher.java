@@ -35,6 +35,7 @@ public class ItemCombustibleLemonLauncher extends ItemCLL {
 	private static boolean createNBTTagIfNeeded(ItemStack itemstack){
 		if(!itemstack.hasTagCompound()){
 			itemstack.stackTagCompound = new NBTTagCompound();
+			setLemonType(itemstack, LemonType.LEMONTYPE_NORMAL);
 			return true;
 		}
 		return false;
@@ -65,10 +66,8 @@ public class ItemCombustibleLemonLauncher extends ItemCLL {
 	
 	// Server Code
 	private static void doAction(EntityPlayer player, ItemStack itemstack){
+		createNBTTagIfNeeded(itemstack);
 		if(player.isSneaking()){
-			if(createNBTTagIfNeeded(itemstack)){
-				setLemonType(itemstack, LemonType.LEMONTYPE_NORMAL);
-			}
 			toggleLemonType(player, itemstack);
 			return;
 		}
