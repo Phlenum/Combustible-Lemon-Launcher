@@ -22,7 +22,11 @@ group= "mods.ibuilder99.cll" // http://maven.apache.org/guides/mini/guide-naming
 archivesBaseName = "CLL"
 
 minecraft {
+<<<<<<< HEAD
     version = "1.7.2-10.12.1.1065"
+=======
+    version = "1.7.2-10.12.0.1057"
+>>>>>>> 2f8c74a615d2190325fc62a6f8c4ed2e2103bcde
     assetDir = "eclipse/assets"
 }
 
