@@ -6,12 +6,10 @@ package mods.ibuilder99.cll.lib;
  */
 
 public class Reference {
-	
-	public static final String[] AVAIBABLE_LOCALIZATIONS = {"en_US", "de_DE"};
 
 	public static final String MOD_NAME = "Combustible Lemon Launcher";
 	public static final String MOD_ID = "CLL";
-	public static final String MOD_VERSION = "1.7.2-2.1.5";
+	public static final String MOD_VERSION = "1.7.10-2.2.6";
 	public static final String MOD_CHANNEL = "CLL";
 	public static final String TEXTURE_PREFIX = Reference.MOD_ID.toLowerCase() + ":";
 
