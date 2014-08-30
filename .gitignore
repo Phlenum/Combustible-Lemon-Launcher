@@ -5,6 +5,7 @@ bin
 build
 eclipse
 gradle
+exec
 .classpath
 .project
 CREDITS-fml.txt
@@ -16,3 +17,7 @@ LICENSE-fml.txt
 MinecraftForge-Credits.txt
 MinecraftForge-License.txt
 README.txt
+*.ipr
+*.iml
+*.iws
+*.DS_Store
