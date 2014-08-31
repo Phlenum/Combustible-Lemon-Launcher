@@ -5,7 +5,7 @@
   "description": "\"Im gonna get my engineers to invent a combustible lemon that burns your house down!\"\n - Cave Johnson, CEO of Aperture Science",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "logoFile": "/logo.png",
+  "logoFile": "logo.png",
   "url": "http://minecraft.curseforge.com/mc-mods/combustible-lemon-launcher/",
   "updateUrl": "",
   "authorList": ["Phlenum"],
