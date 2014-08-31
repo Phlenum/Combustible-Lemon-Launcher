@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 /**
  * Combustible Lemon Launcher
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpawnData {

@@ -2,7 +2,7 @@ package mods.phlenum.cll.lib;
 
 /**
  * Combustible Lemon Launcher
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 public class Reference {

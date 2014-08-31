@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Combustible Lemon Launcher
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 @Mod(

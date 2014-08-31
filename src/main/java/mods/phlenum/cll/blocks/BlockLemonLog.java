@@ -13,8 +13,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 public class BlockLemonLog extends BlockLog {

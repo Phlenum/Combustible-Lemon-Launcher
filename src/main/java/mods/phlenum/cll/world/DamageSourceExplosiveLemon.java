@@ -10,7 +10,7 @@ import net.minecraft.util.StatCollector;
 
 /**
  * Combustible Lemon Launcher
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 public class DamageSourceExplosiveLemon extends DamageSource {

@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 /**
  * Combustible Lemon Launcher
  * Copyright (c) 2014 Phil Julian
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 public class WorldGenLemonTree extends WorldGenerator {

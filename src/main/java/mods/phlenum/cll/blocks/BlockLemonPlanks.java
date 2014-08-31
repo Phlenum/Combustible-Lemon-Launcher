@@ -18,8 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Combustible Lemon Launcher
- * Copyright (c) 2014 Phil Julian
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 public class BlockLemonPlanks extends BlockWood {

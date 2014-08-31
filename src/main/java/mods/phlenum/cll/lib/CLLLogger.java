@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * Combustible Lemon Launcher
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 public class CLLLogger {

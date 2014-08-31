@@ -12,7 +12,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 /**
  * Combustible Lemon Launcher
- * @author Phil Julian (aka iBuilder99)
+ * Minecraft Forge Modification
  */
 
 @SideOnly(Side.CLIENT)

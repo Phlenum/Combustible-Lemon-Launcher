@@ -25,7 +25,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Combustible Lemon Launcher
- * @author Phil Julian (aka iBuilder99)<br>
+ * Minecraft Forge Modification
  * Adapted from <a href='http://www.minecraftforge.net/wiki/Netty_Packet_Handling'>Minecraft Forge Wiki</a>
  */
 
