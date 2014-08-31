@@ -22,6 +22,8 @@ group= "mods.phlenum.cll" // http://maven.apache.org/guides/mini/guide-naming-co
 archivesBaseName = "CLL"
 
 minecraft {
+    replaceIn "lib/Reference.java"
+    replace "@VERSION@", project.version
     version = "1.7.10-10.13.0.1208"
     runDir = "exec/assets"
 }
@@ -33,7 +35,7 @@ processResources
     inputs.property "mcversion", project.minecraft.version
 
     from(sourceSets.main.resources.srcDirs) {
-        //include 'mcmod.info'
+        include 'mcmod.info'
                 
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
