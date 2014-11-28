@@ -24,8 +24,9 @@ archivesBaseName = "CLL"
 minecraft {
     replaceIn "lib/Reference.java"
     replace "@VERSION@", project.version
-    version = "1.7.10-10.13.1.1225"
+    version = "1.8-11.14.0.1245-1.8"
     runDir = "exec/assets"
+    mappings = "snapshot_nodoc_20140930"
 }
 
 processResources

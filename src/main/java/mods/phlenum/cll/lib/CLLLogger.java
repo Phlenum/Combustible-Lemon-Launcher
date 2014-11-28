@@ -5,8 +5,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Combustible Lemon Launcher
- * Minecraft Forge Modification
+ * The Combustible Lemon Launcher mod
+ * https://github.com/Phlenum/Combustible-Lemon-Launcher
+ * http://minecraft.curseforge.com/mc-mods/62429-combustible-lemon-launcher
+ * @author Phil Julian
+ * @date 29 Nov 2014
  */
 
 public class CLLLogger {

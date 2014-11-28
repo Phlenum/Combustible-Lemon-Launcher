@@ -4,8 +4,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 /**
- * Combustible Lemon Launcher
- * Minecraft Forge Modification
+ * The Combustible Lemon Launcher mod
+ * https://github.com/Phlenum/Combustible-Lemon-Launcher
+ * http://minecraft.curseforge.com/mc-mods/62429-combustible-lemon-launcher
+ * @author Phil Julian
+ * @date 29 Nov 2014
  */
 
 public interface IKeyListener {
