@@ -3,6 +3,7 @@ package mods.phlenum.cll.proxy;
 import static mods.phlenum.cll.lib.Reference.*;
 
 import mods.phlenum.cll.items.ItemLemon;
+import mods.phlenum.cll.items.ItemLemonExplosive;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
@@ -19,6 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class CommonProxy {
 
     public static ItemLemon itemLemon;
+    public static ItemLemonExplosive itemLemonExplosive;
 
     public static final CreativeTabs tabCLL = new CreativeTabs(MOD_ID){
 
@@ -30,7 +32,7 @@ public class CommonProxy {
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem() {
-            return itemLemon;
+            return itemLemonExplosive;
         }
 
     };
@@ -41,6 +43,7 @@ public class CommonProxy {
 
     public void initializeItems(){
         itemLemon = new ItemLemon(ITEM_LEMON);
+        itemLemonExplosive = new ItemLemonExplosive(ITEM_LEMON_EXPLOSIVE);
     }
 
     public void registerItemRender(Item item){}

@@ -12,9 +12,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * @date 14 Dec 2014
  */
 
-public class ItemLemon extends Item {
+public class ItemLemonExplosive extends Item {
 
-    public ItemLemon(String unloc){
+    public ItemLemonExplosive(String unloc){
         setUnlocalizedName(unloc);
         setCreativeTab(CommonProxy.tabCLL);
         GameRegistry.registerItem(this, unloc);

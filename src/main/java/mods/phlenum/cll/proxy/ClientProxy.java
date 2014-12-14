@@ -27,6 +27,7 @@ public final class ClientProxy extends CommonProxy {
     @Override
     public void initializeRenderers(){
         registerItemRender(itemLemon);
+        registerItemRender(itemLemonExplosive);
     }
 
 }
