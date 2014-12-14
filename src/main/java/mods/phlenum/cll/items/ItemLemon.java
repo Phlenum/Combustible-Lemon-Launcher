@@ -1,7 +1,7 @@
 package mods.phlenum.cll.items;
 
 import mods.phlenum.cll.proxy.CommonProxy;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -12,9 +12,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * @date 14 Dec 2014
  */
 
-public class ItemLemon extends Item {
+public class ItemLemon extends ItemFood {
 
-    public ItemLemon(String unloc){
+    public ItemLemon(String unloc, int healAmount, float saturation, boolean dogsFood){
+        super(healAmount, saturation, dogsFood);
         setUnlocalizedName(unloc);
         setCreativeTab(CommonProxy.tabCLL);
         GameRegistry.registerItem(this, unloc);

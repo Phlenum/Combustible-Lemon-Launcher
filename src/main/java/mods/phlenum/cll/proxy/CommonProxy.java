@@ -6,6 +6,7 @@ import mods.phlenum.cll.blocks.BlockLemonTreeLog;
 import mods.phlenum.cll.blocks.BlockLemonTreePlanks;
 import mods.phlenum.cll.items.ItemLemon;
 import mods.phlenum.cll.items.ItemLemonExplosive;
+import mods.phlenum.cll.lib.DamageSourceExplosiveLemon;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,6 +30,8 @@ public class CommonProxy {
     public static BlockLemonTreePlanks blockLemonTreePlanks;
     public static BlockLemonTreeLog blockLemonTreeLog;
 
+    public static DamageSourceExplosiveLemon damageSourceExplosiveLemon = new DamageSourceExplosiveLemon();
+
     public static final CreativeTabs tabCLL = new CreativeTabs(MOD_ID){
 
         @Override
@@ -50,8 +53,8 @@ public class CommonProxy {
     }
 
     public void initializeItems(){
-        itemLemon = new ItemLemon(ITEM_LEMON);
-        itemLemonExplosive = new ItemLemonExplosive(ITEM_LEMON_EXPLOSIVE);
+        itemLemon = new ItemLemon(ITEM_LEMON, 5, 0.2F, false);
+        itemLemonExplosive = new ItemLemonExplosive(ITEM_LEMON_EXPLOSIVE, 5, 0.2F, false);
     }
 
     public void registerBlockRender(Block block){}
