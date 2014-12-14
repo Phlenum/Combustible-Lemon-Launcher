@@ -1,9 +1,10 @@
 package mods.phlenum.cll;
 
 import static mods.phlenum.cll.lib.Reference.*;
-
 import mods.phlenum.cll.lib.CLLLogger;
+import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -21,14 +22,24 @@ public final class CombustibleLemonLauncher {
 	@Mod.Instance(MOD_ID)
 	public static CombustibleLemonLauncher instance;
 
+	@SidedProxy(serverSide = "mods.phlenum.cll.proxy.CommonProxy", clientSide = "mods.phlenum.cll.proxy.ClientProxy")
+	public static CommonProxy proxy;
+
 	@Mod.EventHandler
 	public void preInitializeMod(FMLPreInitializationEvent preInitEvent){
 		CLLLogger.initializeLogging();
+
+		proxy.initializeItems();
+
+		proxy.initializeBlocks();
 	}
 
 	@Mod.EventHandler
 	public void initializeMod(FMLInitializationEvent initEvent){
+		proxy.initializeWorld();
 
+		proxy.initializeRenderers();
 	}
 
 }
+
