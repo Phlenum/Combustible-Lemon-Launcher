@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "cll:blocks/LemonTreeLog",
+    "side": "cll:blocks/LemonTreeLog_Side"
+  }
+}

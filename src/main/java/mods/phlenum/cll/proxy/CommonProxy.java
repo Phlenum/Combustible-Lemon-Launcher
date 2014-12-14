@@ -2,6 +2,7 @@ package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
 
+import mods.phlenum.cll.blocks.BlockLemonTreeLog;
 import mods.phlenum.cll.blocks.BlockLemonTreePlanks;
 import mods.phlenum.cll.items.ItemLemon;
 import mods.phlenum.cll.items.ItemLemonExplosive;
@@ -26,6 +27,7 @@ public class CommonProxy {
     public static ItemLemonExplosive itemLemonExplosive;
 
     public static BlockLemonTreePlanks blockLemonTreePlanks;
+    public static BlockLemonTreeLog blockLemonTreeLog;
 
     public static final CreativeTabs tabCLL = new CreativeTabs(MOD_ID){
 
@@ -44,6 +46,7 @@ public class CommonProxy {
 
     public void initializeBlocks(){
         blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, Material.wood, 2.0F, 1.0F, Block.soundTypeWood);
+        blockLemonTreeLog = new BlockLemonTreeLog(BLOCK_LEMON_TREE_LOG, Material.wood, 2.0F, 1.0F, Block.soundTypeWood);
     }
 
     public void initializeItems(){

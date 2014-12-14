@@ -33,6 +33,7 @@ public final class ClientProxy extends CommonProxy {
     @Override
     public void initializeRenderers(){
         registerBlockRender(blockLemonTreePlanks);
+        registerBlockRender(blockLemonTreeLog);
 
         registerItemRender(itemLemon);
         registerItemRender(itemLemonExplosive);
