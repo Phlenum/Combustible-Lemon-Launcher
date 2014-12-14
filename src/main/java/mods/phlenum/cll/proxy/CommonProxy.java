@@ -2,8 +2,11 @@ package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
 
+import mods.phlenum.cll.blocks.BlockLemonTreePlanks;
 import mods.phlenum.cll.items.ItemLemon;
 import mods.phlenum.cll.items.ItemLemonExplosive;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
@@ -22,6 +25,8 @@ public class CommonProxy {
     public static ItemLemon itemLemon;
     public static ItemLemonExplosive itemLemonExplosive;
 
+    public static BlockLemonTreePlanks blockLemonTreePlanks;
+
     public static final CreativeTabs tabCLL = new CreativeTabs(MOD_ID){
 
         @Override
@@ -38,13 +43,15 @@ public class CommonProxy {
     };
 
     public void initializeBlocks(){
-
+        blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, Material.wood, 2.0F, 1.0F, Block.soundTypeWood);
     }
 
     public void initializeItems(){
         itemLemon = new ItemLemon(ITEM_LEMON);
         itemLemonExplosive = new ItemLemonExplosive(ITEM_LEMON_EXPLOSIVE);
     }
+
+    public void registerBlockRender(Block block){}
 
     public void registerItemRender(Item item){}
 
