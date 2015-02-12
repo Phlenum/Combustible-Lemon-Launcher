@@ -17,16 +17,16 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-2.2.7"
+version = "1.8-2.2.8"
 group= "mods.phlenum.cll" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CLL"
 
 minecraft {
     replaceIn "lib/Reference.java"
     replace "@VERSION@", project.version
-    version = "1.8-11.14.0.1269-1.8"
+    version = "1.8-11.14.1.1309"
     runDir = "exec/"
-    mappings = "snapshot_nodoc_20140930"
+    mappings = "snapshot_nodoc_20141130"
 }
 
 processResources

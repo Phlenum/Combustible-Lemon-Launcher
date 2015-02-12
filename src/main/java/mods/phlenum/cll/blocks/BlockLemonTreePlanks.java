@@ -10,19 +10,17 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * https://github.com/Phlenum/Combustible-Lemon-Launcher
  * http://minecraft.curseforge.com/mc-mods/62429-combustible-lemon-launcher
  * @author Phil Julian
- * @date 14 Dec 2014
+ * @date 12 Feb 2015
  */
 
 public class BlockLemonTreePlanks extends Block {
 
-    public BlockLemonTreePlanks(String unloc, Material mat, float hardness, float resistance, SoundType sound){
-        super(mat);
+    public BlockLemonTreePlanks(String unloc, float hardness, float resistance, SoundType sound){
+        super(Material.wood);
+        GameRegistry.registerBlock(this, unloc);
         setUnlocalizedName(unloc);
-        setHardness(hardness);
-        setResistance(resistance);
         setStepSound(sound);
         setCreativeTab(CommonProxy.tabCLL);
-        GameRegistry.registerBlock(this, unloc);
     }
 
 }

@@ -1,7 +1,5 @@
 {
-  "variants": {
-    "normal": {
-      "model": "cll:LemonTreePlanks"
-    }
-  }
+	"variants": {
+		"normal": { "model": "cll:LemonTreePlanks" }
+	}
 }

@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "axis=y": { "model": "cll:LemonTreeLog" },
-    "axis=z": { "model": "cll:LemonTreeLog_Side" },
-    "axis=x": { "model": "cll:LemonTreeLog_Side", "y": 90 },
-    "normal": { "model": "cll:LemonTreeLog" }
-  }
-}

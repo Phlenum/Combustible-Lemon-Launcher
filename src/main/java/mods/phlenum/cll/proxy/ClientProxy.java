@@ -4,6 +4,8 @@ import static mods.phlenum.cll.lib.Reference.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
@@ -21,22 +23,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public final class ClientProxy extends CommonProxy {
 
     @Override
-    public void registerBlockRender(Block block){
-        registerItemRender(Item.getItemFromBlock(block));
-    }
-
-    @Override
-    public void registerItemRender(Item item){
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(TEXTURE_PREFIX + item.getUnlocalizedName().substring(5), "inventory"));
-    }
-
-    @Override
     public void initializeRenderers(){
-        registerBlockRender(blockLemonTreePlanks);
-        registerBlockRender(blockLemonTreeLog);
+        ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
+        mesher.register(Item.getItemFromBlock(blockLemonTreePlanks), 0, new ModelResourceLocation(MOD_ID + ":" + BLOCK_LEMON_TREE_PLANKS, "inventory"));
 
-        registerItemRender(itemLemon);
-        registerItemRender(itemLemonExplosive);
+        mesher.register(itemLemon, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_LEMON, "inventory"));
+        mesher.register(itemLemonExplosive, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_LEMON_EXPLOSIVE, "inventory"));
     }
 
 }
