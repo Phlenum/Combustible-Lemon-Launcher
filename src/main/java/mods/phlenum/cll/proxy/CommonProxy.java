@@ -50,7 +50,7 @@ public class CommonProxy {
     };
 
     public void initializeBlocks(){
-        blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, 0.2f, 0.2f, Block.soundTypeWood);
+        blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, 2.0f, 5.0f, Block.soundTypeWood);
     }
 
     public void initializeItems(){

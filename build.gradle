@@ -22,7 +22,7 @@ group = "mods.phlenum.cll" // http://maven.apache.org/guides/mini/guide-naming-c
 archivesBaseName = "CLL"
 
 minecraft {
-    version = "1.8-11.14.1.1334"
+    version = "1.8-11.14.3.1499"
     runDir = "eclipse"
     replaceIn "lib/Reference.java"
     replace "@VERSION@", project.version

@@ -1,6 +1,7 @@
 # Combustible Lemon Launcher .gitignore
 .gradle
 .settings
+.metadata/
 bin
 build
 eclipse
