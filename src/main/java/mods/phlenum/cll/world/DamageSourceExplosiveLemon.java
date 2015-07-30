@@ -1,4 +1,4 @@
-package mods.phlenum.cll.lib;
+package mods.phlenum.cll.world;
 
 import static mods.phlenum.cll.lib.Reference.DAMAGE_SOURCE_EXPLOSIVE_LEMON;
 

@@ -1,13 +1,16 @@
 package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
+
 import mods.phlenum.cll.blocks.BlockLemonLeaves;
 import mods.phlenum.cll.blocks.BlockLemonLeavesHarvested;
 import mods.phlenum.cll.blocks.BlockLemonTreeLog;
 import mods.phlenum.cll.blocks.BlockLemonTreePlanks;
+import mods.phlenum.cll.blocks.BlockLemonTreeSapling;
 import mods.phlenum.cll.items.ItemLemon;
 import mods.phlenum.cll.items.ItemLemonExplosive;
-import mods.phlenum.cll.lib.DamageSourceExplosiveLemon;
+import mods.phlenum.cll.world.DamageSourceExplosiveLemon;
+import mods.phlenum.cll.world.WorldGenLemonTree;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -34,11 +37,13 @@ public class CommonProxy {
     public static BlockLemonTreeLog blockLemonTreeLog;
     public static BlockLemonLeavesHarvested blockLemonLeavesHarvested;
     public static BlockLemonLeaves blockLemonLeaves;
+    public static BlockLemonTreeSapling blockLemonTreeSapling;
 
     public static ItemLemon itemLemon;
     public static ItemLemonExplosive itemLemonExplosive;
 
     public static final DamageSourceExplosiveLemon DAMAGE_SOURCE_EXPLOSIVE_LEMON = new DamageSourceExplosiveLemon();
+    public static final WorldGenLemonTree WORLD_GEN_LEMON_TREE = new WorldGenLemonTree();
 
     public static final CreativeTabs tabCLL = new CreativeTabs(MOD_ID){
 
@@ -60,6 +65,7 @@ public class CommonProxy {
         blockLemonTreeLog = new BlockLemonTreeLog(BLOCK_LEMON_TREE_LOG, Block.soundTypeWood);
         blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(BLOCK_LEMON_LEAVES_HARVESTED);
         blockLemonLeaves = new BlockLemonLeaves(BLOCK_LEMON_LEAVES);
+        blockLemonTreeSapling = new BlockLemonTreeSapling(BLOCK_LEMON_TREE_SAPLING, Block.soundTypeGrass);
     }
 
     public void initializeItems(){
@@ -86,6 +92,8 @@ public class CommonProxy {
         OreDictionary.registerOre("logWood", blockLemonTreeLog);
         OreDictionary.registerOre("treeLeaves", blockLemonLeavesHarvested);
         OreDictionary.registerOre("treeLeaves", blockLemonLeaves);
+        OreDictionary.registerOre("treeSapling", blockLemonTreeSapling);
+        GameRegistry.registerWorldGenerator(WORLD_GEN_LEMON_TREE, 60);
     }
     
     private static class CLLFuelHandler implements IFuelHandler {

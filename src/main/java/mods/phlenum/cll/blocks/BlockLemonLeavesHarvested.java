@@ -139,8 +139,7 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
-		// TODO: SAPLING
-		return Item.getItemFromBlock(CommonProxy.blockLemonTreeLog);
+		return Item.getItemFromBlock(CommonProxy.blockLemonTreeSapling);
 	}
 
 }
