@@ -1,8 +1,8 @@
 item.Lemon.name=Zitrone
 item.LemonExplosive.name=Explosive Zitrone
 item.CombustibleLemonLauncher.name=Entflammbare Zitronen Werfer
-tile.LemonTreeLeaves.name=Zitronenbaumblätter
-tile.LemonTreeLeavesHarvested.name=Zitronenbaumblätter (Geernted)
+tile.LemonLeaves.name=Zitronenbaumblätter
+tile.LemonLeavesHarvested.name=Zitronenbaumblätter (Geernted)
 tile.LemonTreeLog.name=Zitronenbaumholz
 tile.LemonTreePlanks.name=Zitronenbaumbretter
 tile.LemonTreeSapling.name=Zitronenbaumsetzling

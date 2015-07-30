@@ -25,6 +25,8 @@ public final class ClientProxy extends CommonProxy {
         ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
         mesher.register(Item.getItemFromBlock(blockLemonTreePlanks), 0, new ModelResourceLocation(MOD_ID + ":" + BLOCK_LEMON_TREE_PLANKS, "inventory"));
         mesher.register(Item.getItemFromBlock(blockLemonTreeLog), 0, new ModelResourceLocation(MOD_ID + ":" + BLOCK_LEMON_TREE_LOG, "inventory"));
+        mesher.register(Item.getItemFromBlock(blockLemonLeavesHarvested), 0, new ModelResourceLocation(MOD_ID + ":" + BLOCK_LEMON_LEAVES_HARVESTED, "inventory"));
+        mesher.register(Item.getItemFromBlock(blockLemonLeaves), 0, new ModelResourceLocation(MOD_ID + ":" + BLOCK_LEMON_LEAVES, "inventory"));
 
         mesher.register(itemLemon, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_LEMON, "inventory"));
         mesher.register(itemLemonExplosive, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_LEMON_EXPLOSIVE, "inventory"));

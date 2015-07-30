@@ -21,8 +21,8 @@ public final class Reference {
 	
 	public static final String OREDICT_LEMON = "foodLemon";
 
-	public static final String BLOCK_LEMON_TREE_LEAVES = "LemonTreeLeaves";
-	public static final String BLOCK_LEMON_TREE_LEAVES_HARVESTED = "LemonTreeLeavesHarvested";
+	public static final String BLOCK_LEMON_LEAVES = "LemonLeaves";
+	public static final String BLOCK_LEMON_LEAVES_HARVESTED = "LemonLeavesHarvested";
 	public static final String BLOCK_LEMON_TREE_LOG = "LemonTreeLog";
 	public static final String BLOCK_LEMON_TREE_PLANKS = "LemonTreePlanks";
 	public static final String BLOCK_LEMON_TREE_SAPLING = "LemonTreeSapling";

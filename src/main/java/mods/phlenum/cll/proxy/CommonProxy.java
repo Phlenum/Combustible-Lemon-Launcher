@@ -1,6 +1,8 @@
 package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
+import mods.phlenum.cll.blocks.BlockLemonLeaves;
+import mods.phlenum.cll.blocks.BlockLemonLeavesHarvested;
 import mods.phlenum.cll.blocks.BlockLemonTreeLog;
 import mods.phlenum.cll.blocks.BlockLemonTreePlanks;
 import mods.phlenum.cll.items.ItemLemon;
@@ -30,6 +32,8 @@ public class CommonProxy {
 
     public static BlockLemonTreePlanks blockLemonTreePlanks;
     public static BlockLemonTreeLog blockLemonTreeLog;
+    public static BlockLemonLeavesHarvested blockLemonLeavesHarvested;
+    public static BlockLemonLeaves blockLemonLeaves;
 
     public static ItemLemon itemLemon;
     public static ItemLemonExplosive itemLemonExplosive;
@@ -45,7 +49,7 @@ public class CommonProxy {
 
         @Override
         @SideOnly(Side.CLIENT)
-        public Item getTabIconItem() {
+        public Item getTabIconItem(){
             return itemLemonExplosive;
         }
 
@@ -54,6 +58,8 @@ public class CommonProxy {
     public void initializeBlocks(){
         blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, 2.0f, 5.0f, Block.soundTypeWood);
         blockLemonTreeLog = new BlockLemonTreeLog(BLOCK_LEMON_TREE_LOG, Block.soundTypeWood);
+        blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(BLOCK_LEMON_LEAVES_HARVESTED);
+        blockLemonLeaves = new BlockLemonLeaves(BLOCK_LEMON_LEAVES);
     }
 
     public void initializeItems(){
@@ -78,6 +84,8 @@ public class CommonProxy {
         OreDictionary.registerOre(OREDICT_LEMON, itemLemon);
         OreDictionary.registerOre("plankWood", blockLemonTreePlanks);
         OreDictionary.registerOre("logWood", blockLemonTreeLog);
+        OreDictionary.registerOre("treeLeaves", blockLemonLeavesHarvested);
+        OreDictionary.registerOre("treeLeaves", blockLemonLeaves);
     }
     
     private static class CLLFuelHandler implements IFuelHandler {

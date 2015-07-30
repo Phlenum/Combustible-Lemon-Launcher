@@ -1,8 +1,8 @@
 item.Lemon.name=Lemon
 item.LemonExplosive.name=Explosive Lemon
 item.CombustibleLemonLauncher.name=Combustible Lemon Launcher
-tile.LemonTreeLeaves.name=Lemon Leaves
-tile.LemonTreeLeavesHarvested.name=Lemon Leaves (Harvested)
+tile.LemonLeaves.name=Lemon Leaves
+tile.LemonLeavesHarvested.name=Lemon Leaves (Harvested)
 tile.LemonTreeLog.name=Lemon Tree Wood
 tile.LemonTreePlanks.name=Lemon Tree Planks
 tile.LemonTreeSapling.name=Lemon Tree Sapling
