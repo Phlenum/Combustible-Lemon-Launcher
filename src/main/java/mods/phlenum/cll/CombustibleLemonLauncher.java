@@ -28,6 +28,7 @@ public final class CombustibleLemonLauncher {
 	@Mod.EventHandler
 	public void preInitializeMod(FMLPreInitializationEvent preInitEvent){
 		CLLLogger.initializeLogging();
+		CLLLogger.logInfo("Initializing Combustible Lemon Launcher " + MOD_VERSION);
 
 		proxy.initializeItems();
 

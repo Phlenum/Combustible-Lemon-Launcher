@@ -1,7 +1,7 @@
 package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
-
+import mods.phlenum.cll.blocks.BlockLemonTreeLog;
 import mods.phlenum.cll.blocks.BlockLemonTreePlanks;
 import mods.phlenum.cll.items.ItemLemon;
 import mods.phlenum.cll.items.ItemLemonExplosive;
@@ -12,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -28,6 +29,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class CommonProxy {
 
     public static BlockLemonTreePlanks blockLemonTreePlanks;
+    public static BlockLemonTreeLog blockLemonTreeLog;
 
     public static ItemLemon itemLemon;
     public static ItemLemonExplosive itemLemonExplosive;
@@ -51,6 +53,7 @@ public class CommonProxy {
 
     public void initializeBlocks(){
         blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, 2.0f, 5.0f, Block.soundTypeWood);
+        blockLemonTreeLog = new BlockLemonTreeLog(BLOCK_LEMON_TREE_LOG, Block.soundTypeWood);
     }
 
     public void initializeItems(){
@@ -69,8 +72,31 @@ public class CommonProxy {
                 Character.valueOf('t'), new ItemStack(Blocks.tnt),
                 Character.valueOf('l'), new ItemStack(itemLemon)
         });
+        GameRegistry.addShapelessRecipe(new ItemStack(blockLemonTreePlanks, 4), new Object[]{ blockLemonTreeLog });
+        GameRegistry.addSmelting(blockLemonTreeLog, new ItemStack(Items.coal, 1, 1), 0.15F);
+        GameRegistry.registerFuelHandler(new CLLFuelHandler());
         OreDictionary.registerOre(OREDICT_LEMON, itemLemon);
         OreDictionary.registerOre("plankWood", blockLemonTreePlanks);
+        OreDictionary.registerOre("logWood", blockLemonTreeLog);
+    }
+    
+    private static class CLLFuelHandler implements IFuelHandler {
+    	
+    	@Override
+    	public int getBurnTime(ItemStack fuel){
+    		Item fitem = fuel.getItem();
+    		// Values taken from here:
+    		// http://minecraft.gamepedia.com/Smelting
+    		if(fitem == Item.getItemFromBlock(blockLemonTreeLog)){
+    			return 300;
+    		}else if(fitem == Item.getItemFromBlock(blockLemonTreePlanks)){
+    			return 300;
+    		}
+    		//
+    		//
+    		return 0;
+    	}
+    	
     }
 
 }
