@@ -3,6 +3,7 @@
 .settings
 .metadata/
 bin
+run
 build
 eclipse
 gradle
@@ -23,3 +24,4 @@ README.txt
 *.iws
 *.DS_Store
 out/
+*.launch
