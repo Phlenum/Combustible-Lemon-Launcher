@@ -3,6 +3,7 @@ package mods.phlenum.cll.entity;
 import static mods.phlenum.cll.lib.Reference.*;
 
 import io.netty.buffer.ByteBuf;
+import mods.phlenum.cll.lib.CLLLogger;
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -82,13 +83,16 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		}
 
 		private static void generateFire(World world, Vec3 par1Vec3){
-			Vec3i vec = new Vec3i(par1Vec3.xCoord, par1Vec3.yCoord, par1Vec3.zCoord);
-			for(int x = (vec.getX() - DEFAULT_OFFSET_X); x < (vec.getX() + DEFAULT_OFFSET_X); x++){
-				for(int y = (vec.getY() - DEFAULT_OFFSET_Y); y < (vec.getY() + DEFAULT_OFFSET_Y); y++){
-					for(int z = (vec.getZ() - DEFAULT_OFFSET_Z); z < (vec.getZ() + DEFAULT_OFFSET_Z); z++){
-						if(world.isAirBlock(new BlockPos(vec)) && (world.rand.nextBoolean())){
-							world.setBlockState(new BlockPos(vec), Blocks.fire.getDefaultState());
-							
+			int x = (int)par1Vec3.xCoord;
+			int y = (int)par1Vec3.yCoord;
+			int z = (int)par1Vec3.zCoord;
+			
+			for(int currX = (x - DEFAULT_OFFSET_X); currX < (x + DEFAULT_OFFSET_X); currX++){
+				for(int currY = (y - DEFAULT_OFFSET_Y); currY < (y + DEFAULT_OFFSET_Y); currY++){
+					for(int currZ = (z - DEFAULT_OFFSET_Z); currZ < (z + DEFAULT_OFFSET_Z); currZ++){
+						BlockPos pos = new BlockPos(currX, currY, currZ);
+						if(world.isAirBlock(pos) && world.rand.nextBoolean()){
+							world.setBlockState(pos, Blocks.fire.getDefaultState());
 						}
 					}
 				}

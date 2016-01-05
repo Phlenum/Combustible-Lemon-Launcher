@@ -74,10 +74,9 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 		return 0;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list){
-		list.add(new ItemStack(itemIn, 1, 0));
+	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list){
+		super.getSubBlocks(itemIn, tab, list);
 	}
 	
 	@Override

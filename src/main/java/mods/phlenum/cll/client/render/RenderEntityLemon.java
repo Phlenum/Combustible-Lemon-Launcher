@@ -31,8 +31,8 @@ public class RenderEntityLemon extends Render<EntityLemon> {
 		
 		glPushMatrix();
 		glTranslated(x, y, z);
-		glRotatef(180.0F, -renderManager.playerViewY, 0.0F, 0.0F);
-		glRotatef(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
+		glRotatef(-renderManager.playerViewY - 180.0F, 0.0F, 1.0F, 0.0F);
+		glRotatef(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);		
 		glScalef(0.5F, 0.5F, 0.5F);
 		glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		bindEntityTexture(entity);
