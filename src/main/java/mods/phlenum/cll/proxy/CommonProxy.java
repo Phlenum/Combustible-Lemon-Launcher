@@ -86,6 +86,15 @@ public class CommonProxy {
     public void initializeModels(){}
 
     public void initializeWorld(){
+    	GameRegistry.addShapedRecipe(new ItemStack(itemCombustibleLemonLauncher), new Object[]{
+    			"iio",
+    			"rp ",
+    			"iio",
+    			Character.valueOf('i'), new ItemStack(Items.iron_ingot),
+    			Character.valueOf('o'), new ItemStack(Blocks.obsidian),
+    			Character.valueOf('r'), new ItemStack(Items.redstone),
+    			Character.valueOf('p'), new ItemStack(Blocks.piston)
+    	});
         GameRegistry.addRecipe(new ItemStack(itemLemonExplosive), new Object[]{
                 " s ",
                 "tlt",

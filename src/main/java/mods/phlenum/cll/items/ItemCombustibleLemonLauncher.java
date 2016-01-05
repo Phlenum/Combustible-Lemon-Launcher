@@ -18,6 +18,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 		super();
 		setCreativeTab(CommonProxy.tabCLL);
 		setUnlocalizedName(unloc);
+		setMaxStackSize(1);
 		GameRegistry.registerItem(this, unloc);
 	}
 
