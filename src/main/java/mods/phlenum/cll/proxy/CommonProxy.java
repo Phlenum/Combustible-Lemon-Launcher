@@ -7,6 +7,7 @@ import mods.phlenum.cll.blocks.BlockLemonLeavesHarvested;
 import mods.phlenum.cll.blocks.BlockLemonTreeLog;
 import mods.phlenum.cll.blocks.BlockLemonTreePlanks;
 import mods.phlenum.cll.blocks.BlockLemonTreeSapling;
+import mods.phlenum.cll.items.ItemCombustibleLemonLauncher;
 import mods.phlenum.cll.items.ItemLemon;
 import mods.phlenum.cll.items.ItemLemonExplosive;
 import mods.phlenum.cll.world.DamageSourceExplosiveLemon;
@@ -41,6 +42,7 @@ public class CommonProxy {
 
     public static ItemLemon itemLemon;
     public static ItemLemonExplosive itemLemonExplosive;
+    public static ItemCombustibleLemonLauncher itemCombustibleLemonLauncher;
 
     public static final DamageSourceExplosiveLemon DAMAGE_SOURCE_EXPLOSIVE_LEMON = new DamageSourceExplosiveLemon();
     public static final WorldGenLemonTree WORLD_GEN_LEMON_TREE = new WorldGenLemonTree();
@@ -55,7 +57,7 @@ public class CommonProxy {
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem(){
-            return itemLemonExplosive;
+            return itemCombustibleLemonLauncher;
         }
 
     };
@@ -71,9 +73,12 @@ public class CommonProxy {
     public void initializeItems(){
         itemLemon = new ItemLemon(ITEM_LEMON, 5, 0.2f, false);
         itemLemonExplosive = new ItemLemonExplosive(ITEM_LEMON_EXPLOSIVE, 5, 0.2f, false);
+        itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(ITEM_COMBUSTIBLE_LEMON_LAUNCHER);
     }
 
     public void initializeRenderers(){}
+    
+    public void initializeModels(){}
 
     public void initializeWorld(){
         GameRegistry.addRecipe(new ItemStack(itemLemonExplosive), new Object[]{

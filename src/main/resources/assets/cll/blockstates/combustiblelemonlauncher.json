@@ -1,0 +1,32 @@
+{
+	"forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "combustiblelemonlauncher": "cll:models/combustiblelemonlauncher"
+        },
+        "model": "cll:combustiblelemonlauncher.obj"
+    },
+    "variants": {
+        "inventory": [
+            {
+                "transform": {
+                    "thirdperson": {
+                        "rotation": [ { "x": 270 }, { "y": 270 }, { "z": 0 } ],
+                        "translation": [ -0.05, 0.2, -0.1 ],
+                        "scale": 0.2
+                    },
+                    "gui": {
+                        "rotation": [ { "x": 0 }, { "y": 0 }, { "z": 0 } ],
+                        "translation": [ 0.15, 0.1, 0 ],
+                        "scale": 0.3
+                    },
+                    "firstperson": {
+                        "rotation": [ { "x": 5 }, { "y": 52 }, { "z": 0 } ],
+                        "translation": [ 0, 0.18, 0 ],
+                        "scale": 0.5
+                    }
+                }
+            }
+        ]
+    }
+}

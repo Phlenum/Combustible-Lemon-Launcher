@@ -6,6 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -20,6 +22,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public final class ClientProxy extends CommonProxy {
 
+	@Override
+	public void initializeModels(){
+		OBJLoader.instance.addDomain(MOD_ID);
+		ModelLoader.setCustomModelResourceLocation(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
+	}
+	
+	
     @Override
     public void initializeRenderers(){
         ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
@@ -31,6 +40,7 @@ public final class ClientProxy extends CommonProxy {
 
         mesher.register(itemLemon, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_LEMON, "inventory"));
         mesher.register(itemLemonExplosive, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_LEMON_EXPLOSIVE, "inventory"));
+        mesher.register(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
     }
 
 }

@@ -1,0 +1,8 @@
+# Blender MTL File: 'Cll.blend'
+# Material Count: 1
+
+newmtl combustiblelemonlauncher
+Ka 0.588000 0.588000 0.588000
+Kd 0.588000 0.588000 0.588000
+d 1.000000
+map_Kd cll:models/combustiblelemonlauncher
