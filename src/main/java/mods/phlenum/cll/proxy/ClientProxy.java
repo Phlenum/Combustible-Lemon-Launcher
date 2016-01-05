@@ -1,15 +1,20 @@
 package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
-
 import mods.phlenum.cll.client.HoldLikeBowHook;
+import mods.phlenum.cll.client.render.RenderEntityLemon;
+import mods.phlenum.cll.entity.EntityLemon;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -45,6 +50,19 @@ public final class ClientProxy extends CommonProxy {
         mesher.register(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
         
         MinecraftForge.EVENT_BUS.register(new HoldLikeBowHook());
+    }
+    
+    @Override
+    public void initializeEntityRender(){
+        RenderingRegistry.registerEntityRenderingHandler(EntityLemon.class, new IRenderFactory<EntityLemon>() {
+
+			@SuppressWarnings({ "unchecked", "rawtypes" })
+			@Override
+			public Render createRenderFor(RenderManager manager){
+				return new RenderEntityLemon(manager);
+			}
+        	
+		});
     }
 
 }

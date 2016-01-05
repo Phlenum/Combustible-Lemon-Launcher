@@ -1,9 +1,7 @@
 package mods.phlenum.cll.items;
 
 import mods.phlenum.cll.proxy.CommonProxy;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -21,11 +19,6 @@ public class ItemCombustibleLemonLauncher extends Item {
 		setCreativeTab(CommonProxy.tabCLL);
 		setUnlocalizedName(unloc);
 		GameRegistry.registerItem(this, unloc);
-	}
-	
-	@Override
-	public EnumAction getItemUseAction(ItemStack stack){
-		return EnumAction.BOW;
 	}
 
 }

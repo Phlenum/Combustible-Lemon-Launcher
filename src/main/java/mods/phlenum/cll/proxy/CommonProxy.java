@@ -2,11 +2,13 @@ package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
 
+import mods.phlenum.cll.CombustibleLemonLauncher;
 import mods.phlenum.cll.blocks.BlockLemonLeaves;
 import mods.phlenum.cll.blocks.BlockLemonLeavesHarvested;
 import mods.phlenum.cll.blocks.BlockLemonTreeLog;
 import mods.phlenum.cll.blocks.BlockLemonTreePlanks;
 import mods.phlenum.cll.blocks.BlockLemonTreeSapling;
+import mods.phlenum.cll.entity.EntityLemon;
 import mods.phlenum.cll.items.ItemCombustibleLemonLauncher;
 import mods.phlenum.cll.items.ItemLemon;
 import mods.phlenum.cll.items.ItemLemonExplosive;
@@ -19,6 +21,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.IFuelHandler;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -78,6 +81,8 @@ public class CommonProxy {
 
     public void initializeRenderers(){}
     
+    public void initializeEntityRender(){}
+    
     public void initializeModels(){}
 
     public void initializeWorld(){
@@ -98,7 +103,11 @@ public class CommonProxy {
         OreDictionary.registerOre("treeLeaves", blockLemonLeavesHarvested);
         OreDictionary.registerOre("treeLeaves", blockLemonLeaves);
         OreDictionary.registerOre("treeSapling", blockLemonTreeSapling);
+        
+        //TODO: configurable!!
         GameRegistry.registerWorldGenerator(WORLD_GEN_LEMON_TREE, 60);
+        
+        EntityRegistry.registerModEntity(EntityLemon.class, ENTITY_LEMON, 1, CombustibleLemonLauncher.instance, 80, 3, true);
     }
     
     private static class CLLFuelHandler implements IFuelHandler {

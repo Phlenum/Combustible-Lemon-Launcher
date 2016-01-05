@@ -35,6 +35,8 @@ public final class CombustibleLemonLauncher {
 		proxy.initializeBlocks();
 		
 		proxy.initializeModels();
+		
+		proxy.initializeEntityRender();
 	}
 
 	@Mod.EventHandler
