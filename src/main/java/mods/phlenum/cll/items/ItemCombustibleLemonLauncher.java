@@ -84,6 +84,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			LemonType currentType = getLemonType(itemstack);
 			if(!player.capabilities.isCreativeMode){
 				if(!currentType.playerHasItem(player)){
+					player.worldObj.playAuxSFX(1001, player.getPosition(), 0);
 					return;
 				}
 				currentType.consumeItem(player);
@@ -92,6 +93,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP)player);
 			EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
 			player.worldObj.spawnEntityInWorld(lemonEnt);
+			player.worldObj.playSoundAtEntity(player, "random.bow", 0.5F, itemRand.nextFloat());
 		}
 	}
 	
