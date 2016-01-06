@@ -11,8 +11,5 @@ Link to [Curse Forge Post](http://minecraft.curseforge.com/mc-mods/combustible-l
 
 ## Todo list
 
-- Fix network synchronization when spawning and performing EntityLemon
-- Fix player.consumeItem call in regards to network sync
-- add packet manager
 - add config for spawning trees
 - fix tree spawning in ground

@@ -44,6 +44,8 @@ public final class CombustibleLemonLauncher {
 		proxy.initializeWorld();
 
 		proxy.initializeRenderers();
+		
+		proxy.initializePacketHandler();
 	}
 
 }

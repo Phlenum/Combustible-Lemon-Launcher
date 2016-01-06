@@ -3,7 +3,6 @@ package mods.phlenum.cll.entity;
 import static mods.phlenum.cll.lib.Reference.*;
 
 import io.netty.buffer.ByteBuf;
-import mods.phlenum.cll.lib.CLLLogger;
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -14,7 +13,6 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
-import net.minecraft.util.Vec3i;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.relauncher.Side;
@@ -91,7 +89,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 				for(int currY = (y - DEFAULT_OFFSET_Y); currY < (y + DEFAULT_OFFSET_Y); currY++){
 					for(int currZ = (z - DEFAULT_OFFSET_Z); currZ < (z + DEFAULT_OFFSET_Z); currZ++){
 						BlockPos pos = new BlockPos(currX, currY, currZ);
-						if(world.isAirBlock(pos) && world.rand.nextBoolean()){
+						if(world.isAirBlock(pos) && world.rand.nextBoolean() && world.rand.nextBoolean()){
 							world.setBlockState(pos, Blocks.fire.getDefaultState());
 						}
 					}
@@ -159,7 +157,9 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 
 	@Override
 	protected void onImpact(MovingObjectPosition par1MovingObjectPosition){
-		lemonType.performImpact(this, par1MovingObjectPosition);
+		if(!worldObj.isRemote){
+			lemonType.performImpact(this, par1MovingObjectPosition);
+		}
 		setDead();
 	}
 	

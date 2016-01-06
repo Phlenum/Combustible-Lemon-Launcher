@@ -1,9 +1,12 @@
 package mods.phlenum.cll.items;
 
+import mods.phlenum.cll.CombustibleLemonLauncher;
 import mods.phlenum.cll.entity.EntityLemon;
 import mods.phlenum.cll.entity.EntityLemon.LemonType;
+import mods.phlenum.cll.network.packets.CLLPacketLauncherProcess;
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -85,6 +88,8 @@ public class ItemCombustibleLemonLauncher extends Item {
 				}
 				currentType.consumeItem(player);
 			}
+			CLLPacketLauncherProcess packetLauncherProcess = new CLLPacketLauncherProcess(currentType);
+			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP)player);
 			EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
 			player.worldObj.spawnEntityInWorld(lemonEnt);
 		}
