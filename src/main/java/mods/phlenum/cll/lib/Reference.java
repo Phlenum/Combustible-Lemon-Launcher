@@ -33,5 +33,7 @@ public final class Reference {
 
 	public static final String ENTITY_LEMON = "EntityLemon";
 	public static final String DAMAGE_SOURCE_EXPLOSIVE_LEMON = "explosiveLemon";
+	
+	public static final String CONFIG_GENERATE_TREES = "Generate Lemon Trees";
 
 }

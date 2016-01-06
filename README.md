@@ -11,5 +11,4 @@ Link to [Curse Forge Post](http://minecraft.curseforge.com/mc-mods/combustible-l
 
 ## Todo list
 
-- add config for spawning trees
 - fix tree spawning in ground

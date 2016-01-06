@@ -1,7 +1,9 @@
 package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
+import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
 
+import java.io.File;
 import java.util.EnumMap;
 
 import mods.phlenum.cll.CombustibleLemonLauncher;
@@ -25,7 +27,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.IFuelHandler;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.FMLEmbeddedChannel;
 import net.minecraftforge.fml.common.network.FMLOutboundHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -123,8 +128,9 @@ public class CommonProxy {
 		OreDictionary.registerOre("treeLeaves", blockLemonLeaves);
 		OreDictionary.registerOre("treeSapling", blockLemonTreeSapling);
 
-		//TODO: configurable!!
-		GameRegistry.registerWorldGenerator(WORLD_GEN_LEMON_TREE, 60);
+		if(CLLConfig.config_GenerateTrees){
+			GameRegistry.registerWorldGenerator(WORLD_GEN_LEMON_TREE, 60);
+		}
 
 		EntityRegistry.registerModEntity(EntityLemon.class, ENTITY_LEMON, 1, CombustibleLemonLauncher.instance, 80, 3, true);
 	}
@@ -157,6 +163,34 @@ public class CommonProxy {
 			return 0;
 		}
 
+	}
+	
+	public static class CLLConfig {
+		
+		public static Configuration configFile;
+		
+		public static boolean config_GenerateTrees = true;
+		
+		public static void initializeConfig(File suggestedFile){
+			configFile = new Configuration(suggestedFile);
+			synchronize();
+		}
+		
+		public static void synchronize(){
+			config_GenerateTrees = configFile.getBoolean(CONFIG_GENERATE_TREES, CATEGORY_GENERAL, true, "Controls whether lemon trees are allowed to spawn");
+			
+			if(configFile.hasChanged()){
+				configFile.save();
+			}
+		}
+		
+		@SubscribeEvent
+		public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent configChangedEvent){
+			if(configChangedEvent.modID.equals(MOD_ID)){
+				synchronize();
+			}
+		}
+		
 	}
 
 }

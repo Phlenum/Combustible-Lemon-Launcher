@@ -1,6 +1,7 @@
 package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
+
 import mods.phlenum.cll.client.HoldLikeBowHook;
 import mods.phlenum.cll.client.render.RenderEntityLemon;
 import mods.phlenum.cll.entity.EntityLemon;
@@ -50,6 +51,7 @@ public final class ClientProxy extends CommonProxy {
         mesher.register(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
         
         MinecraftForge.EVENT_BUS.register(new HoldLikeBowHook());
+        MinecraftForge.EVENT_BUS.register(new CLLConfig());
     }
     
     @Override
