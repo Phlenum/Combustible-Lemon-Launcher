@@ -8,7 +8,3 @@ Feel free to submit issues & improvements using GitHubs _Issue Tracker_  and _Pu
 I registered the __itemLemon__ in the _Forge OreDictionary_ using the key __foodLemon__<br>
 <br>
 Link to [Curse Forge Post](http://minecraft.curseforge.com/mc-mods/combustible-lemon-launcher/)
-
-## Todo list
-
-- fix tree spawning in ground
