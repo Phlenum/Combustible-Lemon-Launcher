@@ -16,7 +16,6 @@ import net.minecraftforge.fml.common.IWorldGenerator;
  * https://github.com/Phlenum/Combustible-Lemon-Launcher
  * http://minecraft.curseforge.com/mc-mods/62429-combustible-lemon-launcher
  * Hopefully I'll never have to write such an algorithm again ;___;
- * TODO make it not f*** up worlds
  * @author Phil Julian
  * @date 30 July 2015
  */
@@ -34,9 +33,22 @@ public class WorldGenLemonTree extends WorldGenerator implements IWorldGenerator
 		int z = chunkZ + random.nextInt(16) + 8;
 		int y = world.getChunkFromChunkCoords(chunkX, chunkZ).getHeight(new BlockPos(x, 0, z));
 		final BlockPos POS = new BlockPos(x, y, z);
-		if(world.getBlockState(POS).getBlock().canSustainPlant(world, POS, EnumFacing.UP, CommonProxy.blockLemonTreeSapling)){
+		if(world.getBlockState(POS).getBlock().canSustainPlant(world, POS, EnumFacing.UP, CommonProxy.blockLemonTreeSapling) && checkSpace(world, POS)){
 			this.generate(world, random, POS);
 		}
+	}
+	
+	private boolean checkSpace(World world, BlockPos pos){
+		int x = pos.getX();
+		int z = pos.getZ();
+		for(int currX = (x - 2); currX < (x + 1); currX++){
+			for(int currZ = (z - 2); currZ < (z + 1); currZ++){
+				if(!world.isAirBlock(new BlockPos(pos).add(0, 1, 0))){
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	@Override
@@ -63,7 +75,9 @@ public class WorldGenLemonTree extends WorldGenerator implements IWorldGenerator
 	private static final void fillLeavesAround(World world, Random rand, int range, int xSrc, int ySrc, int zSrc){
 		for(int x = (xSrc - range); x < (xSrc + range + 1); x++){
 			for(int z = (zSrc - range); z < (zSrc + range + 1); z++){
-				world.setBlockState(new BlockPos(x, ySrc, z), randomLeafBlock(rand));
+				if(world.isAirBlock(new BlockPos(x, ySrc, z))){
+					world.setBlockState(new BlockPos(x, ySrc, z), randomLeafBlock(rand));
+				}
 			}
 		}
 	}
