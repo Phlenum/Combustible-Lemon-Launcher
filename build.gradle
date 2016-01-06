@@ -25,6 +25,8 @@ group= "mods.phlenum.cll" // http://maven.apache.org/guides/mini/guide-naming-co
 archivesBaseName = "CLL"
 
 minecraft {
+	replaceIn "lib/Reference.java"
+    replace "@VERSION@", project.version
     version = "1.8.9-11.15.0.1684"
     runDir = "run"
     
