@@ -20,7 +20,7 @@ import mods.phlenum.cll.network.CLLPacketHandler;
 import mods.phlenum.cll.network.packets.CLLPacket;
 import mods.phlenum.cll.world.DamageSourceExplosiveLemon;
 import mods.phlenum.cll.world.WorldGenLemonTree;
-import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -81,11 +81,12 @@ public class CommonProxy {
 	};
 
 	public void initializeBlocks(){
-		blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, 2.0f, 5.0f, Block.soundTypeWood);
-		blockLemonTreeLog = new BlockLemonTreeLog(BLOCK_LEMON_TREE_LOG, Block.soundTypeWood);
+		blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, 2.0f, 5.0f, SoundType.WOOD);
+		blockLemonTreeLog = new BlockLemonTreeLog(BLOCK_LEMON_TREE_LOG, SoundType.WOOD);
+		
 		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(BLOCK_LEMON_LEAVES_HARVESTED);
 		blockLemonLeaves = new BlockLemonLeaves(BLOCK_LEMON_LEAVES);
-		blockLemonTreeSapling = new BlockLemonTreeSapling(BLOCK_LEMON_TREE_SAPLING, Block.soundTypeGrass);
+		blockLemonTreeSapling = new BlockLemonTreeSapling(BLOCK_LEMON_TREE_SAPLING, SoundType.GROUND); // GROUND == soundTypeGrass?
 	}
 
 	public void initializeItems(){
@@ -186,7 +187,7 @@ public class CommonProxy {
 		
 		@SubscribeEvent
 		public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent configChangedEvent){
-			if(configChangedEvent.modID.equals(MOD_ID)){
+			if(configChangedEvent.getModID().equals(MOD_ID)){
 				synchronize();
 			}
 		}

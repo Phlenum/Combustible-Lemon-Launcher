@@ -4,9 +4,10 @@ import java.util.Random;
 
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
@@ -26,14 +27,14 @@ public class WorldGenLemonTree extends WorldGenerator implements IWorldGenerator
 	private static final byte MINIMUM_LEAF_CONTAINING_LAYERS = 3;
 	
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider){
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider){
 		chunkX = chunkX << 4;
 		chunkZ = chunkZ << 4;
 		int x = chunkX + random.nextInt(16) + 8;
 		int z = chunkZ + random.nextInt(16) + 8;
 		int y = world.getChunkFromChunkCoords(chunkX, chunkZ).getHeight(new BlockPos(x, 0, z));
 		final BlockPos POS = new BlockPos(x, y, z);
-		if(world.getBlockState(POS).getBlock().canSustainPlant(world, POS, EnumFacing.UP, CommonProxy.blockLemonTreeSapling) && checkSpace(world, POS)){
+		if(world.getBlockState(POS).getBlock().canSustainPlant(world.getBlockState(POS), world, POS, EnumFacing.UP, CommonProxy.blockLemonTreeSapling) && checkSpace(world, POS)){
 			this.generate(world, random, POS);
 		}
 	}

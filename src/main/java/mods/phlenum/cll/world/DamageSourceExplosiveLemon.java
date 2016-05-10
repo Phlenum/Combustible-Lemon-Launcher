@@ -3,10 +3,10 @@ package mods.phlenum.cll.world;
 import static mods.phlenum.cll.lib.Reference.DAMAGE_SOURCE_EXPLOSIVE_LEMON;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.IChatComponent;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.translation.I18n;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -23,8 +23,8 @@ public class DamageSourceExplosiveLemon extends DamageSource {
     }
 
     @Override
-    public IChatComponent getDeathMessage(EntityLivingBase entity){
-        String deathMessage = StatCollector.translateToLocal("msg.DamageSourceExplosiveLemon").replace("%p", entity.getName());
-        return new ChatComponentText(deathMessage);
+    public ITextComponent getDeathMessage(EntityLivingBase entity){
+        String deathMessage = I18n.translateToLocal("msg.DamageSourceExplosiveLemon").replace("%p", entity.getName());
+        return new TextComponentString(deathMessage);
     }
 }

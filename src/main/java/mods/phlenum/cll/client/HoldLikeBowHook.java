@@ -2,6 +2,7 @@ package mods.phlenum.cll.client;
 
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelBiped.ArmPose;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -24,14 +25,15 @@ public class HoldLikeBowHook {
 	// diesieben07.
 	// if you're ever gonna read this.
 	// thank you for that hint :-)
+	// EDIT: May 10th, 2016: looks different now
 	
 	@SubscribeEvent
 	public void onEntityLiving(RenderLivingEvent.Pre<EntityPlayer> event){
-		if(event.entity instanceof EntityPlayer){
-			EntityPlayer player = (EntityPlayer)event.entity;
-			if(player.getCurrentEquippedItem().getItem() == CommonProxy.itemCombustibleLemonLauncher){
-				ModelBiped modelBiped = (ModelBiped)event.renderer.getMainModel();
-				modelBiped.aimedBow = true;
+		if(event.getEntity() instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer)event.getEntity();
+			if(player.getHeldItemMainhand().getItem() == CommonProxy.itemCombustibleLemonLauncher){
+				ModelBiped modelBiped = (ModelBiped)event.getRenderer().getMainModel();
+				modelBiped.leftArmPose = ArmPose.BOW_AND_ARROW;
 			}
 		}
 	}

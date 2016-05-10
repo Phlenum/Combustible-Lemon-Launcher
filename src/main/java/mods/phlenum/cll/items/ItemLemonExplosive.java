@@ -19,9 +19,10 @@ public class ItemLemonExplosive extends ItemFood {
 
     public ItemLemonExplosive(String unloc, int heal, float saturation, boolean dogfood){
         super(heal, saturation, dogfood);
-        GameRegistry.registerItem(this, unloc);
         setUnlocalizedName(unloc);
         setCreativeTab(CommonProxy.tabCLL);
+        setRegistryName(unloc);
+        GameRegistry.register(this);
     }
 
     @Override

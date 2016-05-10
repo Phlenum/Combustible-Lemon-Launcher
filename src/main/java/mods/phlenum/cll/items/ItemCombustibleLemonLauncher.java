@@ -7,11 +7,15 @@ import mods.phlenum.cll.network.packets.CLLPacketLauncherProcess;
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -33,7 +37,8 @@ public class ItemCombustibleLemonLauncher extends Item {
 		setCreativeTab(CommonProxy.tabCLL);
 		setUnlocalizedName(unloc);
 		setMaxStackSize(1);
-		GameRegistry.registerItem(this, unloc);
+		setRegistryName(unloc);
+		GameRegistry.register(this);
 	}
 	
 	@Override
@@ -68,8 +73,8 @@ public class ItemCombustibleLemonLauncher extends Item {
 			break;
 		}
 		if(player.worldObj.isRemote){
-			String msg = StatCollector.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getItemStackDisplayName(cll));
-			player.addChatComponentMessage(new ChatComponentText(msg));
+			String msg = I18n.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getDisplayName());
+			player.addChatComponentMessage(new TextComponentString(msg));
 		}
 	}
 	
@@ -93,15 +98,14 @@ public class ItemCombustibleLemonLauncher extends Item {
 			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP)player);
 			EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
 			player.worldObj.spawnEntityInWorld(lemonEnt);
-			player.worldObj.playSoundAtEntity(player, "random.bow", 0.5F, itemRand.nextFloat());
+			player.worldObj.playSound(player, player.getPosition(), SoundEvents.item_firecharge_use, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 		}
 	}
 	
-
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer){
-		doAction(par3EntityPlayer, par1ItemStack);
-		return par1ItemStack;
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand){
+		doAction(playerIn, itemStackIn);
+		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
 	}
 
 }

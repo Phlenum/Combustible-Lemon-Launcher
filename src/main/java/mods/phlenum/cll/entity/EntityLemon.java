@@ -8,11 +8,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.relauncher.Side;
@@ -42,8 +43,8 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		LEMONTYPE_NORMAL(CommonProxy.itemLemon) {
 
 			@Override
-			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
-				generateFire(lemon.worldObj, mop.hitVec);
+			public void performImpact(EntityLemon lemon, RayTraceResult rtr){
+				generateFire(lemon.worldObj, rtr.hitVec);
 			}
 
 			@Override
@@ -56,9 +57,9 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		LEMONTYPE_EXPLOSION(CommonProxy.itemLemonExplosive) {
 
 			@Override
-			public void performImpact(EntityLemon lemon, MovingObjectPosition mop){
+			public void performImpact(EntityLemon lemon, RayTraceResult rtr){
 				lemon.worldObj.createExplosion(lemon, lemon.posX, lemon.posY, lemon.posZ, DEFAULT_EXPLOSTION_STRENGTH, true);
-				generateFire(lemon.worldObj, mop.hitVec);
+				generateFire(lemon.worldObj, rtr.hitVec);
 			}
 
 			@Override
@@ -69,7 +70,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 
 		};
 
-		public final Item itemReference;
+		public final ItemStack itemReference;
 
 		private static final int DEFAULT_OFFSET_X = 5;
 		private static final int DEFAULT_OFFSET_Y = 5;
@@ -77,13 +78,13 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		private static final float DEFAULT_EXPLOSTION_STRENGTH = 3.0F;
 
 		LemonType(Item itemref){
-			itemReference = itemref;
+			itemReference = new ItemStack(itemref);
 		}
 
-		private static void generateFire(World world, Vec3 par1Vec3){
-			int x = (int)par1Vec3.xCoord;
-			int y = (int)par1Vec3.yCoord;
-			int z = (int)par1Vec3.zCoord;
+		private static void generateFire(World world, Vec3d par1Vec3d){
+			int x = (int)par1Vec3d.xCoord;
+			int y = (int)par1Vec3d.yCoord;
+			int z = (int)par1Vec3d.zCoord;
 			
 			for(int currX = (x - DEFAULT_OFFSET_X); currX < (x + DEFAULT_OFFSET_X); currX++){
 				for(int currY = (y - DEFAULT_OFFSET_Y); currY < (y + DEFAULT_OFFSET_Y); currY++){
@@ -98,14 +99,14 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		}
 
 		public boolean playerHasItem(EntityPlayer player){
-			return player.inventory.hasItem(itemReference);
+			return player.inventory.hasItemStack(itemReference);
 		}
-
+		
 		public void consumeItem(EntityPlayer player){
-			player.inventory.consumeInventoryItem(itemReference);
+			// TODO: !!
 		}
 
-		public abstract void performImpact(EntityLemon lemon, MovingObjectPosition mop);
+		public abstract void performImpact(EntityLemon lemon, RayTraceResult rtr);
 
 		@SideOnly(Side.CLIENT)
 		public abstract ResourceLocation getTexture();
@@ -156,9 +157,9 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 	}
 
 	@Override
-	protected void onImpact(MovingObjectPosition par1MovingObjectPosition){
+	protected void onImpact(RayTraceResult par1RayTraceResult){
 		if(!worldObj.isRemote){
-			lemonType.performImpact(this, par1MovingObjectPosition);
+			lemonType.performImpact(this, par1RayTraceResult);
 		}
 		setDead();
 	}

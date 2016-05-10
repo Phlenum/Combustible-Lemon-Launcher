@@ -16,9 +16,10 @@ public class ItemLemon extends ItemFood {
 
     public ItemLemon(String unloc, int healAmount, float saturation, boolean dogfood){
         super(healAmount, saturation, dogfood);
-        GameRegistry.registerItem(this, unloc);
         setUnlocalizedName(unloc);
         setCreativeTab(CommonProxy.tabCLL);
+        setRegistryName(unloc);
+        GameRegistry.register(this);
     }
 
 }

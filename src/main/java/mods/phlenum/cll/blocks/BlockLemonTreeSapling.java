@@ -5,9 +5,10 @@ import java.util.Random;
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -23,11 +24,11 @@ public class BlockLemonTreeSapling extends BlockBush implements IGrowable {
 
 	public BlockLemonTreeSapling(String unloc, SoundType sound){
 		super(Material.grass);
-        this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.8f);
 		setStepSound(sound);
 		setUnlocalizedName(unloc);
 		setCreativeTab(CommonProxy.tabCLL);
-		GameRegistry.registerBlock(this, unloc);
+		setRegistryName(unloc);
+		GameRegistry.register(this);
 	}
 	
 	@Override

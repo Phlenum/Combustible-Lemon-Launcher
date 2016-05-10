@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
@@ -32,7 +32,7 @@ public final class ClientProxy extends CommonProxy {
 
 	@Override
 	public void initializeModels(){
-		OBJLoader.instance.addDomain(MOD_ID);
+		OBJLoader.INSTANCE.addDomain(MOD_ID);
 		ModelLoader.setCustomModelResourceLocation(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
 	}
 	

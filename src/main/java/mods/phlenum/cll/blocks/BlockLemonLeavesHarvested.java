@@ -7,15 +7,15 @@ import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -40,25 +40,8 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 		setUnlocalizedName(unloc);
 		setCreativeTab(CommonProxy.tabCLL);
 		setDefaultState(getDefaultState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
-		GameRegistry.registerBlock(this, unloc);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getBlockColor(){
-		return 16777215;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getRenderColor(IBlockState state){
-		return 16777215;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass){
-		return 16777215;
+		setRegistryName(unloc);
+		GameRegistry.register(this);
 	}
 	
 	@Override
@@ -66,11 +49,6 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	
 	@Override
 	public int damageDropped(IBlockState state){
-		return 0;
-	}
-	
-	@Override
-	public int getDamageValue(World worldIn, BlockPos pos){
 		return 0;
 	}
 	
@@ -102,8 +80,8 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	}
 	
 	@Override
-	protected BlockState createBlockState(){
-		return new BlockState(this, new IProperty[]{ CHECK_DECAY, DECAYABLE });
+	protected BlockStateContainer createBlockState(){
+		return new BlockStateContainer(this, new IProperty[]{ CHECK_DECAY, DECAYABLE });
 	}
 
 	@Override
@@ -118,13 +96,13 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public EnumWorldBlockLayer getBlockLayer(){
+	public BlockRenderLayer getBlockLayer(){
 		return Blocks.leaves.getBlockLayer();
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean isOpaqueCube(){
+	public boolean isOpaqueCube(IBlockState state){
 		return false;
 	}
 	

@@ -2,8 +2,9 @@ package mods.phlenum.cll.blocks;
 
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -21,12 +22,13 @@ public class BlockLemonTreePlanks extends Block {
 
     public BlockLemonTreePlanks(String unloc, float hardness, float resistance, SoundType sound){
         super(Material.wood);
-        GameRegistry.registerBlock(this, unloc);
         setHardness(hardness);
         setResistance(resistance);
         setUnlocalizedName(unloc);
         setStepSound(sound);
         setCreativeTab(CommonProxy.tabCLL);
+        setRegistryName(unloc);
+        GameRegistry.register(this);
     }
     
     @Override
