@@ -87,7 +87,7 @@ public class CommonProxy {
 		
 		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(BLOCK_LEMON_LEAVES_HARVESTED);
 		blockLemonLeaves = new BlockLemonLeaves(BLOCK_LEMON_LEAVES);
-		blockLemonTreeSapling = new BlockLemonTreeSapling(BLOCK_LEMON_TREE_SAPLING, SoundType.GROUND); // GROUND == soundTypeGrass?
+		blockLemonTreeSapling = new BlockLemonTreeSapling(BLOCK_LEMON_TREE_SAPLING, SoundType.PLANT);
 		
 		GameRegistry.register((new ItemBlock(blockLemonTreePlanks).setRegistryName(BLOCK_LEMON_TREE_PLANKS)));
 		GameRegistry.register((new ItemBlock(blockLemonTreeLog).setRegistryName(BLOCK_LEMON_TREE_LOG)));
