@@ -26,6 +26,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -87,6 +88,12 @@ public class CommonProxy {
 		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(BLOCK_LEMON_LEAVES_HARVESTED);
 		blockLemonLeaves = new BlockLemonLeaves(BLOCK_LEMON_LEAVES);
 		blockLemonTreeSapling = new BlockLemonTreeSapling(BLOCK_LEMON_TREE_SAPLING, SoundType.GROUND); // GROUND == soundTypeGrass?
+		
+		GameRegistry.register((new ItemBlock(blockLemonTreePlanks).setRegistryName(BLOCK_LEMON_TREE_PLANKS)));
+		GameRegistry.register((new ItemBlock(blockLemonTreeLog).setRegistryName(BLOCK_LEMON_TREE_LOG)));
+		GameRegistry.register((new ItemBlock(blockLemonLeavesHarvested).setRegistryName(BLOCK_LEMON_LEAVES_HARVESTED)));
+		GameRegistry.register((new ItemBlock(blockLemonLeaves).setRegistryName(BLOCK_LEMON_LEAVES)));
+		GameRegistry.register((new ItemBlock(blockLemonTreeSapling).setRegistryName(BLOCK_LEMON_TREE_SAPLING)));
 	}
 
 	public void initializeItems(){

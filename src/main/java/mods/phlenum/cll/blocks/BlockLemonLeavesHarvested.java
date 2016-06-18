@@ -120,5 +120,10 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	public Item getItemDropped(IBlockState state, Random rand, int fortune){
 		return Item.getItemFromBlock(CommonProxy.blockLemonTreeSapling);
 	}
+	
+	@Override
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side){
+		return true;
+	}
 
 }
