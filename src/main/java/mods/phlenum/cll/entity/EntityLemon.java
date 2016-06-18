@@ -155,6 +155,11 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		super.writeEntityToNBT(tagCompund);
 		tagCompund.setByte(NBTKEY_TYPE, (byte)lemonType.ordinal());
 	}
+	
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+	}
 
 	@Override
 	protected void onImpact(RayTraceResult par1RayTraceResult){

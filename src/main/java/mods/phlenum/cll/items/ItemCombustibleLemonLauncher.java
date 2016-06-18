@@ -97,6 +97,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			CLLPacketLauncherProcess packetLauncherProcess = new CLLPacketLauncherProcess(currentType);
 			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP)player);
 			EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
+			lemonEnt.func_184538_a(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
 			player.worldObj.spawnEntityInWorld(lemonEnt);
 			player.worldObj.playSound(player, player.getPosition(), SoundEvents.item_firecharge_use, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 		}
