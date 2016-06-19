@@ -7,7 +7,6 @@ import mods.phlenum.cll.network.packets.CLLPacketLauncherProcess;
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -90,7 +89,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			LemonType currentType = getLemonType(itemStackIn);
 			if(!playerIn.capabilities.isCreativeMode){
 				if(!currentType.playerHasItem(playerIn)){
-					playerIn.worldObj.playAuxSFX(1001, playerIn.getPosition(), 0);
+					playerIn.worldObj.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_outofammo, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 					return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
 				}
 				currentType.consumeItem(playerIn);
@@ -100,7 +99,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			EntityLemon lemonEnt = new EntityLemon(playerIn.worldObj, playerIn, currentType);
 			lemonEnt.func_184538_a(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 			playerIn.worldObj.spawnEntityInWorld(lemonEnt);
-			playerIn.worldObj.playSound(null, playerIn.getPosition(), SoundEvents.entity_egg_throw, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
+			playerIn.worldObj.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_fire, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 	}

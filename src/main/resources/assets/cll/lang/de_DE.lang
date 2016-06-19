@@ -8,4 +8,5 @@ tile.LemonTreePlanks.name=Zitronenbaumbretter
 tile.LemonTreeSapling.name=Zitronenbaumsetzling
 msg.ItemCombustibleLemonLauncher.switchedType=Projektil zu %i geändert
 msg.DamageSourceExplosiveLemon=%p hat eine explosive Zitrone gegessen. Ouch.
-
+subtitles.item.CombustibleLemonLauncher.fire=Zitronen geworfen
+subtitles.item.CombustibleLemonLauncher.outofammo=Zitronenwerfer keine Munition

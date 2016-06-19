@@ -8,4 +8,6 @@ tile.LemonTreePlanks.name=Lemon Tree Planks
 tile.LemonTreeSapling.name=Lemon Tree Sapling
 msg.ItemCombustibleLemonLauncher.switchedType=Changed projectile to %i
 msg.DamageSourceExplosiveLemon=%p ate an explosive lemon. Ouch.
+subtitles.item.CombustibleLemonLauncher.fire=Lemon fired
+subtitles.item.CombustibleLemonLauncher.outofammo=Lemon Launcher no ammo
 

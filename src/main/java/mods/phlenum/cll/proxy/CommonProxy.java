@@ -28,6 +28,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.IFuelHandler;
@@ -60,6 +62,9 @@ public class CommonProxy {
 	public static ItemLemon itemLemon;
 	public static ItemLemonExplosive itemLemonExplosive;
 	public static ItemCombustibleLemonLauncher itemCombustibleLemonLauncher;
+	
+	public static SoundEvent sound_CombustibleLemonLauncher_fire;
+	public static SoundEvent sound_CombustibleLemonLauncher_outofammo;
 
 	public static final DamageSourceExplosiveLemon DAMAGE_SOURCE_EXPLOSIVE_LEMON = new DamageSourceExplosiveLemon();
 	public static final WorldGenLemonTree WORLD_GEN_LEMON_TREE = new WorldGenLemonTree();
@@ -100,6 +105,11 @@ public class CommonProxy {
 		itemLemon = new ItemLemon(ITEM_LEMON, 5, 0.2f, false);
 		itemLemonExplosive = new ItemLemonExplosive(ITEM_LEMON_EXPLOSIVE, 5, 0.2f, false);
 		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(ITEM_COMBUSTIBLE_LEMON_LAUNCHER);
+	}
+	
+	public void initializeSoundEvents(){
+		sound_CombustibleLemonLauncher_fire = registerSound(SOUNDEVENT_COMBUSTIBLELEMONLAUNCHER_FIRE);
+		sound_CombustibleLemonLauncher_outofammo = registerSound(SOUNDEVENT_COMBUSTIBLELEMONLAUNCHER_OUTOFAMMO);
 	}
 
 	public void initializeRenderers(){}
@@ -152,6 +162,11 @@ public class CommonProxy {
 		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
 		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(player);
 		cllChannel.get(Side.SERVER).writeAndFlush(packet);
+	}
+	
+	private static SoundEvent registerSound(String soundName){
+		ResourceLocation soundID = new ResourceLocation(MOD_ID, soundName);
+		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
 	}
 
 	private static class CLLFuelHandler implements IFuelHandler {

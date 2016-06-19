@@ -41,6 +41,8 @@ public final class CombustibleLemonLauncher {
 		
 		proxy.initializeEntityRender();
 		
+		proxy.initializeSoundEvents();
+		
 		CLLConfig.initializeConfig(preInitEvent.getSuggestedConfigurationFile());
 	}
 

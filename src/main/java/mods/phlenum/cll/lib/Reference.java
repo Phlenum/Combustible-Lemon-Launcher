@@ -27,6 +27,9 @@ public final class Reference {
 	public static final String BLOCK_LEMON_TREE_LOG = "LemonTreeLog";
 	public static final String BLOCK_LEMON_TREE_PLANKS = "LemonTreePlanks";
 	public static final String BLOCK_LEMON_TREE_SAPLING = "LemonTreeSapling";
+	
+	public static final String SOUNDEVENT_COMBUSTIBLELEMONLAUNCHER_FIRE = "item.CombustibleLemonLauncher.fire";
+	public static final String SOUNDEVENT_COMBUSTIBLELEMONLAUNCHER_OUTOFAMMO = "item.CombustibleLemonLauncher.outofammo";
 
 	public static final String MODEL_COMBUSTIBLE_LEMON_LAUNCHER = MOD_ID.toLowerCase() + ":models/CombustibleLemonLauncher.obj";
 	public static final String TEXTURE_COMBUSTIBLE_LEMON_LAUNCHER = MOD_ID.toLowerCase() + ":textures/models/CombustibleLemonLauncher.png";
