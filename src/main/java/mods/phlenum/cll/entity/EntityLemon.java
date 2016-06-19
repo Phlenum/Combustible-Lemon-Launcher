@@ -5,6 +5,7 @@ import static mods.phlenum.cll.lib.Reference.*;
 import io.netty.buffer.ByteBuf;
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -102,8 +104,30 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 			return player.inventory.hasItemStack(itemReference);
 		}
 		
+		private boolean itemStackEqualsProjectile(ItemStack stackin){
+			return stackin != null && stackin.getItem() == itemReference.getItem(); 
+		}
+		
+		private static void consumeFromStack(ItemStack stackin, InventoryPlayer inv){
+			--stackin.stackSize;
+			if(stackin.stackSize == 0){
+				inv.deleteStack(stackin);
+			}
+		}
+		
 		public void consumeItem(EntityPlayer player){
-			// TODO: !!
+			if(itemStackEqualsProjectile(player.getHeldItem(EnumHand.MAIN_HAND))){
+				consumeFromStack(player.getHeldItem(EnumHand.MAIN_HAND), player.inventory);
+			}else if(itemStackEqualsProjectile(player.getHeldItem(EnumHand.OFF_HAND))){
+				consumeFromStack(player.getHeldItem(EnumHand.OFF_HAND), player.inventory);
+			}else{
+				for(int i = 0; i < player.inventory.getSizeInventory(); ++i){
+					ItemStack curr = player.inventory.getStackInSlot(i);
+					if(itemStackEqualsProjectile(curr)){
+						consumeFromStack(curr, player.inventory);
+					}
+				}
+			}
 		}
 
 		public abstract void performImpact(EntityLemon lemon, RayTraceResult rtr);

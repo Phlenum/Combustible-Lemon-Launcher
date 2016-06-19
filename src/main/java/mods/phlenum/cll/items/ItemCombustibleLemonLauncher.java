@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentString;
@@ -78,35 +79,30 @@ public class ItemCombustibleLemonLauncher extends Item {
 		}
 	}
 	
-	// Server Code
-	private static void doAction(EntityPlayer player, ItemStack itemstack){
-		createNBTTagIfNeeded(itemstack);
-		if(player.isSneaking()){
-			toggleLemonType(player, itemstack);
-			return;
-		}
-		if(!player.worldObj.isRemote){
-			LemonType currentType = getLemonType(itemstack);
-			if(!player.capabilities.isCreativeMode){
-				if(!currentType.playerHasItem(player)){
-					player.worldObj.playAuxSFX(1001, player.getPosition(), 0);
-					return;
-				}
-				currentType.consumeItem(player);
-			}
-			CLLPacketLauncherProcess packetLauncherProcess = new CLLPacketLauncherProcess(currentType);
-			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP)player);
-			EntityLemon lemonEnt = new EntityLemon(player.worldObj, player, currentType);
-			lemonEnt.func_184538_a(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-			player.worldObj.spawnEntityInWorld(lemonEnt);
-			player.worldObj.playSound(player, player.getPosition(), SoundEvents.item_firecharge_use, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
-		}
-	}
-	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand){
-		doAction(playerIn, itemStackIn);
-		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+		createNBTTagIfNeeded(itemStackIn);
+		if(playerIn.isSneaking()){
+			toggleLemonType(playerIn, itemStackIn);
+			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+		}
+		if(!playerIn.worldObj.isRemote){
+			LemonType currentType = getLemonType(itemStackIn);
+			if(!playerIn.capabilities.isCreativeMode){
+				if(!currentType.playerHasItem(playerIn)){
+					playerIn.worldObj.playAuxSFX(1001, playerIn.getPosition(), 0);
+					return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
+				}
+				currentType.consumeItem(playerIn);
+			}
+			CLLPacketLauncherProcess packetLauncherProcess = new CLLPacketLauncherProcess(currentType);
+			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP)playerIn);
+			EntityLemon lemonEnt = new EntityLemon(playerIn.worldObj, playerIn, currentType);
+			lemonEnt.func_184538_a(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+			playerIn.worldObj.spawnEntityInWorld(lemonEnt);
+			playerIn.worldObj.playSound(null, playerIn.getPosition(), SoundEvents.entity_egg_throw, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
+		}
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 	}
 
 }

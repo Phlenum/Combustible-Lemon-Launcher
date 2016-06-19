@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @date 29 Nov 2014
  */
 
-@Mod(modid = MOD_ID, name = MOD_NAME, version = MOD_VERSION, guiFactory="mods.phlenum.cll.client.gui.CLLGuiFactory")
+@Mod(modid = MOD_ID, name = MOD_NAME, version = MOD_VERSION, guiFactory="mods.phlenum.cll.client.gui.CLLGuiFactory", canBeDeactivated=false)
 public final class CombustibleLemonLauncher {
 
 	@Mod.Instance(MOD_ID)
