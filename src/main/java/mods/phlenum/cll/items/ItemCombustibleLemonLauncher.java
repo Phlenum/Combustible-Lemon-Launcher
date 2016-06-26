@@ -23,16 +23,17 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * The Combustible Lemon Launcher mod
  * https://github.com/Phlenum/Combustible-Lemon-Launcher
  * http://minecraft.curseforge.com/mc-mods/62429-combustible-lemon-launcher
+ * 
  * @author Phil Julian
  * @date 05 Jan 2016
  */
 
 public class ItemCombustibleLemonLauncher extends Item {
-	
+
 	private static final String NBTKEY_LEMONTYPE = "LemonType";
 	private static final String LOCALIZED_SWITCHED_TYPE = "msg.ItemCombustibleLemonLauncher.switchedType";
-	
-	public ItemCombustibleLemonLauncher(String unloc){
+
+	public ItemCombustibleLemonLauncher(String unloc) {
 		super();
 		setCreativeTab(CommonProxy.tabCLL);
 		setUnlocalizedName(unloc);
@@ -40,31 +41,31 @@ public class ItemCombustibleLemonLauncher extends Item {
 		setRegistryName(unloc);
 		GameRegistry.register(this);
 	}
-	
+
 	@Override
-	public boolean getShareTag(){
+	public boolean getShareTag() {
 		return true;
 	}
-	
-	private static void setLemonType(ItemStack cll, LemonType type){
-		cll.getTagCompound().setByte(NBTKEY_LEMONTYPE, (byte)type.ordinal());
+
+	private static void setLemonType(ItemStack cll, LemonType type) {
+		cll.getTagCompound().setByte(NBTKEY_LEMONTYPE, (byte) type.ordinal());
 	}
-	
-	private static boolean createNBTTagIfNeeded(ItemStack itemstack){
-		if(!itemstack.hasTagCompound()){
+
+	private static boolean createNBTTagIfNeeded(ItemStack itemstack) {
+		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
 			setLemonType(itemstack, LemonType.LEMONTYPE_NORMAL);
 			return true;
 		}
 		return false;
 	}
-	
-	private static LemonType getLemonType(ItemStack cll){
+
+	private static LemonType getLemonType(ItemStack cll) {
 		return LemonType.values()[cll.getTagCompound().getByte(NBTKEY_LEMONTYPE)];
 	}
-	
-	private static void toggleLemonType(EntityPlayer player, ItemStack cll){
-		switch(getLemonType(cll)){
+
+	private static void toggleLemonType(EntityPlayer player, ItemStack cll) {
+		switch (getLemonType(cll)) {
 		case LEMONTYPE_NORMAL:
 			setLemonType(cll, LemonType.LEMONTYPE_EXPLOSION);
 			break;
@@ -72,34 +73,39 @@ public class ItemCombustibleLemonLauncher extends Item {
 			setLemonType(cll, LemonType.LEMONTYPE_NORMAL);
 			break;
 		}
-		if(player.worldObj.isRemote){
-			String msg = I18n.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getDisplayName());
+		if (player.worldObj.isRemote) {
+			String msg = I18n.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i",
+					getLemonType(cll).itemReference.getDisplayName());
 			player.addChatComponentMessage(new TextComponentString(msg));
 		}
 	}
-	
+
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand){
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
+			EnumHand hand) {
 		createNBTTagIfNeeded(itemStackIn);
-		if(playerIn.isSneaking()){
+		if (playerIn.isSneaking()) {
 			toggleLemonType(playerIn, itemStackIn);
 			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 		}
-		if(!playerIn.worldObj.isRemote){
+		if (!playerIn.worldObj.isRemote) {
 			LemonType currentType = getLemonType(itemStackIn);
-			if(!playerIn.capabilities.isCreativeMode){
-				if(!currentType.playerHasItem(playerIn)){
-					playerIn.worldObj.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_outofammo, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
+			if (!playerIn.capabilities.isCreativeMode) {
+				if (!currentType.playerHasItem(playerIn)) {
+					playerIn.worldObj.playSound(null, playerIn.getPosition(),
+							CommonProxy.sound_CombustibleLemonLauncher_outofammo, SoundCategory.AMBIENT, 0.3F,
+							itemRand.nextFloat());
 					return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
 				}
 				currentType.consumeItem(playerIn);
 			}
 			CLLPacketLauncherProcess packetLauncherProcess = new CLLPacketLauncherProcess(currentType);
-			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP)playerIn);
+			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP) playerIn);
 			EntityLemon lemonEnt = new EntityLemon(playerIn.worldObj, playerIn, currentType);
-			lemonEnt.func_184538_a(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+			lemonEnt.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 			playerIn.worldObj.spawnEntityInWorld(lemonEnt);
-			playerIn.worldObj.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_fire, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
+			playerIn.worldObj.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_fire,
+					SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 	}

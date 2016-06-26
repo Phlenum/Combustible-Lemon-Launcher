@@ -23,7 +23,7 @@ public class BlockLemonTreeLog extends BlockLog {
 	
 	public BlockLemonTreeLog(String unloc, SoundType sound){
 		setUnlocalizedName(unloc);
-		setStepSound(sound);
+		setSoundType(sound);
 		setCreativeTab(CommonProxy.tabCLL);
 		setDefaultState(blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
 		setRegistryName(unloc);

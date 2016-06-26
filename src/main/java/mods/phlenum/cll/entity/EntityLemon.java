@@ -93,7 +93,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 					for(int currZ = (z - DEFAULT_OFFSET_Z); currZ < (z + DEFAULT_OFFSET_Z); currZ++){
 						BlockPos pos = new BlockPos(currX, currY, currZ);
 						if(world.isAirBlock(pos) && world.rand.nextBoolean() && world.rand.nextBoolean()){
-							world.setBlockState(pos, Blocks.fire.getDefaultState());
+							world.setBlockState(pos, Blocks.FIRE.getDefaultState());
 						}
 					}
 				}

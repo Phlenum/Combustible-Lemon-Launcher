@@ -97,7 +97,7 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer(){
-		return Blocks.leaves.getBlockLayer();
+		return Blocks.LEAVES.getBlockLayer();
 	}
 	
 	@Override

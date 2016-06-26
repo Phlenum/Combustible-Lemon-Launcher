@@ -123,21 +123,21 @@ public class CommonProxy {
 				"iio",
 				"rp ",
 				"iio",
-				Character.valueOf('i'), new ItemStack(Items.iron_ingot),
-				Character.valueOf('o'), new ItemStack(Blocks.obsidian),
-				Character.valueOf('r'), new ItemStack(Items.redstone),
-				Character.valueOf('p'), new ItemStack(Blocks.piston)
+				Character.valueOf('i'), new ItemStack(Items.IRON_INGOT),
+				Character.valueOf('o'), new ItemStack(Blocks.OBSIDIAN),
+				Character.valueOf('r'), new ItemStack(Items.REDSTONE),
+				Character.valueOf('p'), new ItemStack(Blocks.PISTON)
 		});
 		GameRegistry.addRecipe(new ItemStack(itemLemonExplosive), new Object[]{
 				" s ",
 				"tlt",
 				" s ",
-				Character.valueOf('s'), new ItemStack(Items.string),
-				Character.valueOf('t'), new ItemStack(Blocks.tnt),
+				Character.valueOf('s'), new ItemStack(Items.STRING),
+				Character.valueOf('t'), new ItemStack(Blocks.TNT),
 				Character.valueOf('l'), new ItemStack(itemLemon)
 		});
 		GameRegistry.addShapelessRecipe(new ItemStack(blockLemonTreePlanks, 4), new Object[]{ blockLemonTreeLog });
-		GameRegistry.addSmelting(blockLemonTreeLog, new ItemStack(Items.coal, 1, 1), 0.15F);
+		GameRegistry.addSmelting(blockLemonTreeLog, new ItemStack(Items.COAL, 1, 1), 0.15F);
 		GameRegistry.registerFuelHandler(new CLLFuelHandler());
 		OreDictionary.registerOre(OREDICT_LEMON, itemLemon);
 		OreDictionary.registerOre("plankWood", blockLemonTreePlanks);

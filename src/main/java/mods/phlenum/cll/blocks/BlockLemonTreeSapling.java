@@ -23,8 +23,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class BlockLemonTreeSapling extends BlockBush implements IGrowable {
 
 	public BlockLemonTreeSapling(String unloc, SoundType sound){
-		super(Material.grass);
-		setStepSound(sound);
+		super(Material.GRASS);
+		setSoundType(sound);
 		setUnlocalizedName(unloc);
 		setCreativeTab(CommonProxy.tabCLL);
 		setRegistryName(unloc);

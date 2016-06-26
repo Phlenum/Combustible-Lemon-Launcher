@@ -21,11 +21,11 @@ public class BlockLemonTreePlanks extends Block {
 
 
     public BlockLemonTreePlanks(String unloc, float hardness, float resistance, SoundType sound){
-        super(Material.wood);
+        super(Material.WOOD);
         setHardness(hardness);
         setResistance(resistance);
         setUnlocalizedName(unloc);
-        setStepSound(sound);
+        setSoundType(sound);
         setCreativeTab(CommonProxy.tabCLL);
         setRegistryName(unloc);
         GameRegistry.register(this);
