@@ -14,11 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 public class CLLLogger {
 	
-	private static Logger modLogger;
-	
-	public static void initializeLogging(){
-		modLogger = LogManager.getLogger(Reference.MOD_ID);
-	}
+	private static Logger modLogger = LogManager.getLogger(Reference.MOD_ID);
 	
 	public static void logInfo(String msg){
 		modLogger.log(Level.INFO, msg);

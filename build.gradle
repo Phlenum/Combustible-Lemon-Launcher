@@ -26,6 +26,7 @@ compileJava {
 minecraft {
 	replaceIn "lib/Reference.java"
     replace "@VERSION@", project.version
+    replace "@FINGERPRINT@", ""
     version = "1.10.2-12.18.2.2099"
     runDir = "run"
     

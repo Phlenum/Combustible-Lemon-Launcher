@@ -14,6 +14,7 @@ public final class Reference {
 	public static final String MOD_ID = "cll";
 	public static final String MOD_VERSION = "@VERSION@";
 	public static final String MOD_CHANNEL = "cll";
+	public static final String MOD_FINGERPRINT = "@FINGERPRINT@";
 	public static final String TEXTURE_PREFIX = Reference.MOD_ID + ":";
 
 	public static final String ITEM_LEMON = "Lemon";
