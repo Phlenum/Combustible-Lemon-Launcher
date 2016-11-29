@@ -14,20 +14,19 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-/*
-// for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
-plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.2"
-}
-*/
 version = "1.10-3.2.11"
 group= "mods.phlenum.cll" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CLL"
 
+sourceCompatibility = targetCompatibility = "1.6" // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.6"
+}
+
 minecraft {
 	replaceIn "lib/Reference.java"
     replace "@VERSION@", project.version
-    version = "1.10-12.18.0.1996-1.10.0"
+    version = "1.10.2-12.18.2.2099"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.

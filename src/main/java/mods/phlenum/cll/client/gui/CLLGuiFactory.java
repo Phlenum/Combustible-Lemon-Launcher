@@ -34,8 +34,9 @@ public class CLLGuiFactory implements IModGuiFactory {
 		return null;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
-	public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element){
+	public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement arg0){
 		return null;
 	}
 

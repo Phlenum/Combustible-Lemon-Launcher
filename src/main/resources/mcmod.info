@@ -1,6 +1,6 @@
 [
 {
-  "modid": "CLL",
+  "modid": "cll",
   "name": "Combustible Lemon Launcher",
   "description": "\"Im gonna get my engineers to invent a combustible lemon that burns your house down!\"\n - Cave Johnson, CEO of Aperture Science",
   "version": "${version}",
