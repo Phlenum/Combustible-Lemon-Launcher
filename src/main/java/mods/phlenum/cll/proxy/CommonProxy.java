@@ -80,8 +80,8 @@ public class CommonProxy {
 
 		@Override
 		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem(){
-			return itemCombustibleLemonLauncher;
+		public ItemStack getTabIconItem(){
+			return new ItemStack(itemCombustibleLemonLauncher);
 		}
 
 	};
@@ -150,7 +150,7 @@ public class CommonProxy {
 			GameRegistry.registerWorldGenerator(WORLD_GEN_LEMON_TREE, 60);
 		}
 
-		EntityRegistry.registerModEntity(EntityLemon.class, ENTITY_LEMON, 1, CombustibleLemonLauncher.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(ENTITY_LEMON), EntityLemon.class, ENTITY_LEMON, 1, CombustibleLemonLauncher.instance, 80, 3, true);
 	}
 
 	public void initializePacketHandler(){

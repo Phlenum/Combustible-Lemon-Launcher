@@ -9,7 +9,6 @@ import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -50,11 +49,6 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	@Override
 	public int damageDropped(IBlockState state){
 		return 0;
-	}
-	
-	@Override
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list){
-		super.getSubBlocks(itemIn, tab, list);
 	}
 	
 	@Override

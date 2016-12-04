@@ -1,7 +1,0 @@
-{
-	"parent": "block/column_side",
-	"textures": {
-		"end": "cll:blocks/LemonTreeLog_Top",
-		"side": "cll:blocks/LemonTreeLog"
-	}
-}

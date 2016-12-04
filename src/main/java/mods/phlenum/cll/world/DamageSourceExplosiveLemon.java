@@ -24,7 +24,7 @@ public class DamageSourceExplosiveLemon extends DamageSource {
 
     @Override
     public ITextComponent getDeathMessage(EntityLivingBase entity){
-        String deathMessage = I18n.translateToLocal("msg.DamageSourceExplosiveLemon").replace("%p", entity.getName());
+        String deathMessage = I18n.translateToLocal("msg.damagesourceexplosivelemon").replace("%p", entity.getName());
         return new TextComponentString(deathMessage);
     }
 }

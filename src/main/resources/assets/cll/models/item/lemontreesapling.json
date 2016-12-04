@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "cll:blocks/LemonTreeSapling"
+        "layer0": "cll:blocks/lemontreesapling"
     },
     "display": {
         "thirdperson": {

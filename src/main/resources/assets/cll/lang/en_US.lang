@@ -1,13 +1,13 @@
-item.Lemon.name=Lemon
-item.LemonExplosive.name=Explosive Lemon
-item.CombustibleLemonLauncher.name=Combustible Lemon Launcher
-tile.LemonLeaves.name=Lemon Leaves
-tile.LemonLeavesHarvested.name=Lemon Leaves
-tile.LemonTreeLog.name=Lemon Tree Wood
-tile.LemonTreePlanks.name=Lemon Tree Planks
-tile.LemonTreeSapling.name=Lemon Tree Sapling
-msg.ItemCombustibleLemonLauncher.switchedType=Changed projectile to %i
-msg.DamageSourceExplosiveLemon=%p ate an explosive lemon. Ouch.
-subtitles.item.CombustibleLemonLauncher.fire=Lemon fired
-subtitles.item.CombustibleLemonLauncher.outofammo=Lemon Launcher no ammo
+item.lemon.name=Lemon
+item.lemonexplosive.name=Explosive Lemon
+item.combustiblelemonlauncher.name=Combustible Lemon Launcher
+tile.lemonleaves.name=Lemon Leaves
+tile.lemonleavesharvested.name=Lemon Leaves
+tile.lemontreelog.name=Lemon Tree Wood
+tile.lemontreeplanks.name=Lemon Tree Planks
+tile.lemontreesapling.name=Lemon Tree Sapling
+msg.itemcombustiblelemonlauncher.switchedtype=Changed projectile to %i
+msg.damagesourceexplosivelemon=%p ate an explosive lemon. Ouch.
+subtitles.item.combustiblelemonlauncher.fire=Lemon fired
+subtitles.item.combustiblelemonlauncher.outofammo=Lemon Launcher no ammo
 

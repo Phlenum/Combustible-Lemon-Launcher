@@ -109,8 +109,8 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		}
 		
 		private static void consumeFromStack(ItemStack stackin, InventoryPlayer inv){
-			--stackin.stackSize;
-			if(stackin.stackSize == 0){
+			stackin.func_190917_f(-1);
+			if(stackin.func_190916_E() == 0){
 				inv.deleteStack(stackin);
 			}
 		}
@@ -179,18 +179,13 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		super.writeEntityToNBT(tagCompund);
 		tagCompund.setByte(NBTKEY_TYPE, (byte)lemonType.ordinal());
 	}
-	
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-	}
 
 	@Override
 	protected void onImpact(RayTraceResult par1RayTraceResult){
 		if(!worldObj.isRemote){
 			lemonType.performImpact(this, par1RayTraceResult);
+			setDead();
 		}
-		setDead();
 	}
 	
 	public LemonType getLemonType(){

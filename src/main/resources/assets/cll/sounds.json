@@ -1,14 +1,14 @@
 {
-	"item.CombustibleLemonLauncher.fire": {
+	"item.combustiblelemonlauncher.fire": {
 		"sounds" : [
 			"random/bow"
 		],
-		"subtitle": "subtitles.item.CombustibleLemonLauncher.fire"
+		"subtitle": "subtitles.item.combustiblelemonlauncher.fire"
 	},
-	"item.CombustibleLemonLauncher.outofammo": {
+	"item.combustiblelemonlauncher.outofammo": {
 		"sounds": [
 			"random/click"
 		],
-		"subtitle": "subtitles.item.CombustibleLemonLauncher.outofammo"
+		"subtitle": "subtitles.item.combustiblelemonlauncher.outofammo"
 	}
 }

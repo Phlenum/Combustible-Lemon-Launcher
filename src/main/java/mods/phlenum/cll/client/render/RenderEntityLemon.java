@@ -29,28 +29,32 @@ public class RenderEntityLemon extends Render<EntityLemon> {
 	@Override
 	public void doRender(EntityLemon entity, double x, double y, double z, float entityYaw, float partialTicks){
 		GlStateManager.pushMatrix();
-		//GlStateManager.disableLighting();
-		GlStateManager.translate(x, y, z);
-		GlStateManager.rotate(renderManager.playerViewY - 180, 0.0F, -1.0F, 0.0F);
-		GlStateManager.rotate(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
-		GlStateManager.scale(0.5F, 0.5F, 0.5F);
-		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		bindEntityTexture(entity);
 		
-		Tessellator tess = Tessellator.getInstance();
-		VertexBuffer vertexbuffer = tess.getBuffer();
-		
-		GlStateManager.glNormal3f(0.0F, 0.0F, 1.0F);
-		vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		GlStateManager.disableLighting();
+        
+        GlStateManager.translate(x, y, z);
+        GlStateManager.rotate(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
+        GlStateManager.rotate((float)(this.renderManager.options.thirdPersonView == 2 ? -1 : 1) * -this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
+        GlStateManager.scale(0.5F, 0.5F, 0.5F);
+        
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        bindEntityTexture(entity);
+        
+        Tessellator tess = Tessellator.getInstance();
+        VertexBuffer vertexbuffer = tess.getBuffer();
+        
+        GlStateManager.glNormal3f(0.0F, 1.0F, 0.0F);
+        vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
 		vertexbuffer.pos(-1.0D, -1.0D, 0.0D).tex(0.0D, 1.0D).endVertex();
 		vertexbuffer.pos( 1.0D, -1.0D, 0.0D).tex(1.0D, 1.0D).endVertex();
 		vertexbuffer.pos( 1.0D,  1.0D, 0.0D).tex(1.0D, 0.0D).endVertex();
 		vertexbuffer.pos(-1.0D,  1.0D, 0.0D).tex(0.0D, 0.0D).endVertex();
 		tess.draw();
 		
-		//GlStateManager.enableLighting();
-		GlStateManager.popMatrix();
-		super.doRender(entity, x, y, z, entityYaw, partialTicks);
+		GlStateManager.disableRescaleNormal();
+		GlStateManager.enableLighting();
+        GlStateManager.popMatrix();
+        super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 	@Override
