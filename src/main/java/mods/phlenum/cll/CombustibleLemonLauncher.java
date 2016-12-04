@@ -29,7 +29,7 @@ public final class CombustibleLemonLauncher {
 	
 	@Mod.EventHandler
 	public void fingerprintViolation(FMLFingerprintViolationEvent fingerprintViolationEvent){
-		CLLLogger.logWarning("This jar file of Combustible Lemon Launcher failed the fingerprint violation!");
+		CLLLogger.logWarning("This jar file of Combustible Lemon Launcher failed the fingerprint validation!");
 	}
 	
 
