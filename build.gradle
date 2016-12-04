@@ -14,7 +14,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.10-3.3.12"
+version = "1.11-3.3.12"
 group= "mods.phlenum.cll" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CLL"
 
