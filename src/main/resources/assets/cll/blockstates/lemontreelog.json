@@ -1,8 +1,8 @@
 {
 	"variants": {
-		"axis=y": { "model": "cll:lemontreelog" },
-		"axis=z": { "model": "cll:lemontreelogside" },
-		"axis=x": { "model": "cll:lemontreelogside", "y": 90 },
-		"axis=none": { "model": "cll:lemontreebark" }
-	}
+		"axis=y":		{ "model": "cll:lemontreelog" },
+		"axis=z":		{ "model": "cll:lemontreelog", "x": 90 },
+		"axis=x":		{ "model": "cll:lemontreelog", "x": 90, "y": 90 },
+		"axis=none":	{ "model": "cll:lemontreebark" }
+    }
 }
