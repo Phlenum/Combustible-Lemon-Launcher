@@ -1,11 +1,11 @@
 item.lemon.name=Zitrone
-item.lemonexplosive.name=Explosive Zitrone
+item.lemon_explosive.name=Explosive Zitrone
 item.combustiblelemonlauncher.name=Entflammbare Zitronen Werfer
-tile.lemonleaves.name=Zitronenbaumblätter
-tile.lemonleavesharvested.name=Zitronenbaumblätter
-tile.lemontreelog.name=Zitronenbaumholz
-tile.lemontreeplanks.name=Zitronenbaumbretter
-tile.lemontreesapling.name=Zitronenbaumsetzling
+tile.lemon_leaves.name=Zitronenbaumblätter
+tile.lemon_leaves_harvested.name=Zitronenbaumblätter
+tile.lemon_tree_log.name=Zitronenbaumholz
+tile.lemon_tree_planks.name=Zitronenbaumbretter
+tile.lemon_tree_sapling.name=Zitronenbaumsetzling
 msg.itemcombustiblelemonlauncher.switchedtype=Projektil zu %i geändert
 msg.damagesourceexplosivelemon=%p hat eine explosive Zitrone gegessen. Ouch.
 subtitles.item.combustiblelemonlauncher.fire=Zitronen geworfen

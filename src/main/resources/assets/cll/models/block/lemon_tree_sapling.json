@@ -1,6 +1,6 @@
 {
 	"parent": "block/cross",
 	"textures": {
-		"cross": "cll:blocks/lemontreesapling"
+		"cross": "cll:blocks/lemon_tree_sapling"
 	}
 }

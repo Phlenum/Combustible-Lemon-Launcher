@@ -1,6 +1,6 @@
 {
 	"parent": "block/leaves",
 	"textures": {
-		"all": "cll:blocks/lemonleavesharvested"
+		"all": "cll:blocks/lemon_leaves"
 	}
 }

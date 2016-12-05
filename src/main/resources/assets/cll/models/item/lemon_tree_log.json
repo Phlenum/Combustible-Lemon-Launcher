@@ -1,5 +1,5 @@
 {
-	"parent": "cll:block/lemonleavesharvested",
+	"parent": "cll:block/lemon_tree_log",
 	"display": {
 		"thirdperson": {
 			"rotation": [ 10, -45, 170 ],

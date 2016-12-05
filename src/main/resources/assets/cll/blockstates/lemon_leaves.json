@@ -1,0 +1,9 @@
+{
+	"variants": {
+		"normal": { "model": "cll:lemon_leaves" },
+		"check_decay=false,decayable=true": { "model": "cll:lemon_leaves" },
+		"check_decay=true,decayable=true": { "model": "cll:lemon_leaves" },
+		"check_decay=true,decayable=false": { "model": "cll:lemon_leaves" },
+		"check_decay=false,decayable=false": { "model": "cll:lemon_leaves" }
+	}
+}

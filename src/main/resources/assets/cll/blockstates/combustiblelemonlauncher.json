@@ -2,7 +2,7 @@
 	"forge_marker": 1,
     "defaults": {
         "textures": {
-            "combustiblelemonlauncher": "cll:models/combustiblelemonlauncher"
+            "combustible_lemon_launcher": "cll:models/combustiblelemonlauncher"
         },
         "model": "cll:combustiblelemonlauncher.obj"
     },

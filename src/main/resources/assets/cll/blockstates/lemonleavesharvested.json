@@ -1,9 +1,0 @@
-{
-	"variants": {
-		"normal": { "model": "cll:lemonleavesharvested" },
-		"check_decay=false,decayable=true": { "model": "cll:lemonleavesharvested" },
-		"check_decay=true,decayable=true": { "model": "cll:lemonleavesharvested" },
-		"check_decay=true,decayable=false": { "model": "cll:lemonleavesharvested" },
-		"check_decay=false,decayable=false": { "model": "cll:lemonleavesharvested" }
-	}
-}
