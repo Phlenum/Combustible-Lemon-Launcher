@@ -136,6 +136,14 @@ public class CommonProxy {
 				Character.valueOf('t'), new ItemStack(Blocks.TNT),
 				Character.valueOf('l'), new ItemStack(itemLemon)
 		});
+		GameRegistry.addRecipe(new ItemStack(itemLemonExplosive), new Object[]{
+				" t ",
+				"sls",
+				" t ",
+				Character.valueOf('s'), new ItemStack(Items.STRING),
+				Character.valueOf('t'), new ItemStack(Blocks.TNT),
+				Character.valueOf('l'), new ItemStack(itemLemon)
+		});
 		GameRegistry.addShapelessRecipe(new ItemStack(blockLemonTreePlanks, 4), new Object[]{ blockLemonTreeLog });
 		GameRegistry.addSmelting(blockLemonTreeLog, new ItemStack(Items.COAL, 1, 1), 0.15F);
 		GameRegistry.registerFuelHandler(new CLLFuelHandler());
