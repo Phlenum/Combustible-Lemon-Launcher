@@ -11,13 +11,13 @@ Link to [Curse Forge Post](http://minecraft.curseforge.com/mc-mods/combustible-l
 ### Crafting
 
 the Combustible Lemon Launcher:<br>
-![crafting the Combustible Lemon Launcher](doc/combustiblelemonlauncher.png)
+<img src="doc/combustiblelemonlauncher.png" height="172" />
 
 the Explosive Lemon:<br>
-![crafting the Explosive Lemon](doc/lemon_explosive.png)
+<img src="doc/lemon_explosive.png" height="172" />
 
 the Lemon Tree Planks:<br>
-![crafting the Lemon Tree Planks](doc/lemon_tree_planks.png)
+<img src="doc/lemon_tree_planks.png" height="172" />
 
 _(Lemon Tree Planks and Lemon Tree Logs are registered to the OreDictionary)_
 
