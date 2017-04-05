@@ -75,7 +75,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 		}
 		if (player.world.isRemote) {
 			String msg = I18n.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getDisplayName());
-			//player.addChatComponentMessage(new TextComponentString(msg), false);
+            player.sendMessage(new TextComponentString(msg));
 		}
 	}
 
