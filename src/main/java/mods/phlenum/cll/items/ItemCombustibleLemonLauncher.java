@@ -73,9 +73,9 @@ public class ItemCombustibleLemonLauncher extends Item {
 			setLemonType(cll, LemonType.LEMONTYPE_NORMAL);
 			break;
 		}
-		if (player.worldObj.isRemote) {
+		if (player.world.isRemote) {
 			String msg = I18n.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getDisplayName());
-			player.addChatComponentMessage(new TextComponentString(msg), false);
+			//player.addChatComponentMessage(new TextComponentString(msg), false);
 		}
 	}
 
@@ -87,11 +87,11 @@ public class ItemCombustibleLemonLauncher extends Item {
 			toggleLemonType(playerIn, itemStackIn);
 			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 		}
-		if(!playerIn.worldObj.isRemote) {
+		if(!playerIn.world.isRemote) {
 			LemonType currentType = getLemonType(itemStackIn);
 			if (!playerIn.capabilities.isCreativeMode) {
 				if (!currentType.playerHasItem(playerIn)) {
-					playerIn.worldObj.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_outofammo, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
+					playerIn.world.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_outofammo, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 					return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
 				}
 				currentType.consumeItem(playerIn);
@@ -100,7 +100,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP) playerIn);
 			EntityLemon lemonEnt = new EntityLemon(worldIn, playerIn, currentType);
 			lemonEnt.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
-			worldIn.spawnEntityInWorld(lemonEnt);
+			worldIn.spawnEntity(lemonEnt);
 			worldIn.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_fire, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);

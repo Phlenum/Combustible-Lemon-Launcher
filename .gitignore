@@ -19,6 +19,7 @@ LICENSE-fml.txt
 MinecraftForge-Credits.txt
 MinecraftForge-License.txt
 README.txt
+.idea/
 *.ipr
 *.iml
 *.iws

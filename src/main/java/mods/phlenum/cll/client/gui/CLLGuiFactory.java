@@ -40,6 +40,13 @@ public class CLLGuiFactory implements IModGuiFactory {
 		return null;
 	}
 
+	@Override
+	public GuiScreen createConfigGui(GuiScreen parentScreen){
+		return null;
+	}
 
-
+	@Override
+	public boolean hasConfigGui() {
+		return false;
+	}
 }

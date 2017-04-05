@@ -60,7 +60,7 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 	
 	@SideOnly(Side.CLIENT)
 	private static void handleClient(CLLPacket packet){
-		packet.handleClientSide(Minecraft.getMinecraft().thePlayer);
+		packet.handleClientSide(Minecraft.getMinecraft().player);
 	}
 
 	@Override

@@ -46,7 +46,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 
 			@Override
 			public void performImpact(EntityLemon lemon, RayTraceResult rtr){
-				generateFire(lemon.worldObj, rtr.hitVec);
+				generateFire(lemon.world, rtr.hitVec);
 			}
 
 			@Override
@@ -60,8 +60,8 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 
 			@Override
 			public void performImpact(EntityLemon lemon, RayTraceResult rtr){
-				lemon.worldObj.createExplosion(lemon, lemon.posX, lemon.posY, lemon.posZ, DEFAULT_EXPLOSTION_STRENGTH, true);
-				generateFire(lemon.worldObj, rtr.hitVec);
+				lemon.world.createExplosion(lemon, lemon.posX, lemon.posY, lemon.posZ, DEFAULT_EXPLOSTION_STRENGTH, true);
+				generateFire(lemon.world, rtr.hitVec);
 			}
 
 			@Override
@@ -109,8 +109,8 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		}
 		
 		private static void consumeFromStack(ItemStack stackin, InventoryPlayer inv){
-			stackin.func_190917_f(-1);
-			if(stackin.func_190916_E() == 0){
+			stackin.shrink(1);
+			if(stackin.getCount() == 0){
 				inv.deleteStack(stackin);
 			}
 		}
@@ -182,7 +182,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 
 	@Override
 	protected void onImpact(RayTraceResult par1RayTraceResult){
-		if(!worldObj.isRemote){
+		if(!world.isRemote){
 			lemonType.performImpact(this, par1RayTraceResult);
 			setDead();
 		}

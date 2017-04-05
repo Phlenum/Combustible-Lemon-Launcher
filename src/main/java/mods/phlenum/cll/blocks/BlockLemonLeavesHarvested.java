@@ -52,11 +52,6 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	}
 	
 	@Override
-	protected ItemStack createStackedBlock(IBlockState state){
-		return new ItemStack(Item.getItemFromBlock(this));
-	}
-	
-	@Override
 	public int getMetaFromState(IBlockState state){
 		int i = 0;
 		if(!((Boolean)state.getValue(DECAYABLE)).booleanValue()){
