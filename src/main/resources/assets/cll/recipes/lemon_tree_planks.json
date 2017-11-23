@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cll:lemon_tree_log"
+    }
+  ],
+  "result": {
+    "item": "cll:lemon_tree_planks",
+    "count": 4
+  }
+}

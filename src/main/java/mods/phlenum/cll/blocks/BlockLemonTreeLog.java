@@ -27,7 +27,6 @@ public class BlockLemonTreeLog extends BlockLog {
 		setCreativeTab(CommonProxy.tabCLL);
 		setDefaultState(blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
 		setRegistryName(unloc);
-		GameRegistry.register(this);
 	}
 	
 	@Override

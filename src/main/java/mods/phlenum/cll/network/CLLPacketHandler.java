@@ -91,7 +91,7 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 				handleClient(packetCLL);
 				break;
 			case SERVER:
-				packetCLL.handleServerSide(((NetHandlerPlayServer)ctx.channel().attr(NetworkRegistry.NET_HANDLER).get()).playerEntity);
+				packetCLL.handleServerSide(((NetHandlerPlayServer)ctx.channel().attr(NetworkRegistry.NET_HANDLER).get()).player);
 				break;			
 			}
 			bbis.close();

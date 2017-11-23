@@ -1,9 +1,9 @@
 package mods.phlenum.cll.client.render;
 
 import mods.phlenum.cll.entity.EntityLemon;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -41,7 +41,7 @@ public class RenderEntityLemon extends Render<EntityLemon> {
         bindEntityTexture(entity);
         
         Tessellator tess = Tessellator.getInstance();
-        VertexBuffer vertexbuffer = tess.getBuffer();
+        BufferBuilder vertexbuffer = tess.getBuffer();
         
         GlStateManager.glNormal3f(0.0F, 1.0F, 0.0F);
         vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);

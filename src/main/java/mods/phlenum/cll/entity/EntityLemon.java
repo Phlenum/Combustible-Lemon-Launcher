@@ -84,10 +84,10 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 		}
 
 		private static void generateFire(World world, Vec3d par1Vec3d){
-			int x = (int)par1Vec3d.xCoord;
-			int y = (int)par1Vec3d.yCoord;
-			int z = (int)par1Vec3d.zCoord;
-			
+			int x = (int)par1Vec3d.x;
+			int y = (int)par1Vec3d.y;
+			int z = (int)par1Vec3d.z;
+
 			for(int currX = (x - DEFAULT_OFFSET_X); currX < (x + DEFAULT_OFFSET_X); currX++){
 				for(int currY = (y - DEFAULT_OFFSET_Y); currY < (y + DEFAULT_OFFSET_Y); currY++){
 					for(int currZ = (z - DEFAULT_OFFSET_Z); currZ < (z + DEFAULT_OFFSET_Z); currZ++){

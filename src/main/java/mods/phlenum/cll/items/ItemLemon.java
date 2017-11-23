@@ -2,7 +2,6 @@ package mods.phlenum.cll.items;
 
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.item.ItemFood;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -19,7 +18,6 @@ public class ItemLemon extends ItemFood {
         setUnlocalizedName(unloc);
         setCreativeTab(CommonProxy.tabCLL);
         setRegistryName(unloc);
-        GameRegistry.register(this);
     }
 
 }

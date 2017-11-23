@@ -28,7 +28,6 @@ public class BlockLemonTreeSapling extends BlockBush implements IGrowable {
 		setUnlocalizedName(unloc);
 		setCreativeTab(CommonProxy.tabCLL);
 		setRegistryName(unloc);
-		GameRegistry.register(this);
 	}
 	
 	@Override

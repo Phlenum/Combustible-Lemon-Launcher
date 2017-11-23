@@ -40,7 +40,6 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 		setCreativeTab(CommonProxy.tabCLL);
 		setDefaultState(getDefaultState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
 		setRegistryName(unloc);
-		GameRegistry.register(this);
 	}
 	
 	@Override

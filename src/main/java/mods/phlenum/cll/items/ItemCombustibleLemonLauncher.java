@@ -5,6 +5,7 @@ import mods.phlenum.cll.entity.EntityLemon;
 import mods.phlenum.cll.entity.EntityLemon.LemonType;
 import mods.phlenum.cll.network.packets.CLLPacketLauncherProcess;
 import mods.phlenum.cll.proxy.CommonProxy;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
@@ -15,9 +16,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -39,7 +38,6 @@ public class ItemCombustibleLemonLauncher extends Item {
 		setUnlocalizedName(unloc);
 		setMaxStackSize(1);
 		setRegistryName(unloc);
-		GameRegistry.register(this);
 	}
 
 	@Override
@@ -74,8 +72,8 @@ public class ItemCombustibleLemonLauncher extends Item {
 			break;
 		}
 		if (player.world.isRemote) {
-			String msg = I18n.translateToLocal(LOCALIZED_SWITCHED_TYPE).replace("%i", getLemonType(cll).itemReference.getDisplayName());
-            player.sendMessage(new TextComponentString(msg));
+			String msg = I18n.format(LOCALIZED_SWITCHED_TYPE, getLemonType(cll).itemReference.getDisplayName());
+			player.sendMessage(new TextComponentString(msg));
 		}
 	}
 
@@ -91,6 +89,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			LemonType currentType = getLemonType(itemStackIn);
 			if (!playerIn.capabilities.isCreativeMode) {
 				if (!currentType.playerHasItem(playerIn)) {
+					// TODO: only works client side
 					playerIn.world.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_outofammo, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 					return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
 				}
@@ -101,6 +100,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			EntityLemon lemonEnt = new EntityLemon(worldIn, playerIn, currentType);
 			lemonEnt.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 			worldIn.spawnEntity(lemonEnt);
+			// TODO: only works client side
 			worldIn.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_fire, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);

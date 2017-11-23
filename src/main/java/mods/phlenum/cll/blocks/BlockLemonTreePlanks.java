@@ -28,7 +28,6 @@ public class BlockLemonTreePlanks extends Block {
         setSoundType(sound);
         setCreativeTab(CommonProxy.tabCLL);
         setRegistryName(unloc);
-        GameRegistry.register(this);
     }
     
     @Override

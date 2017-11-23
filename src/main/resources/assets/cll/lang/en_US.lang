@@ -6,8 +6,8 @@ tile.lemon_leaves_harvested.name=Lemon Leaves
 tile.lemon_tree_log.name=Lemon Tree Wood
 tile.lemon_tree_planks.name=Lemon Tree Planks
 tile.lemon_tree_sapling.name=Lemon Tree Sapling
-msg.itemcombustiblelemonlauncher.switchedtype=Changed projectile to %i
-msg.damagesourceexplosivelemon=%p ate an explosive lemon. Ouch.
+msg.itemcombustiblelemonlauncher.switchedtype=Changed projectile to %s
+msg.damagesourceexplosivelemon=%s ate an explosive lemon. Ouch.
 subtitles.item.combustiblelemonlauncher.fire=Lemon fired
 subtitles.item.combustiblelemonlauncher.outofammo=Lemon Launcher no ammo
 

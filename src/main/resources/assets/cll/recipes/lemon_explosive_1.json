@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s ",
+    "tlt",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:string"
+    },
+    "t": {
+      "item": "minecraft:tnt"
+    },
+    "l": {
+      "item": "cll:lemon"
+    }
+  },
+  "result": {
+    "item": "cll:lemon_explosive"
+  }
+}

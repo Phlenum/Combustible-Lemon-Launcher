@@ -12,7 +12,7 @@ public final class Reference {
 
 	public static final String MOD_NAME = "Combustible Lemon Launcher";
 	public static final String MOD_ID = "cll";
-	public static final String MOD_VERSION = "@VERSION@";
+	public static final String MOD_VERSION = "1.12.2-3.5.14";
 	public static final String MOD_CHANNEL = "cll";
 	public static final String MOD_FINGERPRINT = "@FINGERPRINT@";
 	public static final String TEXTURE_PREFIX = Reference.MOD_ID + ":";

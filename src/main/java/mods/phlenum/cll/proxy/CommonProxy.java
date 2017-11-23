@@ -20,10 +20,10 @@ import mods.phlenum.cll.network.CLLPacketHandler;
 import mods.phlenum.cll.network.packets.CLLPacket;
 import mods.phlenum.cll.world.DamageSourceExplosiveLemon;
 import mods.phlenum.cll.world.WorldGenLemonTree;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -31,8 +31,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.IFuelHandler;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.FMLEmbeddedChannel;
 import net.minecraftforge.fml.common.network.FMLOutboundHandler;
@@ -42,6 +43,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.registries.IForgeRegistry;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -83,28 +85,21 @@ public class CommonProxy {
 		public ItemStack getTabIconItem(){
 			return new ItemStack(itemCombustibleLemonLauncher);
 		}
-
 	};
-
-	public void initializeBlocks(){
-		blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, 2.0f, 5.0f, SoundType.WOOD);
-		blockLemonTreeLog = new BlockLemonTreeLog(BLOCK_LEMON_TREE_LOG, SoundType.WOOD);
-		
-		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(BLOCK_LEMON_LEAVES_HARVESTED);
-		blockLemonLeaves = new BlockLemonLeaves(BLOCK_LEMON_LEAVES);
-		blockLemonTreeSapling = new BlockLemonTreeSapling(BLOCK_LEMON_TREE_SAPLING, SoundType.PLANT);
-		
-		GameRegistry.register((new ItemBlock(blockLemonTreePlanks).setRegistryName(BLOCK_LEMON_TREE_PLANKS)));
-		GameRegistry.register((new ItemBlock(blockLemonTreeLog).setRegistryName(BLOCK_LEMON_TREE_LOG)));
-		GameRegistry.register((new ItemBlock(blockLemonLeavesHarvested).setRegistryName(BLOCK_LEMON_LEAVES_HARVESTED)));
-		GameRegistry.register((new ItemBlock(blockLemonLeaves).setRegistryName(BLOCK_LEMON_LEAVES)));
-		GameRegistry.register((new ItemBlock(blockLemonTreeSapling).setRegistryName(BLOCK_LEMON_TREE_SAPLING)));
-	}
 
 	public void initializeItems(){
 		itemLemon = new ItemLemon(ITEM_LEMON, 5, 0.2f, false);
 		itemLemonExplosive = new ItemLemonExplosive(ITEM_LEMON_EXPLOSIVE, 5, 0.2f, false);
-		itemCombustibleLemonLauncher = new ItemCombustibleLemonLauncher(ITEM_COMBUSTIBLE_LEMON_LAUNCHER);
+		itemCombustibleLemonLauncher  = new ItemCombustibleLemonLauncher(ITEM_COMBUSTIBLE_LEMON_LAUNCHER);
+	}
+
+	public void initializeBlocks(){
+		blockLemonTreePlanks = new BlockLemonTreePlanks(BLOCK_LEMON_TREE_PLANKS, 2.0f, 5.0f, SoundType.WOOD);
+		blockLemonTreeLog = new BlockLemonTreeLog(BLOCK_LEMON_TREE_LOG, SoundType.WOOD);
+
+		blockLemonLeavesHarvested = new BlockLemonLeavesHarvested(BLOCK_LEMON_LEAVES_HARVESTED);
+		blockLemonLeaves = new BlockLemonLeaves(BLOCK_LEMON_LEAVES);
+		blockLemonTreeSapling = new BlockLemonTreeSapling(BLOCK_LEMON_TREE_SAPLING, SoundType.PLANT);
 	}
 	
 	public void initializeSoundEvents(){
@@ -119,34 +114,7 @@ public class CommonProxy {
 	public void initializeModels(){}
 
 	public void initializeWorld(){
-		GameRegistry.addShapedRecipe(new ItemStack(itemCombustibleLemonLauncher), new Object[]{
-				"iio",
-				"rp ",
-				"iio",
-				Character.valueOf('i'), new ItemStack(Items.IRON_INGOT),
-				Character.valueOf('o'), new ItemStack(Blocks.OBSIDIAN),
-				Character.valueOf('r'), new ItemStack(Items.REDSTONE),
-				Character.valueOf('p'), new ItemStack(Blocks.PISTON)
-		});
-		GameRegistry.addRecipe(new ItemStack(itemLemonExplosive), new Object[]{
-				" s ",
-				"tlt",
-				" s ",
-				Character.valueOf('s'), new ItemStack(Items.STRING),
-				Character.valueOf('t'), new ItemStack(Blocks.TNT),
-				Character.valueOf('l'), new ItemStack(itemLemon)
-		});
-		GameRegistry.addRecipe(new ItemStack(itemLemonExplosive), new Object[]{
-				" t ",
-				"sls",
-				" t ",
-				Character.valueOf('s'), new ItemStack(Items.STRING),
-				Character.valueOf('t'), new ItemStack(Blocks.TNT),
-				Character.valueOf('l'), new ItemStack(itemLemon)
-		});
-		GameRegistry.addShapelessRecipe(new ItemStack(blockLemonTreePlanks, 4), new Object[]{ blockLemonTreeLog });
 		GameRegistry.addSmelting(blockLemonTreeLog, new ItemStack(Items.COAL, 1, 1), 0.15F);
-		GameRegistry.registerFuelHandler(new CLLFuelHandler());
 		OreDictionary.registerOre(OREDICT_LEMON, itemLemon);
 		OreDictionary.registerOre("plankWood", blockLemonTreePlanks);
 		OreDictionary.registerOre("logWood", blockLemonTreeLog);
@@ -174,26 +142,7 @@ public class CommonProxy {
 	
 	private static SoundEvent registerSound(String soundName){
 		ResourceLocation soundID = new ResourceLocation(MOD_ID, soundName);
-		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
-	}
-
-	private static class CLLFuelHandler implements IFuelHandler {
-
-		@Override
-		public int getBurnTime(ItemStack fuel){
-			Item fitem = fuel.getItem();
-			// Values taken from here:
-			// http://minecraft.gamepedia.com/Smelting
-			if(fitem == Item.getItemFromBlock(blockLemonTreeLog)){
-				return 300;
-			}else if(fitem == Item.getItemFromBlock(blockLemonTreePlanks)){
-				return 300;
-			}
-			//
-			//
-			return 0;
-		}
-
+		return new SoundEvent(soundID).setRegistryName(soundID);
 	}
 	
 	public static class CLLConfig {
@@ -222,6 +171,79 @@ public class CommonProxy {
 			}
 		}
 		
+	}
+
+	@Mod.EventBusSubscriber(modid = MOD_ID)
+	public static class CLLItemRegister {
+
+		@SubscribeEvent
+		public static void registerItems(RegistryEvent.Register<Item> event){
+			IForgeRegistry<Item> forgeItemRegistry = event.getRegistry();
+
+			forgeItemRegistry.register(itemLemon);
+			forgeItemRegistry.register(itemLemonExplosive);
+			forgeItemRegistry.register(itemCombustibleLemonLauncher);
+		}
+
+	}
+
+	@Mod.EventBusSubscriber(modid = MOD_ID)
+	public static class CLLBlockRegister {
+
+		@SubscribeEvent
+		public static void registerBlock(RegistryEvent.Register<Block> event){
+			IForgeRegistry<Block> forgeBlockRegistry = event.getRegistry();
+
+			forgeBlockRegistry.register(blockLemonTreePlanks);
+			forgeBlockRegistry.register(blockLemonTreeLog);
+
+			forgeBlockRegistry.register(blockLemonLeavesHarvested);
+			forgeBlockRegistry.register(blockLemonLeaves);
+			forgeBlockRegistry.register(blockLemonTreeSapling);
+		}
+
+		@SubscribeEvent
+		public static void registerItemBlocks(RegistryEvent.Register<Item> event){
+			IForgeRegistry<Item> forgeItemBlockRegistry = event.getRegistry();
+
+			forgeItemBlockRegistry.register(new ItemBlock(blockLemonTreePlanks){
+				{
+					setRegistryName(BLOCK_LEMON_TREE_PLANKS);
+				}
+
+				@Override
+				public int getItemBurnTime(ItemStack par1ItemStack){
+					return 300;
+				}
+			});
+			forgeItemBlockRegistry.register(new ItemBlock(blockLemonTreeLog){
+				{
+					setRegistryName(BLOCK_LEMON_TREE_LOG);
+				}
+
+				@Override
+				public int getItemBurnTime(ItemStack par1ItemStack){
+					return 300;
+				}
+			});
+
+			forgeItemBlockRegistry.register(new ItemBlock(blockLemonLeavesHarvested).setRegistryName(BLOCK_LEMON_LEAVES_HARVESTED));
+			forgeItemBlockRegistry.register(new ItemBlock(blockLemonLeaves).setRegistryName(BLOCK_LEMON_LEAVES));
+			forgeItemBlockRegistry.register(new ItemBlock(blockLemonTreeSapling).setRegistryName(BLOCK_LEMON_TREE_SAPLING));
+		}
+
+	}
+
+	public static class CLLSoundRegister {
+
+		@SubscribeEvent
+		public static void registerSound(RegistryEvent.Register<SoundEvent> event){
+			IForgeRegistry<SoundEvent> forgeSoundEventRegistry = event.getRegistry();
+
+			forgeSoundEventRegistry.register(sound_CombustibleLemonLauncher_fire);
+			forgeSoundEventRegistry.register(sound_CombustibleLemonLauncher_outofammo);
+		}
+
 	}
 
 }

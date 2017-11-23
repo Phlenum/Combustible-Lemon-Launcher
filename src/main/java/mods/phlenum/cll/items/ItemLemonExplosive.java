@@ -22,7 +22,6 @@ public class ItemLemonExplosive extends ItemFood {
         setUnlocalizedName(unloc);
         setCreativeTab(CommonProxy.tabCLL);
         setRegistryName(unloc);
-        GameRegistry.register(this);
     }
 
     @Override
