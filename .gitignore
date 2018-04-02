@@ -12,6 +12,7 @@ exec
 .project
 CREDITS-fml.txt
 *changelog.txt
+gradle.properties
 gradlew
 gradlew.bat
 LICENSE

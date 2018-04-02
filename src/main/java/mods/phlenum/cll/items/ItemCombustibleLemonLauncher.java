@@ -98,7 +98,7 @@ public class ItemCombustibleLemonLauncher extends Item {
 			CLLPacketLauncherProcess packetLauncherProcess = new CLLPacketLauncherProcess(currentType);
 			CombustibleLemonLauncher.proxy.packetCLL_sendToPlayer(packetLauncherProcess, (EntityPlayerMP) playerIn);
 			EntityLemon lemonEnt = new EntityLemon(worldIn, playerIn, currentType);
-			lemonEnt.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+			lemonEnt.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 			worldIn.spawnEntity(lemonEnt);
 			// TODO: only works client side
 			worldIn.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_fire, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
