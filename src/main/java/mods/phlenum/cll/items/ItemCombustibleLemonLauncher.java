@@ -4,7 +4,9 @@ import mods.phlenum.cll.CombustibleLemonLauncher;
 import mods.phlenum.cll.entity.EntityLemon;
 import mods.phlenum.cll.entity.EntityLemon.LemonType;
 import mods.phlenum.cll.network.packets.CLLPacketLauncherProcess;
+import mods.phlenum.cll.network.packets.CLLSoundPacket;
 import mods.phlenum.cll.proxy.CommonProxy;
+import mods.phlenum.cll.proxy.CommonProxy.CLLSounds;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -14,7 +16,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
@@ -89,8 +90,8 @@ public class ItemCombustibleLemonLauncher extends Item {
 			LemonType currentType = getLemonType(itemStackIn);
 			if (!playerIn.capabilities.isCreativeMode) {
 				if (!currentType.playerHasItem(playerIn)) {
-					// TODO: only works client side
-					playerIn.world.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_outofammo, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
+					CLLSoundPacket outofammoSound = new CLLSoundPacket(playerIn.getPosition(), (char)CLLSounds.CLL_OUT_OF_AMMO.ordinal(), 0.3F, itemRand.nextFloat());
+					CombustibleLemonLauncher.proxy.packetCLL_sendToAll(outofammoSound, (EntityPlayerMP)playerIn);
 					return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
 				}
 				currentType.consumeItem(playerIn);
@@ -100,8 +101,8 @@ public class ItemCombustibleLemonLauncher extends Item {
 			EntityLemon lemonEnt = new EntityLemon(worldIn, playerIn, currentType);
 			lemonEnt.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 			worldIn.spawnEntity(lemonEnt);
-			// TODO: only works client side
-			worldIn.playSound(null, playerIn.getPosition(), CommonProxy.sound_CombustibleLemonLauncher_fire, SoundCategory.AMBIENT, 0.3F, itemRand.nextFloat());
+			CLLSoundPacket fireSound = new CLLSoundPacket(playerIn.getPosition(), (char)CLLSounds.CLL_FIRE.ordinal(), 0.3F, itemRand.nextFloat());
+			CombustibleLemonLauncher.proxy.packetCLL_sendToAll(fireSound, (EntityPlayerMP)playerIn);
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 	}

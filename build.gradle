@@ -22,7 +22,7 @@ minecraft {
 	replaceIn "lib/Reference.java"
     replace "@VERSION@", project.version
     replace "@FINGERPRINT@", ""
-    version = "1.12.2-14.23.2.2651"
+    version = "1.12.2-14.23.4.2705"
     runDir = "run"
     mappings = "snapshot_20171003"
 }

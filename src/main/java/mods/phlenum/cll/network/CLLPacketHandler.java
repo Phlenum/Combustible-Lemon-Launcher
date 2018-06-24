@@ -14,6 +14,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelHandler.Sharable;
 import mods.phlenum.cll.network.packets.CLLPacket;
 import mods.phlenum.cll.network.packets.CLLPacketLauncherProcess;
+import mods.phlenum.cll.network.packets.CLLSoundPacket;
 
 import static mods.phlenum.cll.lib.Reference.*;
 
@@ -50,6 +51,7 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 
 	public static void registerPackets(){
 		registerPacket(CLLPacketLauncherProcess.class);
+		registerPacket(CLLSoundPacket.class);
 	}
 	
 	/*

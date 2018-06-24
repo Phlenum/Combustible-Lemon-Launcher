@@ -29,6 +29,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
@@ -140,6 +141,12 @@ public class CommonProxy {
 		cllChannel.get(Side.SERVER).writeAndFlush(packet);
 	}
 	
+	public void packetCLL_sendToAll(CLLPacket packet, EntityPlayerMP player) {
+		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.ALL);
+		cllChannel.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(player);
+		cllChannel.get(Side.SERVER).writeAndFlush(packet);
+	}
+	
 	private static SoundEvent registerSound(String soundName){
 		ResourceLocation soundID = new ResourceLocation(MOD_ID, soundName);
 		return new SoundEvent(soundID).setRegistryName(soundID);
@@ -246,5 +253,25 @@ public class CommonProxy {
 
 	}
 
+	public static enum CLLSounds {
+		CLL_FIRE(sound_CombustibleLemonLauncher_fire, SoundCategory.PLAYERS),
+		CLL_OUT_OF_AMMO(sound_CombustibleLemonLauncher_outofammo, SoundCategory.PLAYERS);
+		
+		private SoundEvent soundEvent;
+		private SoundCategory category;
+		
+		CLLSounds(SoundEvent par1SoundEvent, SoundCategory par2SoundCategory){
+			soundEvent = par1SoundEvent;
+			category = par2SoundCategory;
+		}
+		
+		public SoundEvent getSoundEvent() {
+			return soundEvent;
+		}
+		
+		public SoundCategory getSoundCategory() {
+			return category;
+		}
+	}
 }
 
