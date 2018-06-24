@@ -1,6 +1,6 @@
 package mods.phlenum.cll.items;
 
-import mods.phlenum.cll.proxy.CommonProxy;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 
 /**
@@ -14,9 +14,7 @@ import net.minecraft.item.ItemFood;
 public class ItemLemon extends ItemFood {
 
     public ItemLemon(String unloc, int healAmount, float saturation, boolean dogfood){
-        super(healAmount, saturation, dogfood);
-        setUnlocalizedName(unloc);
-        setCreativeTab(CommonProxy.tabCLL);
+        super(healAmount, saturation, dogfood, new Item.Properties());
         setRegistryName(unloc);
     }
 

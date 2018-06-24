@@ -8,8 +8,6 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -19,7 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @date 05 Jan 2016
  */
 
-@SideOnly(Side.CLIENT)
+//@SideOnly(Side.CLIENT)
 public class RenderEntityLemon extends Render<EntityLemon> {
 
 	public RenderEntityLemon(RenderManager renderManager){
@@ -32,7 +30,7 @@ public class RenderEntityLemon extends Render<EntityLemon> {
 		
 		GlStateManager.disableLighting();
         
-        GlStateManager.translate(x, y, z);
+        /*GlStateManager.translate(x, y, z);
         GlStateManager.rotate(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
         GlStateManager.rotate((float)(this.renderManager.options.thirdPersonView == 2 ? -1 : 1) * -this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
         GlStateManager.scale(0.5F, 0.5F, 0.5F);
@@ -54,14 +52,19 @@ public class RenderEntityLemon extends Render<EntityLemon> {
 		GlStateManager.disableRescaleNormal();
 		GlStateManager.enableLighting();
         GlStateManager.popMatrix();
-        super.doRender(entity, x, y, z, entityYaw, partialTicks);
+        super.doRender(entity, x, y, z, entityYaw, partialTicks);*/
 	}
-
+/*
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLemon entity){
 		return entity.getLemonType().getTexture();
 	}
-	
+	*/
+
+	@Override
+	protected ResourceLocation getEntityTexture(EntityLemon arg0) {
+		return null;
+	}
 
 
 }

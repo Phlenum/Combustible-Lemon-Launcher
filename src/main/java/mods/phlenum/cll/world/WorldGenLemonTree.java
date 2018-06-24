@@ -9,7 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 /**
@@ -21,18 +20,18 @@ import net.minecraftforge.fml.common.IWorldGenerator;
  * @date 30 July 2015
  */
 
-public class WorldGenLemonTree extends WorldGenerator implements IWorldGenerator {
+public class WorldGenLemonTree {//extends WorldGenerator implements IWorldGenerator {
 
 	private static final byte MINIMUM_TREE_HEIGHT = 4;
 	private static final byte MINIMUM_LEAF_CONTAINING_LAYERS = 3;
 	
-	@Override
+	
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider){
 		chunkX = chunkX << 4;
 		chunkZ = chunkZ << 4;
 		int x = chunkX + random.nextInt(16) + 8;
 		int z = chunkZ + random.nextInt(16) + 8;
-		int y = world.getChunkFromChunkCoords(chunkX, chunkZ).getHeight(new BlockPos(x, 0, z));
+		int y = 0;//world.getChunkFromChunkCoords(chunkX, chunkZ).getHeight(new BlockPos(x, 0, z));
 		final BlockPos POS = new BlockPos(x, y, z);
 		if(world.getBlockState(POS).getBlock().canSustainPlant(world.getBlockState(POS), world, POS, EnumFacing.UP, CommonProxy.blockLemonTreeSapling) && checkSpace(world, POS)){
 			this.generate(world, random, POS);
@@ -52,7 +51,7 @@ public class WorldGenLemonTree extends WorldGenerator implements IWorldGenerator
 		return true;
 	}
 
-	@Override
+	
 	public boolean generate(World worldIn, Random rand, BlockPos pos){
 		pos = pos.add(0, 1, 0);
 		final byte TREE_HEIGHT = (byte)(MINIMUM_TREE_HEIGHT + rand.nextInt(3));

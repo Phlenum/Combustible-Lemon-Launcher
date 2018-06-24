@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "cll:blocks/lemon_tree_planks"
+		"all": "cll:block/lemon_tree_planks"
 	}
 }

@@ -8,14 +8,15 @@ package mods.phlenum.cll.items;
  * @date 12 Nov 2015
  */
 
-import mods.phlenum.cll.proxy.CommonProxy;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 public class ItemLemonExplosive extends ItemFood {
 
+	public ItemLemonExplosive(int p_i48492_1_, float p_i48492_2_, boolean p_i48492_3_, Properties p_i48492_4_) {
+		super(p_i48492_1_, p_i48492_2_, p_i48492_3_, p_i48492_4_);
+		// TODO Auto-generated constructor stub
+	}
+/*
     public ItemLemonExplosive(String unloc, int heal, float saturation, boolean dogfood){
         super(heal, saturation, dogfood);
         setUnlocalizedName(unloc);
@@ -28,4 +29,5 @@ public class ItemLemonExplosive extends ItemFood {
         p_onFoodEaten_2_.createExplosion(p_onFoodEaten_3_, p_onFoodEaten_3_.posX, p_onFoodEaten_3_.posY, p_onFoodEaten_3_.posZ, 5.0f, true);
         p_onFoodEaten_3_.attackEntityFrom(CommonProxy.DAMAGE_SOURCE_EXPLOSIVE_LEMON, Integer.MAX_VALUE);
     }
+    */
 }

@@ -6,8 +6,6 @@ import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
 import mods.phlenum.cll.entity.EntityLemon.LemonType;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -36,7 +34,7 @@ public class CLLPacketLauncherProcess extends CLLPacket {
 	public void readDataFrom(ByteBufInputStream buffer) throws IOException {
 		launchType = LemonType.values()[buffer.readByte()];
 	}
-
+/*
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void handleClientSide(EntityPlayer playerSP){
@@ -47,9 +45,15 @@ public class CLLPacketLauncherProcess extends CLLPacket {
 			launchType.consumeItem(playerSP);
 		}
 	}
+	*/
 
 	@Override
 	public void handleServerSide(EntityPlayer playerMP){
+		
+	}
+
+	@Override
+	public void handleClientSide(EntityPlayer playerSP) {
 		
 	}
 

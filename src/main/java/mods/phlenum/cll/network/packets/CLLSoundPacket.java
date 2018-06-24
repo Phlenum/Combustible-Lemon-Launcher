@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
-import mods.phlenum.cll.proxy.CommonProxy.CLLSounds;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 
@@ -50,8 +49,8 @@ public class CLLSoundPacket extends CLLPacket {
 
 	@Override
 	public void handleClientSide(EntityPlayer playerSP) {
-		final CLLSounds whatSound = CLLSounds.values()[soundID];
-		playerSP.world.playSound(playerSP, soundX, soundY, soundZ, whatSound.getSoundEvent(), whatSound.getSoundCategory(), soundVolume, soundPitch);
+		//final CLLSounds whatSound = CLLSounds.values()[soundID];
+		//playerSP.world.playSound(playerSP, soundX, soundY, soundZ, whatSound.getSoundEvent(), whatSound.getSoundCategory(), soundVolume, soundPitch);
 	}
 
 	@Override

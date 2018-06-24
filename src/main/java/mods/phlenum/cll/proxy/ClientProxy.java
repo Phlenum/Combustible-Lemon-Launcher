@@ -2,22 +2,13 @@ package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
 
-import mods.phlenum.cll.client.HoldLikeBowHook;
 import mods.phlenum.cll.client.render.RenderEntityLemon;
 import mods.phlenum.cll.entity.EntityLemon;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -27,19 +18,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @date 29 Nov 2014
  */
 
-@SideOnly(Side.CLIENT)
+//@SideOnly(Side.CLIENT)
 public final class ClientProxy extends CommonProxy {
 
-	@Override
+	
 	public void initializeModels(){
 		OBJLoader.INSTANCE.addDomain(MOD_ID);
-		ModelLoader.setCustomModelResourceLocation(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
+		//ModelLoader.setCustomModelResourceLocation(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
 	}
 	
 	
-    @Override
+    
     public void initializeRenderers(){
-        ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
+        /*ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
         mesher.register(Item.getItemFromBlock(blockLemonTreePlanks), 0, new ModelResourceLocation(MOD_ID + ":" + BLOCK_LEMON_TREE_PLANKS, "inventory"));
         mesher.register(Item.getItemFromBlock(blockLemonTreeLog), 0, new ModelResourceLocation(MOD_ID + ":" + BLOCK_LEMON_TREE_LOG, "inventory"));
         mesher.register(Item.getItemFromBlock(blockLemonLeavesHarvested), 0, new ModelResourceLocation(MOD_ID + ":" + BLOCK_LEMON_LEAVES_HARVESTED, "inventory"));
@@ -51,10 +42,10 @@ public final class ClientProxy extends CommonProxy {
         mesher.register(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
         
         MinecraftForge.EVENT_BUS.register(new HoldLikeBowHook());
-        MinecraftForge.EVENT_BUS.register(new CLLConfig());
+        MinecraftForge.EVENT_BUS.register(new CLLConfig());*/
     }
     
-    @Override
+    
     public void initializeEntityRender(){
         RenderingRegistry.registerEntityRenderingHandler(EntityLemon.class, new IRenderFactory<EntityLemon>() {
 

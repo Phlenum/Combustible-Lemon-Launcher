@@ -1,5 +1,7 @@
 {
 	"variants": {
-		"normal": { "model": "cll:lemon_tree_planks" }
+		"": [
+			{ "model": "cll:block/lemon_tree_planks" }
+		]
 	}
 }

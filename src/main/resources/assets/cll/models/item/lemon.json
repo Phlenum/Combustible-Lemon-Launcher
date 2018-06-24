@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "cll:items/lemon"
+		"layer0": "cll:item/lemon"
 	}
 }

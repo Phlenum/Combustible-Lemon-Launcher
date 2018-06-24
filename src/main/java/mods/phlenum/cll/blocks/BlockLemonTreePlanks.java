@@ -1,12 +1,12 @@
 package mods.phlenum.cll.blocks;
 
-import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -18,25 +18,19 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockLemonTreePlanks extends Block {
 
-
-    public BlockLemonTreePlanks(String unloc, float hardness, float resistance, SoundType sound){
-        super(Material.WOOD);
-        setHardness(hardness);
-        setResistance(resistance);
-        setUnlocalizedName(unloc);
-        setSoundType(sound);
-        setCreativeTab(CommonProxy.tabCLL);
+	public BlockLemonTreePlanks(String unloc, float hardness, float resistance, SoundType sound){
+		super(Block.Properties.create(Material.WOOD).hardnessAndResistance(hardness, resistance).sound(sound));
         setRegistryName(unloc);
-    }
-    
-    @Override
-    public boolean isFlammable(IBlockAccess arg0, BlockPos arg1, EnumFacing arg2){
-    	return true;
-    }
-    
-    @Override
-    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face){
-    	return 20;
-    }
+	}
+	
+	@Override
+	public boolean isFlammable(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face){
+		return true;
+	}
+	
+	@Override
+	public int getFlammability(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face){
+		return 20;
+	}
   
 }

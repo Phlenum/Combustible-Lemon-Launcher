@@ -4,6 +4,7 @@ import static mods.phlenum.cll.lib.Reference.*;
 
 import io.netty.buffer.ByteBuf;
 import mods.phlenum.cll.proxy.CommonProxy;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -11,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.EnumHand;
@@ -18,8 +20,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -31,7 +31,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpawnData {
 
-	@SideOnly(Side.CLIENT)
+	protected EntityLemon(EntityType<?> type, double p_i48541_2_, double p_i48541_4_, double p_i48541_6_, World p_i48541_8_){
+		super(type, p_i48541_2_, p_i48541_4_, p_i48541_6_, p_i48541_8_);
+	}
+	//@SideOnly(Side.CLIENT)
 	private static class LemonTypeTextures {
 
 		public static final ResourceLocation TEXTURE_LEMON = new ResourceLocation(TEXTURE_PREFIX + "textures/items/" + ITEM_LEMON + ".png");
@@ -50,7 +53,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 			}
 
 			@Override
-			@SideOnly(Side.CLIENT)
+			//@SideOnly(Side.CLIENT)
 			public ResourceLocation getTexture(){
 				return LemonTypeTextures.TEXTURE_LEMON;
 			}
@@ -65,7 +68,7 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 			}
 
 			@Override
-			@SideOnly(Side.CLIENT)
+			//@SideOnly(Side.CLIENT)
 			public ResourceLocation getTexture(){
 				return LemonTypeTextures.TEXTURE_LEMON_EXPLOSIVE;
 			}
@@ -132,21 +135,36 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 
 		public abstract void performImpact(EntityLemon lemon, RayTraceResult rtr);
 
-		@SideOnly(Side.CLIENT)
+		//@SideOnly(Side.CLIENT)
 		public abstract ResourceLocation getTexture();
 
 	}
 	
 	private static final String NBTKEY_TYPE = "LemonType";
 	private LemonType lemonType;
+	@Override
+	public void writeSpawnData(PacketBuffer buffer) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void readSpawnData(PacketBuffer additionalData) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	protected void onImpact(RayTraceResult result) {
+		// TODO Auto-generated method stub
+		
+	}
 
-
+/*
 	public EntityLemon(World par1World){
-		super(par1World);
+		//super(par1World);
 	}
 	
 	public EntityLemon(World world, EntityPlayer player, LemonType type){
-		super(world, player);
+		//super(world, player);
 		lemonType = type;
 	}
 	
@@ -191,5 +209,6 @@ public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpa
 	public LemonType getLemonType(){
 		return lemonType;
 	}
+	*/
 
 }

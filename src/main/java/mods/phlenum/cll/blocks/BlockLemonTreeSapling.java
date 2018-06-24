@@ -2,13 +2,11 @@ package mods.phlenum.cll.blocks;
 
 import java.util.Random;
 
-import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 /**
@@ -21,6 +19,26 @@ import net.minecraft.world.World;
 
 public class BlockLemonTreeSapling extends BlockBush implements IGrowable {
 
+	protected BlockLemonTreeSapling(Properties builder){
+		super(builder);
+	}
+
+	@Override
+	public boolean canGrow(IBlockReader arg0, BlockPos arg1, IBlockState arg2, boolean arg3){
+		return false;
+	}
+
+	@Override
+	public boolean canUseBonemeal(World arg0, Random arg1, BlockPos arg2, IBlockState arg3){
+		return false;
+	}
+
+	@Override
+	public void grow(World arg0, Random arg1, BlockPos arg2, IBlockState arg3){
+		
+	}
+
+	/*
 	public BlockLemonTreeSapling(String unloc, SoundType sound){
 		super(Material.GRASS);
 		setSoundType(sound);
@@ -50,6 +68,6 @@ public class BlockLemonTreeSapling extends BlockBush implements IGrowable {
 			CommonProxy.WORLD_GEN_LEMON_TREE.generate(worldIn, rand, pos.add(0, -1, 0));
 		}
 	}
-
+	*/
 	
 }

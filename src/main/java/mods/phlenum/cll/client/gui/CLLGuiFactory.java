@@ -5,8 +5,6 @@ import java.util.Set;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.IModGuiFactory;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -16,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @date 06 Jan 2016
  */
 
-@SideOnly(Side.CLIENT)
+//@SideOnly(Side.CLIENT)
 public class CLLGuiFactory implements IModGuiFactory {
 
 	@Override
@@ -32,7 +30,7 @@ public class CLLGuiFactory implements IModGuiFactory {
 	@Override
 	public GuiScreen createConfigGui(GuiScreen parentScreen)
     {
-	    return new CLLConfigGUI(parentScreen);
+	    return null;//new CLLConfigGUI(parentScreen);
 	}
 
 	@Override

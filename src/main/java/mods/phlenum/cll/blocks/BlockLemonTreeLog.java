@@ -1,14 +1,7 @@
 package mods.phlenum.cll.blocks;
 
-import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.block.material.MaterialColor;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -19,7 +12,12 @@ import net.minecraft.world.IBlockAccess;
  */
 
 public class BlockLemonTreeLog extends BlockLog {
+
+	public BlockLemonTreeLog(MaterialColor p_i48367_1_, Properties p_i48367_2_){
+		super(p_i48367_1_, p_i48367_2_);
+	}
 	
+	/*
 	public BlockLemonTreeLog(String unloc, SoundType sound){
 		setUnlocalizedName(unloc);
 		setSoundType(sound);
@@ -53,5 +51,5 @@ public class BlockLemonTreeLog extends BlockLog {
 	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face){
 		return 5;
 	}
-	
+	*/
 }

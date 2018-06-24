@@ -1,8 +1,6 @@
 package mods.phlenum.cll.proxy;
 
 import static mods.phlenum.cll.lib.Reference.*;
-import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
-
 import java.io.File;
 import java.util.EnumMap;
 
@@ -22,7 +20,6 @@ import mods.phlenum.cll.world.DamageSourceExplosiveLemon;
 import mods.phlenum.cll.world.WorldGenLemonTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -31,19 +28,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.network.FMLEmbeddedChannel;
-import net.minecraftforge.fml.common.network.FMLOutboundHandler;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
 /**
@@ -72,8 +60,8 @@ public class CommonProxy {
 	public static final DamageSourceExplosiveLemon DAMAGE_SOURCE_EXPLOSIVE_LEMON = new DamageSourceExplosiveLemon();
 	public static final WorldGenLemonTree WORLD_GEN_LEMON_TREE = new WorldGenLemonTree();
 
-	public static EnumMap<Side, FMLEmbeddedChannel> cllChannel;
-
+	//public static EnumMap<Side, FMLEmbeddedChannel> cllChannel;
+/*
 	public static final CreativeTabs tabCLL = new CreativeTabs(MOD_ID){
 
 		@Override
@@ -273,5 +261,6 @@ public class CommonProxy {
 			return category;
 		}
 	}
+	*/
 }
 

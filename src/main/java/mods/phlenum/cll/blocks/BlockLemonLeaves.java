@@ -1,11 +1,5 @@
 package mods.phlenum.cll.blocks;
 
-import mods.phlenum.cll.proxy.CommonProxy;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-
 /**
  * The Combustible Lemon Launcher mod
  * https://github.com/Phlenum/Combustible-Lemon-Launcher
@@ -15,15 +9,18 @@ import net.minecraft.world.World;
  */
 
 public class BlockLemonLeaves extends BlockLemonLeavesHarvested {
-	
-	public BlockLemonLeaves(String unloc){
-		super(unloc);
+
+	public BlockLemonLeaves(Properties builder){
+		super(builder);
 	}
 	
+	
+	
+	/*
 	@Override
 	public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune){
 		super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
 		spawnAsEntity(worldIn, pos, new ItemStack(CommonProxy.itemLemon));
-	}
+	}*/
 
 }

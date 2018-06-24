@@ -1,23 +1,6 @@
 package mods.phlenum.cll.items;
 
-import mods.phlenum.cll.CombustibleLemonLauncher;
-import mods.phlenum.cll.entity.EntityLemon;
-import mods.phlenum.cll.entity.EntityLemon.LemonType;
-import mods.phlenum.cll.network.packets.CLLPacketLauncherProcess;
-import mods.phlenum.cll.network.packets.CLLSoundPacket;
-import mods.phlenum.cll.proxy.CommonProxy;
-import mods.phlenum.cll.proxy.CommonProxy.CLLSounds;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.world.World;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -30,9 +13,12 @@ import net.minecraft.world.World;
 
 public class ItemCombustibleLemonLauncher extends Item {
 
+	public ItemCombustibleLemonLauncher(Properties properties) {
+		super(properties);
+	}
 	private static final String NBTKEY_LEMONTYPE = "lemontype";
 	private static final String LOCALIZED_SWITCHED_TYPE = "msg.itemcombustiblelemonlauncher.switchedtype";
-
+/*
 	public ItemCombustibleLemonLauncher(String unloc) {
 		super();
 		setCreativeTab(CommonProxy.tabCLL);
@@ -106,5 +92,5 @@ public class ItemCombustibleLemonLauncher extends Item {
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 	}
-
+*/
 }

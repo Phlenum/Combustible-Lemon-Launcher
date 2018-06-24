@@ -21,11 +21,6 @@ import static mods.phlenum.cll.lib.Reference.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.PacketBuffer;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.network.internal.FMLProxyPacket;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -39,7 +34,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 
 @Sharable
-public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLPacket> implements ChannelHandler {
+public class CLLPacketHandler {//extends MessageToMessageCodec<FMLProxyPacket, CLLPacket> implements ChannelHandler {
 
 	private static ArrayList<Class<? extends CLLPacket>> registeredPackets = new ArrayList<Class<? extends CLLPacket>>();
 
@@ -59,7 +54,7 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 	 * This method will be client side only so the dedicated server doesn't throw a ClassNotFoundException.
 	 * Workaround...
 	 */
-	
+	/*
 	@SideOnly(Side.CLIENT)
 	private static void handleClient(CLLPacket packet){
 		packet.handleClientSide(Minecraft.getMinecraft().player);
@@ -100,5 +95,6 @@ public class CLLPacketHandler extends MessageToMessageCodec<FMLProxyPacket, CLLP
 			out.add(packetCLL);
 		}
 	}
+	*/
 
 }

@@ -2,14 +2,9 @@ package mods.phlenum.cll.client;
 
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelBiped.ArmPose;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -19,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @date 05 Jan 2016
  */
 
-@SideOnly(Side.CLIENT)
+//@SideOnly(Side.CLIENT)
 public class HoldLikeBowHook {
 
 	
@@ -29,13 +24,13 @@ public class HoldLikeBowHook {
 	// thank you for that hint :-)
 	// EDIT: May 10th, 2016: looks different now
 	
-	@SubscribeEvent
+	//@SubscribeEvent
 	public void onEntityLiving(RenderLivingEvent.Pre<EntityPlayer> event){
 		if(event.getEntity() instanceof EntityPlayer){
 			EntityPlayer player = (EntityPlayer)event.getEntity();
 			ItemStack stackMainHand = player.getHeldItemMainhand();
 			if(stackMainHand != null && stackMainHand.getItem() == CommonProxy.itemCombustibleLemonLauncher){
-				ModelBiped modelBiped = (ModelBiped)event.getRenderer().getMainModel();
+				/*ModelBiped modelBiped = (ModelBiped)event.getRenderer().getMainModel();
 				switch(Minecraft.getMinecraft().gameSettings.mainHand){
 				case LEFT:
 					modelBiped.leftArmPose = ArmPose.BOW_AND_ARROW;
@@ -45,7 +40,7 @@ public class HoldLikeBowHook {
 					break;
 				default:
 					break;
-				}
+				}*/
 			}
 		}
 	}

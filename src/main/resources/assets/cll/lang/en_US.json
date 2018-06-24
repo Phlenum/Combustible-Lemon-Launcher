@@ -1,0 +1,15 @@
+{
+	"item.cll.lemon": "Lemon",
+	"item.cll.lemon_explosive": "Explosive Lemon",
+	"item.cll.combustiblelemonlauncher": "Combustible Lemon Launcher",
+	"tile.cll.lemon_leaves": "Lemon Leaves",
+	"tile.cll.lemon_leaves_harvested": "Lemon Leaves",
+	"tile.cll.lemon_tree_log": "Lemon Tree Wood",
+	"tile.cll.lemon_tree_planks": "Lemon Tree Planks",
+	"tile.cll.lemon_tree_sapling": "Lemon Tree Sapling",
+	"msg.itemcombustiblelemonlauncher.switchedtype": "Changed projectile to %s",
+	"msg.damagesourceexplosivelemon": "%s ate an explosive lemon. Ouch."
+	"subtitles.item.combustiblelemonlauncher.fire": "Lemon fired"
+	"subtitles.item.combustiblelemonlauncher.outofammo" :"Lemon Launcher no ammo"
+}
+
