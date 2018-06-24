@@ -6,7 +6,7 @@ import mods.phlenum.cll.proxy.CommonProxy;
 import mods.phlenum.cll.proxy.CommonProxy.CLLConfig;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
+//import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @date 29 Nov 2014
  */
 
-@Mod(modid = MOD_ID, name = MOD_NAME, version = MOD_VERSION, guiFactory="mods.phlenum.cll.client.gui.CLLGuiFactory", certificateFingerprint=MOD_FINGERPRINT, canBeDeactivated=false)
+@Mod(modid = MOD_ID, name = MOD_NAME, version = MOD_VERSION, guiFactory="mods.phlenum.cll.client.gui.CLLGuiFactory", /*certificateFingerprint=MOD_FINGERPRINT,*/ canBeDeactivated=false)
 public final class CombustibleLemonLauncher {
 
 	@Mod.Instance(MOD_ID)
@@ -27,10 +27,10 @@ public final class CombustibleLemonLauncher {
 	@SidedProxy(serverSide = "mods.phlenum.cll.proxy.CommonProxy", clientSide = "mods.phlenum.cll.proxy.ClientProxy")
 	public static CommonProxy proxy;
 	
-	@Mod.EventHandler
+	/*@Mod.EventHandler
 	public void fingerprintViolation(FMLFingerprintViolationEvent fingerprintViolationEvent){
 		CLLLogger.logWarning("This jar file of Combustible Lemon Launcher failed the fingerprint validation!");
-	}
+	}*/
 	
 
 	@Mod.EventHandler
