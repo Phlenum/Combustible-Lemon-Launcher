@@ -4,8 +4,8 @@ import static mods.phlenum.cll.lib.Reference.*;
 
 import mods.phlenum.cll.client.render.RenderEntityLemon;
 import mods.phlenum.cll.entity.EntityLemon;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
+//import net.minecraft.client.renderer.entity.Render;
+//import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -23,7 +23,7 @@ public final class ClientProxy extends CommonProxy {
 
 	
 	public void initializeModels(){
-		OBJLoader.INSTANCE.addDomain(MOD_ID);
+		//OBJLoader.INSTANCE.addDomain(MOD_ID);
 		//ModelLoader.setCustomModelResourceLocation(itemCombustibleLemonLauncher, 0, new ModelResourceLocation(MOD_ID + ":" + ITEM_COMBUSTIBLE_LEMON_LAUNCHER.toLowerCase(), "inventory"));
 	}
 	
@@ -47,7 +47,7 @@ public final class ClientProxy extends CommonProxy {
     
     
     public void initializeEntityRender(){
-        RenderingRegistry.registerEntityRenderingHandler(EntityLemon.class, new IRenderFactory<EntityLemon>() {
+        /*RenderingRegistry.registerEntityRenderingHandler(EntityLemon.class, new IRenderFactory<EntityLemon>() {
 
 			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
@@ -55,7 +55,7 @@ public final class ClientProxy extends CommonProxy {
 				return new RenderEntityLemon(manager);
 			}
         	
-		});
+		});*/
     }
 
 }

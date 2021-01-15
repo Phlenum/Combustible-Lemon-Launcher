@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
-import mods.phlenum.cll.entity.EntityLemon.LemonType;
-import net.minecraft.entity.player.EntityPlayer;
+//import mods.phlenum.cll.entity.EntityLemon.LemonType;
+//import net.minecraft.entity.player.EntityPlayer;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -15,13 +15,13 @@ import net.minecraft.entity.player.EntityPlayer;
  * @date 06 Jan 2016
  */
 
-public class CLLPacketLauncherProcess extends CLLPacket {
+public class CLLPacketLauncherProcess /*extends CLLPacket*/ {
 
-	LemonType launchType;
+	//LemonType launchType;
 	
 	public CLLPacketLauncherProcess(){} // <-- Default constructor for Class.newInstance()
 	
-	public CLLPacketLauncherProcess(LemonType type){
+	/*public CLLPacketLauncherProcess(LemonType type){
 		launchType = type;
 	}
 	
@@ -45,7 +45,7 @@ public class CLLPacketLauncherProcess extends CLLPacket {
 			launchType.consumeItem(playerSP);
 		}
 	}
-	*/
+	
 
 	@Override
 	public void handleServerSide(EntityPlayer playerMP){
@@ -55,6 +55,6 @@ public class CLLPacketLauncherProcess extends CLLPacket {
 	@Override
 	public void handleClientSide(EntityPlayer playerSP) {
 		
-	}
+	}*/
 
 }

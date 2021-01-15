@@ -8,11 +8,11 @@ package mods.phlenum.cll.blocks;
  * @date 30 July 2015
  */
 
-public class BlockLemonLeaves extends BlockLemonLeavesHarvested {
+public class BlockLemonLeaves /*extends BlockLemonLeavesHarvested*/ {
 
-	public BlockLemonLeaves(Properties builder){
+	/*public BlockLemonLeaves(Properties builder){
 		super(builder);
-	}
+	}*/
 	
 	
 	

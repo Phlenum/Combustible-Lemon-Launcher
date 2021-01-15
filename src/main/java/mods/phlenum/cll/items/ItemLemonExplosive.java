@@ -8,11 +8,11 @@ package mods.phlenum.cll.items;
  * @date 12 Nov 2015
  */
 
-import net.minecraft.item.ItemFood;
+//import net.minecraft.item.ItemFood;
 
-public class ItemLemonExplosive extends ItemFood {
+public class ItemLemonExplosive /*extends ItemFood*/ {
 
-	public ItemLemonExplosive(int p_i48492_1_, float p_i48492_2_, boolean p_i48492_3_, Properties p_i48492_4_) {
+	/*public ItemLemonExplosive(int p_i48492_1_, float p_i48492_2_, boolean p_i48492_3_, Properties p_i48492_4_) {
 		super(p_i48492_1_, p_i48492_2_, p_i48492_3_, p_i48492_4_);
 		// TODO Auto-generated constructor stub
 	}

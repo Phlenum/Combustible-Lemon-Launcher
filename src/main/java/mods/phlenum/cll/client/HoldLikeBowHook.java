@@ -2,7 +2,7 @@ package mods.phlenum.cll.client;
 
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
+//import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.RenderLivingEvent;
 
@@ -25,7 +25,7 @@ public class HoldLikeBowHook {
 	// EDIT: May 10th, 2016: looks different now
 	
 	//@SubscribeEvent
-	public void onEntityLiving(RenderLivingEvent.Pre<EntityPlayer> event){
+	/*public void onEntityLiving(RenderLivingEvent.Pre<EntityPlayer> event){
 		if(event.getEntity() instanceof EntityPlayer){
 			EntityPlayer player = (EntityPlayer)event.getEntity();
 			ItemStack stackMainHand = player.getHeldItemMainhand();
@@ -40,9 +40,9 @@ public class HoldLikeBowHook {
 					break;
 				default:
 					break;
-				}*/
+				}
 			}
 		}
-	}
+	}*/
 	
 }

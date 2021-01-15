@@ -3,8 +3,8 @@ package mods.phlenum.cll.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+//import net.minecraft.block.state.IBlockState;
+//import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
@@ -23,7 +23,7 @@ public class BlockLemonTreePlanks extends Block {
         setRegistryName(unloc);
 	}
 	
-	@Override
+	/*@Override
 	public boolean isFlammable(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face){
 		return true;
 	}
@@ -31,6 +31,6 @@ public class BlockLemonTreePlanks extends Block {
 	@Override
 	public int getFlammability(IBlockState state, IBlockReader world, BlockPos pos, EnumFacing face){
 		return 20;
-	}
+	}*/
   
 }

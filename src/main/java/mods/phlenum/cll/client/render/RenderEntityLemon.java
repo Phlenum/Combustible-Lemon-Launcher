@@ -2,11 +2,11 @@ package mods.phlenum.cll.client.render;
 
 import mods.phlenum.cll.entity.EntityLemon;
 import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
+//import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+//import net.minecraft.client.renderer.entity.Render;
+//import net.minecraft.client.renderer.entity.RenderManager;
+//import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
 /**
@@ -18,8 +18,8 @@ import net.minecraft.util.ResourceLocation;
  */
 
 //@SideOnly(Side.CLIENT)
-public class RenderEntityLemon extends Render<EntityLemon> {
-
+public class RenderEntityLemon /*extends Render<EntityLemon>*/ {
+/*
 	public RenderEntityLemon(RenderManager renderManager){
 		super(renderManager);
 	}
@@ -52,19 +52,19 @@ public class RenderEntityLemon extends Render<EntityLemon> {
 		GlStateManager.disableRescaleNormal();
 		GlStateManager.enableLighting();
         GlStateManager.popMatrix();
-        super.doRender(entity, x, y, z, entityYaw, partialTicks);*/
+        super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
-/*
+
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLemon entity){
 		return entity.getLemonType().getTexture();
 	}
-	*/
+
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLemon arg0) {
 		return null;
 	}
-
+*/
 
 }

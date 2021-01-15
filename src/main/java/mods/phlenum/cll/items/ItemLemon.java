@@ -1,7 +1,7 @@
 package mods.phlenum.cll.items;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
+//import net.minecraft.item.ItemFood;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -11,11 +11,11 @@ import net.minecraft.item.ItemFood;
  * @date 12 Nov 2015
  */
 
-public class ItemLemon extends ItemFood {
+public class ItemLemon /*extends ItemFood*/ {
 
-    public ItemLemon(String unloc, int healAmount, float saturation, boolean dogfood){
+    /*public ItemLemon(String unloc, int healAmount, float saturation, boolean dogfood){
         super(healAmount, saturation, dogfood, new Item.Properties());
         setRegistryName(unloc);
-    }
+    }*/
 
 }

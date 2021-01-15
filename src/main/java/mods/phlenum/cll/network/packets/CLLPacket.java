@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
-import net.minecraft.entity.player.EntityPlayer;
+//import net.minecraft.entity.player.EntityPlayer;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -21,8 +21,8 @@ public abstract class CLLPacket {
 	public abstract void readDataFrom(ByteBufInputStream buffer) throws IOException;
 
 //	@SideOnly(Side.CLIENT)
-	public abstract void handleClientSide(EntityPlayer playerSP);
+	//public abstract void handleClientSide(EntityPlayer playerSP);
 
-	public abstract void handleServerSide(EntityPlayer playerMP);
+	//public abstract void handleServerSide(EntityPlayer playerMP);
 
 }

@@ -1,7 +1,7 @@
 package mods.phlenum.cll.blocks;
 
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.state.IBlockState;
+//import net.minecraft.block.BlockLeaves;
+//import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -13,14 +13,14 @@ import net.minecraft.world.World;
  * @date 30 Nov 2014
  */
 
-public class BlockLemonLeavesHarvested extends BlockLeaves {
+public class BlockLemonLeavesHarvested /*extends BlockLeaves*/ {
 
 	protected static final byte BIT_DECAYABLE = 1;
 	protected static final byte BIT_CHECK_DECAY = 2;
 	
-	public BlockLemonLeavesHarvested(Properties builder){
+	/*public BlockLemonLeavesHarvested(Properties builder){
 		super(builder);
-	}
+	}*/
 	
 	/*
 	public BlockLemonLeavesHarvested(String unloc){
@@ -33,8 +33,8 @@ public class BlockLemonLeavesHarvested extends BlockLeaves {
 	
 	
 	
-	@Override
-	protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance){}
+	//@Override
+	//protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance){}
 	
 	/*@Override
 	public int damageDropped(IBlockState state){

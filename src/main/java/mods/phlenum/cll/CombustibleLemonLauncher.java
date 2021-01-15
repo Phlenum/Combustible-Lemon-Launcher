@@ -15,7 +15,7 @@ import mods.phlenum.cll.world.WorldGenLemonTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+//import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -94,10 +94,10 @@ public class CombustibleLemonLauncher {
 		
 		@SubscribeEvent
 		public static void onItemRegistry(final RegistryEvent.Register<Item> itemRegistryEvent){
-			itemLemon = new ItemLemon(ITEM_LEMON, 5, 0.2f, false);
+			itemLemon = null; /* new ItemLemon(ITEM_LEMON, 5, 0.2f, false);*/
 			
 			itemRegistryEvent.getRegistry().registerAll(
-					new ItemBlock(blockLemonTreePlanks, new Item.Properties()) {
+					/*new ItemBlock(blockLemonTreePlanks, new Item.Properties()) {
 						{
 							setRegistryName(BLOCK_LEMON_TREE_PLANKS);
 						}
@@ -107,7 +107,7 @@ public class CombustibleLemonLauncher {
 							return 300;
 						}
 					},
-					itemLemon
+					itemLemon*/
 					);
 		}
 	}

@@ -1,6 +1,6 @@
 package mods.phlenum.cll.blocks;
 
-import net.minecraft.block.BlockLog;
+//import net.minecraft.block.BlockLog;
 import net.minecraft.block.material.MaterialColor;
 
 /**
@@ -11,11 +11,11 @@ import net.minecraft.block.material.MaterialColor;
  * @date 29 July 2015
  */
 
-public class BlockLemonTreeLog extends BlockLog {
+public class BlockLemonTreeLog /*extends BlockLog*/ {
 
-	public BlockLemonTreeLog(MaterialColor p_i48367_1_, Properties p_i48367_2_){
+	/*public BlockLemonTreeLog(MaterialColor p_i48367_1_, Properties p_i48367_2_){
 		super(p_i48367_1_, p_i48367_2_);
-	}
+	}*/
 	
 	/*
 	public BlockLemonTreeLog(String unloc, SoundType sound){

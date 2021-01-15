@@ -3,8 +3,8 @@ package mods.phlenum.cll.client.gui;
 import java.util.Set;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraftforge.fml.client.IModGuiFactory;
+//import net.minecraft.client.gui.GuiScreen;
+//import net.minecraftforge.fml.client.IModGuiFactory;
 
 /**
  * The Combustible Lemon Launcher mod
@@ -15,9 +15,9 @@ import net.minecraftforge.fml.client.IModGuiFactory;
  */
 
 //@SideOnly(Side.CLIENT)
-public class CLLGuiFactory implements IModGuiFactory {
+public class CLLGuiFactory /*implements IModGuiFactory*/ {
 
-	@Override
+	/*@Override
 	public void initialize(Minecraft minecraftInstance){
 
 	}
@@ -36,5 +36,5 @@ public class CLLGuiFactory implements IModGuiFactory {
 	@Override
 	public boolean hasConfigGui() {
 		return true;
-	}
+	}*/
 }

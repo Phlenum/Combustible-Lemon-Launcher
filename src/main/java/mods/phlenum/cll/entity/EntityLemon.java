@@ -5,19 +5,19 @@ import static mods.phlenum.cll.lib.Reference.*;
 import io.netty.buffer.ByteBuf;
 import mods.phlenum.cll.proxy.CommonProxy;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.Blocks;
+//import net.minecraft.entity.player.EntityPlayer;
+//import net.minecraft.entity.player.InventoryPlayer;
+//import net.minecraft.entity.projectile.EntityThrowable;
+//import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+//import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.EnumHand;
+//import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.Vec3d;
+//import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
@@ -29,9 +29,9 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
  * @date 05 Jan 2016
  */
 
-public class EntityLemon extends EntityThrowable implements IEntityAdditionalSpawnData {
+public class EntityLemon /*extends EntityThrowable implements IEntityAdditionalSpawnData*/ {
 
-	protected EntityLemon(EntityType<?> type, double p_i48541_2_, double p_i48541_4_, double p_i48541_6_, World p_i48541_8_){
+	/*protected EntityLemon(EntityType<?> type, double p_i48541_2_, double p_i48541_4_, double p_i48541_6_, World p_i48541_8_){
 		super(type, p_i48541_2_, p_i48541_4_, p_i48541_6_, p_i48541_8_);
 	}
 	//@SideOnly(Side.CLIENT)

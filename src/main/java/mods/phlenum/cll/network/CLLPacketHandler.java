@@ -19,7 +19,7 @@ import mods.phlenum.cll.network.packets.CLLSoundPacket;
 import static mods.phlenum.cll.lib.Reference.*;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.NetHandlerPlayServer;
+//import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.PacketBuffer;
 
 /**
@@ -45,7 +45,7 @@ public class CLLPacketHandler {//extends MessageToMessageCodec<FMLProxyPacket, C
 	}
 
 	public static void registerPackets(){
-		registerPacket(CLLPacketLauncherProcess.class);
+		//registerPacket(CLLPacketLauncherProcess.class);
 		registerPacket(CLLSoundPacket.class);
 	}
 	
